@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmlq40xysx4i3"]
+
+[ext_resource type="PackedScene" uid="uid://bmewo8131lelf" path="res://Scenes/control.tscn" id="3_j2fet"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lurlt"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p1dcu"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_lurlt")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lurlt"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_p1dcu")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ki7d"]
+size = Vector3(1.9968262, 0.033447266, 1.9968262)
+
+[node name="Pantalla" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_lurlt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["pantalla"]]
+collision_layer = 6
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0018310547, -0.0032958984, 0.0037841797)
+shape = SubResource("BoxShape3D_3ki7d")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+render_target_update_mode = 4
+
+[node name="UI_pantalla" parent="SubViewport" instance=ExtResource("3_j2fet")]

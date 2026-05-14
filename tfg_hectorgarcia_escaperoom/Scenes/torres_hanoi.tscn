@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxopj4nd0pcwk"]
+
+[ext_resource type="Script" uid="uid://dy44c5fds2oji" path="res://Scripts/torres_hanoi.gd" id="1_vocak"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_2bofd"]
+
+[node name="TorresHanoi" type="Node3D" node_paths=PackedStringArray("torre_a", "torre_b", "torre_c", "nodos_disco")]
+script = ExtResource("1_vocak")
+torre_a = NodePath("Torre_A")
+torre_b = NodePath("Torre_B")
+torre_c = NodePath("Torre_C")
+nodos_disco = [NodePath("Disco1"), NodePath("Disco2"), NodePath("Disco3"), NodePath("Disco4"), NodePath("Disco5")]
+
+[node name="Torre_A" type="Node3D" parent="."]
+
+[node name="Torre_B" type="Node3D" parent="."]
+
+[node name="Torre_C" type="Node3D" parent="."]
+
+[node name="Disco1" type="MeshInstance3D" parent="."]
+mesh = SubResource("TorusMesh_2bofd")
+
+[node name="Disco2" type="MeshInstance3D" parent="."]
+mesh = SubResource("TorusMesh_2bofd")
+
+[node name="Disco3" type="MeshInstance3D" parent="."]
+mesh = SubResource("TorusMesh_2bofd")
+
+[node name="Disco4" type="MeshInstance3D" parent="."]
+mesh = SubResource("TorusMesh_2bofd")
+
+[node name="Disco5" type="MeshInstance3D" parent="."]
+mesh = SubResource("TorusMesh_2bofd")

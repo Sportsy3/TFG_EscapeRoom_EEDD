@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhops0h83vc57"]
+
+[ext_resource type="PackedScene" uid="uid://bkn1prthhpr28" path="res://Scenes/Panelillo.tscn" id="1_1me5u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_axolx"]
+albedo_color = Color(0, 0, 0.09411765, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4pivm"]
+material = SubResource("StandardMaterial3D_axolx")
+size = Vector3(3, 2, 0.2)
+
+[node name="Panel" type="Node3D"]
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.52608204)
+mesh = SubResource("BoxMesh_4pivm")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="Panelillo" parent="." instance=ExtResource("1_1me5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0.6, 0)
+num_panel = 1
+
+[node name="Panelillo2" parent="." instance=ExtResource("1_1me5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.6, 0)
+num_panel = 2
+
+[node name="Panelillo3" parent="." instance=ExtResource("1_1me5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.6, 0)
+num_panel = 3
+
+[node name="Panelillo4" parent="." instance=ExtResource("1_1me5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.6, 0)
+num_panel = 4
+
+[node name="Panelillo5" parent="." instance=ExtResource("1_1me5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0, 0)
+num_panel = 5
+
+[node name="Panelillo6" parent="." instance=ExtResource("1_1me5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
+num_panel = 6
+
+[node name="Panelillo7" parent="." instance=ExtResource("1_1me5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
+num_panel = 7
+
+[node name="Panelillo8" parent="." instance=ExtResource("1_1me5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0)
+num_panel = 8
+
+[node name="Panelillo9" parent="." instance=ExtResource("1_1me5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, -0.6, 0)
+num_panel = 9
+
+[node name="Panelillo10" parent="." instance=ExtResource("1_1me5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, -0.6, 0)
+num_panel = 10
+
+[node name="Panelillo11" parent="." instance=ExtResource("1_1me5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, -0.6, 0)
+num_panel = 11
+
+[node name="Panelillo12" parent="." instance=ExtResource("1_1me5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, -0.6, 0)
+num_panel = 12

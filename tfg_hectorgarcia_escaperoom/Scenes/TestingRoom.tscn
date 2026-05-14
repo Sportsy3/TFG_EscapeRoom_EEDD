@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=3 uid="uid://dba0lektquwhy"]
+
+[ext_resource type="PackedScene" uid="uid://b7x8y4w1mvti4" path="res://Scenes/player.tscn" id="1_58gwn"]
+[ext_resource type="Script" uid="uid://bdnohhlt3ehv" path="res://Scripts/testing_room.gd" id="1_l8t6t"]
+[ext_resource type="PackedScene" uid="uid://dwy7qkpxyubx8" path="res://Scenes/hanoi_puzzle.tscn" id="2_fgkps"]
+[ext_resource type="PackedScene" uid="uid://bmlq40xysx4i3" path="res://Scenes/Pantalla.tscn" id="4_fric6"]
+[ext_resource type="PackedScene" uid="uid://bhops0h83vc57" path="res://Scenes/Panel.tscn" id="5_5jrmv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_axfbw"]
+size = Vector3(30, 1, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ij8su"]
+size = Vector3(30, 1, 30)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_meqnk"]
+albedo_color = Color(0.780893, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gg1qo"]
+material = SubResource("StandardMaterial3D_meqnk")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2jc40"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_l8t6t")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.48376, 0)
+layers = 1023
+mesh = SubResource("BoxMesh_axfbw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48376, 0)
+collision_layer = 255
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.48376, 0)
+shape = SubResource("BoxShape3D_ij8su")
+
+[node name="Player" parent="." instance=ExtResource("1_58gwn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.49892, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.704857, 0.500587, -0.502583, 0, 0.708512, 0.705698, 0.709349, -0.497417, 0.4994, -9.80218, 4.46794, 0)
+
+[node name="Cube" type="RigidBody3D" parent="." groups=["pickable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60327, -9.87666)
+collision_layer = 3
+collision_mask = 3
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube"]
+layers = 2
+mesh = SubResource("BoxMesh_gg1qo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube"]
+shape = SubResource("BoxShape3D_2jc40")
+
+[node name="hanoi_puzzle" parent="." instance=ExtResource("2_fgkps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7416773, 0.0281564, -2.646801)
+
+[node name="Node3D" parent="." instance=ExtResource("4_fric6")]
+transform = Transform3D(1, 0, 0, 0, -0.02640374, -0.9996514, 0, 0.9996514, -0.02640374, 5.7993946, 1.286397, -8.914238)
+
+[node name="Panel" parent="." instance=ExtResource("5_5jrmv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.119438, 1.7065505, -7.2844863)

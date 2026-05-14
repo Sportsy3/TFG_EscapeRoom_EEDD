@@ -1,0 +1,100 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7x8y4w1mvti4"]
+
+[ext_resource type="Script" uid="uid://c8s2yng37qn3v" path="res://Scripts/player.gd" id="1_70c2w"]
+[ext_resource type="Script" uid="uid://cvkwkxkvw7d34" path="res://Scripts/head.gd" id="2_7ub6u"]
+[ext_resource type="PackedScene" uid="uid://0nirtci7k3f0" path="res://UI/interaction_pointer.tscn" id="3_6t5aa"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3ohs8"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_pac86"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_70c2w")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_3ohs8")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+layers = 31
+mesh = SubResource("CapsuleMesh_pac86")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="Head" type="Node3D" parent="."]
+script = ExtResource("2_7ub6u")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.558876, 0)
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
+visibility_parent = NodePath("../../../MeshInstance3D")
+target_position = Vector3(0, 0, -4)
+collision_mask = 6
+collide_with_areas = true
+debug_shape_custom_color = Color(0, 1, 1, 1)
+debug_shape_thickness = 5
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="InteractionPointer" parent="Head/Camera3D/CanvasLayer" instance=ExtResource("3_6t5aa")]
+
+[node name="Hand" type="Node3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.412559, 0.156108, -1.29988)

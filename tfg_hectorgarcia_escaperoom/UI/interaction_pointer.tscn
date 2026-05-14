@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://0nirtci7k3f0"]
+
+[ext_resource type="Texture2D" uid="uid://8xeq8e4dgsgx" path="res://icon.svg" id="1_e2x81"]
+
+[node name="InteractionPointer" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_e2x81")
