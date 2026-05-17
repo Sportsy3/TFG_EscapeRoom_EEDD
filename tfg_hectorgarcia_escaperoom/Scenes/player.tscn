@@ -35,7 +35,7 @@ metadata/logic_bricks_graph = {
 metadata/logic_bricks_frames = []
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-layers = 31
+layers = 0
 mesh = SubResource("CapsuleMesh_pac86")
 metadata/logic_bricks_states = Array[Dictionary]([{
 "id": "state_1",
@@ -80,7 +80,7 @@ target_position = Vector3(0, 0, -4)
 collision_mask = 6
 collide_with_areas = true
 debug_shape_custom_color = Color(0, 1, 1, 1)
-debug_shape_thickness = 5
+debug_shape_thickness = 1
 metadata/logic_bricks_states = Array[Dictionary]([{
 "id": "state_1",
 "name": "State 1"
@@ -95,6 +95,7 @@ metadata/logic_bricks_frames = []
 [node name="CanvasLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
 [node name="InteractionPointer" parent="Head/Camera3D/CanvasLayer" instance=ExtResource("3_6t5aa")]
+visible = false
 
 [node name="Hand" type="Node3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.412559, 0.156108, -1.29988)

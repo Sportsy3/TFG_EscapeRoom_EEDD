@@ -1,12 +1,12 @@
 extends Node3D
 
-
 @onready var cam = $"."
 @onready var ch3d = $".."
 @onready var raycast = $Camera3D/RayCast3D
 @onready var hand = $Hand
 #@onready var hanoi = get_tree().get_first_node_in_group("hanoi_puzzle")
 @export var hanoi: Node3D
+@onready var panel: Node3D
 var v = Vector3()
 var sens = 0.12
 
@@ -97,6 +97,7 @@ func _input(event):
 			return
 		var parent = object.get_parent()
 		
+		
 		if parent.is_in_group("discos"):
 			var disco_id = parent.get_meta("disco_id")
 			print("interact disco id: ", disco_id)
@@ -118,8 +119,9 @@ func _input(event):
 		elif object.is_in_group("pantalla"):
 			_interact_with_screen(object)
 		
-		elif object.is_in_group("Panelillo"):
-			object.girar_panelillo()
+		elif object.is_in_group("panelillo"):
+			object.get_parent().get_parent().girar_panelillo()
+			print("Choque")
 
 #func _input(event):
 	#if event is InputEventMouseMotion:

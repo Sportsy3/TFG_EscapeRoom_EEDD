@@ -59,6 +59,16 @@ torre_a = NodePath("Torre_A")
 torre_b = NodePath("Torre_B")
 torre_c = NodePath("Torre_C")
 nodos_disco = [NodePath("Disco_0"), NodePath("Disco_1"), NodePath("Disco_2")]
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
 
 [node name="Torre_A" type="Node3D" parent="." groups=["torres"]]
 transform = Transform3D(1, 0, 0, 0, 0.7684037, 0, 0, 0, 1, -1.1, 0.38606817, 0)
@@ -69,6 +79,16 @@ mesh = SubResource("CylinderMesh_2pw0d")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Torre_A"]
 collision_layer = 4
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Torre_A/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0010681152, 0)
@@ -105,6 +125,10 @@ shape = SubResource("CylinderShape3D_cilyc")
 [node name="Disco_0" type="Node3D" parent="." groups=["discos"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0.1, 0)
 metadata/disco_id = 0
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Disco_0"]
 layers = 3
@@ -142,7 +166,27 @@ mesh = SubResource("TorusMesh_8lh1r")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Disco_2"]
 collision_layer = 3
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Disco_2/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001098603, 0)
 shape = SubResource("CylinderShape3D_xcyak")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []

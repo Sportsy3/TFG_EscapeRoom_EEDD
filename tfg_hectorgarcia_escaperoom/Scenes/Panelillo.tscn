@@ -44,7 +44,7 @@ _data = {
 &"RESET": SubResource("Animation_1gbgu")
 }
 
-[node name="Panelillo" type="Node3D" groups=["Panelillo"]]
+[node name="Panelillo" type="Node3D" groups=["panelillo"]]
 script = ExtResource("1_h0mxl")
 metadata/logic_bricks_states = Array[Dictionary]([{
 "id": "state_1",
@@ -70,7 +70,7 @@ metadata/logic_bricks_graph = {
 }
 metadata/logic_bricks_frames = []
 
-[node name="Area3D" type="Area3D" parent="MeshInstance3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" groups=["panelillo"]]
 collision_layer = 7
 collision_mask = 7
 metadata/logic_bricks_states = Array[Dictionary]([{
@@ -84,7 +84,7 @@ metadata/logic_bricks_graph = {
 }
 metadata/logic_bricks_frames = []
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("BoxShape3D_h0mxl")
 metadata/logic_bricks_states = Array[Dictionary]([{
 "id": "state_1",
