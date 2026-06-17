@@ -144,6 +144,16 @@ shape = SubResource("CylinderShape3D_hwg0v")
 [node name="Disco_1" type="Node3D" parent="." groups=["discos"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0.25, 0)
 metadata/disco_id = 1
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Disco_1"]
 layers = 3

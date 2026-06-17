@@ -14,22 +14,68 @@ resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_p1dcu")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ki7d"]
-size = Vector3(1.9968262, 0.033447266, 1.9968262)
+size = Vector3(2, 0.033, 2)
 
 [node name="Pantalla" type="Node3D"]
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_lurlt")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." groups=["pantalla"]]
 collision_layer = 6
 collision_mask = 6
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0018310547, -0.0032958984, 0.0037841797)
 shape = SubResource("BoxShape3D_3ki7d")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
 
 [node name="SubViewport" type="SubViewport" parent="."]
 render_target_update_mode = 4
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
 
 [node name="UI_pantalla" parent="SubViewport" instance=ExtResource("3_j2fet")]

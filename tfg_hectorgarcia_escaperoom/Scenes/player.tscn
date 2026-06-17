@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7x8y4w1mvti4"]
+[gd_scene load_steps=7 format=3 uid="uid://b7x8y4w1mvti4"]
 
 [ext_resource type="Script" uid="uid://c8s2yng37qn3v" path="res://Scripts/player.gd" id="1_70c2w"]
 [ext_resource type="Script" uid="uid://cvkwkxkvw7d34" path="res://Scripts/head.gd" id="2_7ub6u"]
 [ext_resource type="PackedScene" uid="uid://0nirtci7k3f0" path="res://UI/interaction_pointer.tscn" id="3_6t5aa"]
+[ext_resource type="PackedScene" uid="uid://kqyc4fk2mqrp" path="res://Scenes/puzle_colas_pantalla.tscn" id="4_vgqql"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3ohs8"]
 
@@ -95,7 +96,8 @@ metadata/logic_bricks_frames = []
 [node name="CanvasLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
 [node name="InteractionPointer" parent="Head/Camera3D/CanvasLayer" instance=ExtResource("3_6t5aa")]
-visible = false
+
+[node name="PuzleColasPantalla" parent="Head/Camera3D/CanvasLayer" instance=ExtResource("4_vgqql")]
 
 [node name="Hand" type="Node3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.412559, 0.156108, -1.29988)

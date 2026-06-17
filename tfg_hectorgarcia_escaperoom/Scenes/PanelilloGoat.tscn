@@ -1,0 +1,118 @@
+[gd_scene load_steps=11 format=3 uid="uid://bf1sbquxmub4a"]
+
+[ext_resource type="Script" uid="uid://drqsabxc0mc2n" path="res://Scripts/panelillo_goat.gd" id="1_l610m"]
+[ext_resource type="Script" uid="uid://civs7wkopsmgl" path="res://addons/goat/addons/randomAudioStreamPlayer/random_audio_stream_player_3D.gd" id="2_ta4ew"]
+[ext_resource type="Material" uid="uid://d20al6okuifpt" path="res://addons/goat/materials/item_interaction_icon.tres" id="3_nb1tq"]
+[ext_resource type="Texture2D" uid="uid://2t38vrxwiv4l" path="res://addons/goat/images/item_interaction_icon.png" id="4_ote1n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l610m"]
+
+[sub_resource type="BoxShape3D" id="1"]
+size = Vector3(0.5001953, 0.5047485, 0.012646485)
+
+[sub_resource type="Animation" id="Animation_ws7rh"]
+resource_name = "panel_rotation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(3.1415927, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_f118m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l3jho"]
+_data = {
+&"RESET": SubResource("Animation_f118m"),
+&"panel_rotation": SubResource("Animation_ws7rh")
+}
+
+[sub_resource type="BoxMesh" id="BoxMesh_62tt6"]
+size = Vector3(0.5, 0.5, 0.01)
+
+[node name="InteractiveItem" type="StaticBody3D" groups=["goat_interactive_objects"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_l610m")
+collision_shape = SubResource("BoxShape3D_l610m")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0020507798, 0.00077512115, -2.4411827e-05)
+shape = SubResource("1")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="RandomAudioPlayer" type="AudioStreamPlayer3D" parent="."]
+bus = &"GoatEffects"
+script = ExtResource("2_ta4ew")
+random_strategy = 1
+
+[node name="InteractionIcon" type="Sprite3D" parent="."]
+visible = false
+material_override = ExtResource("3_nb1tq")
+cast_shadow = 0
+pixel_size = 0.0002
+texture = ExtResource("4_ote1n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_l3jho")
+}
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_62tt6")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[connection signal="finished" from="RandomAudioPlayer" to="." method="_on_RandomAudioPlayer_finished"]

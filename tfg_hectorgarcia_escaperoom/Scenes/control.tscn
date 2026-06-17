@@ -12,6 +12,12 @@ offset_bottom = -136.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k2hy2")
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
@@ -20,3 +26,23 @@ offset_top = 181.0
 offset_right = 420.0
 offset_bottom = 283.0
 text = "Echepemewempelempewembempe"
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 317.0
+offset_right = 420.0
+offset_bottom = 419.0
+text = "EcheOmpo"
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []

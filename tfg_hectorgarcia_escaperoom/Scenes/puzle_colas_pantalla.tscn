@@ -1,0 +1,154 @@
+[gd_scene load_steps=2 format=3 uid="uid://kqyc4fk2mqrp"]
+
+[ext_resource type="Script" uid="uid://b1xtwxf8ebhfp" path="res://Scripts/puzle_colas_pantalla.gd" id="1_u01cd"]
+
+[node name="PuzleColasPantalla" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_u01cd")
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 60.0
+offset_top = 41.0
+offset_right = 241.0
+offset_bottom = 623.0
+theme_override_constants/separation = 30
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="LabelRendija1" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "RENDIJA 1"
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="SlotRendija1" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="LabelRendija2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "RENDIJA 2"
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="SlotRendija2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="BotonesElementos" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="A" type="Button" parent="VBoxContainer/BotonesElementos"]
+layout_mode = 2
+text = "A"
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="B" type="Button" parent="VBoxContainer/BotonesElementos"]
+layout_mode = 2
+text = "B"
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="C" type="Button" parent="VBoxContainer/BotonesElementos"]
+layout_mode = 2
+text = "C"
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="D" type="Button" parent="VBoxContainer/BotonesElementos"]
+layout_mode = 2
+text = "D"
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="E" type="Button" parent="VBoxContainer/BotonesElementos"]
+layout_mode = 2
+text = "E"
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="BtnIntroducir" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Introducir en rendija 2"
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="BtnIntercambiar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Intercambiar"
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="LabelResultado" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []

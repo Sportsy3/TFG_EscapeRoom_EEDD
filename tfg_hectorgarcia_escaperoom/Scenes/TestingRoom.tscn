@@ -1,11 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://dba0lektquwhy"]
+[gd_scene load_steps=16 format=3 uid="uid://dba0lektquwhy"]
 
-[ext_resource type="PackedScene" uid="uid://b7x8y4w1mvti4" path="res://Scenes/player.tscn" id="1_58gwn"]
 [ext_resource type="Script" uid="uid://bdnohhlt3ehv" path="res://Scripts/testing_room.gd" id="1_l8t6t"]
-[ext_resource type="PackedScene" uid="uid://dwy7qkpxyubx8" path="res://Scenes/hanoi_puzzle.tscn" id="2_fgkps"]
-[ext_resource type="PackedScene" uid="uid://bmlq40xysx4i3" path="res://Scenes/Pantalla.tscn" id="4_fric6"]
-[ext_resource type="PackedScene" uid="uid://bhops0h83vc57" path="res://Scenes/Panel.tscn" id="5_5jrmv"]
-[ext_resource type="PackedScene" uid="uid://bkn1prthhpr28" path="res://Scenes/Panelillo.tscn" id="6_4c46k"]
+[ext_resource type="PackedScene" uid="uid://bf1sbquxmub4a" path="res://Scenes/PanelilloGoat.tscn" id="5_5jrmv"]
+[ext_resource type="PackedScene" uid="uid://4tkha4x11f3f" path="res://Scenes/HanoiGoat.tscn" id="6_4c46k"]
+[ext_resource type="PackedScene" uid="uid://bsv7k32eyyqqr" path="res://addons/goat/main_scenes/InteractiveScreen.tscn" id="7_7th14"]
+[ext_resource type="PackedScene" uid="uid://bnmg0a564wwjp" path="res://addons/goat/main_scenes/InteractiveItem.tscn" id="7_hr8uq"]
+[ext_resource type="PackedScene" uid="uid://c4lmhavj60tqh" path="res://addons/goat/main_scenes/Player.tscn" id="7_ynv1a"]
+[ext_resource type="PackedScene" uid="uid://cgpwypaqja1oe" path="res://Meshes/ParraGrande.fbx" id="8_7th14"]
+[ext_resource type="PackedScene" uid="uid://bmewo8131lelf" path="res://Scenes/control.tscn" id="8_pbmur"]
+[ext_resource type="PackedScene" uid="uid://kqyc4fk2mqrp" path="res://Scenes/puzle_colas_pantalla.tscn" id="9_hr8uq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_axfbw"]
 size = Vector3(30, 1, 30)
@@ -20,6 +23,8 @@ albedo_color = Color(0.780893, 0, 0, 1)
 material = SubResource("StandardMaterial3D_meqnk")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2jc40"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5jrmv"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_l8t6t")
@@ -57,14 +62,11 @@ collision_layer = 255
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.48376, 0)
 shape = SubResource("BoxShape3D_ij8su")
 
-[node name="Player" parent="." instance=ExtResource("1_58gwn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.49892, 2.1076035)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.704857, 0.500587, -0.502583, 0, 0.708512, 0.705698, 0.709349, -0.497417, 0.4994, -9.80218, 4.46794, 0)
 
 [node name="Cube" type="RigidBody3D" parent="." groups=["panelillo", "pickable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60327, -9.87666)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75001705, 1.60327, -5.061345)
 collision_layer = 3
 collision_mask = 3
 metadata/logic_bricks_states = Array[Dictionary]([{
@@ -81,6 +83,16 @@ metadata/logic_bricks_frames = []
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cube"]
 layers = 2
 mesh = SubResource("BoxMesh_gg1qo")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube"]
 shape = SubResource("BoxShape3D_2jc40")
@@ -95,59 +107,54 @@ metadata/logic_bricks_graph = {
 }
 metadata/logic_bricks_frames = []
 
-[node name="hanoi_puzzle" parent="." instance=ExtResource("2_fgkps")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7416773, 0.0281564, -2.646801)
+[node name="Player" parent="." instance=ExtResource("7_ynv1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5421014, 1.4361919, -1.4162607)
 
-[node name="Node3D" parent="." instance=ExtResource("4_fric6")]
-transform = Transform3D(1, 0, 0, 0, -0.02640374, -0.9996514, 0, 0.9996514, -0.02640374, 5.7993946, 1.286397, -8.914238)
+[node name="InteractiveItem" parent="." instance=ExtResource("7_hr8uq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.61642027, 2.3062055, -4.76373)
+unique_name = "test_item"
+inventory_item_name = "Test item"
 
-[node name="Panel" parent="." instance=ExtResource("5_5jrmv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.119438, 1.7065505, -7.2844863)
+[node name="ParraGrande" parent="InteractiveItem" instance=ExtResource("8_7th14")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 
-[node name="Panelillo" parent="." instance=ExtResource("6_4c46k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7247863, 2.4674544, -5.703482)
+[node name="InteractiveItem2" parent="." instance=ExtResource("7_hr8uq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1103818, 2.3062055, -4.76373)
+unique_name = "test_item2"
+inventory_item_name = "Test item"
+
+[node name="ParraGrande" parent="InteractiveItem2" instance=ExtResource("8_7th14")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+
+[node name="Panelillo1" parent="." instance=ExtResource("5_5jrmv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7253027, 1.8616123, -7.0849767)
+unique_name = "panelillo_1"
+collision_shape = SubResource("BoxShape3D_5jrmv")
 num_panel = 1
 
-[node name="Panelillo2" parent="." instance=ExtResource("6_4c46k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1247864, 2.4674544, -5.703482)
+[node name="Panelillo2" parent="." instance=ExtResource("5_5jrmv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.915536, 1.8616123, -7.0849767)
+unique_name = "panelillo_2"
+collision_shape = SubResource("BoxShape3D_5jrmv")
 num_panel = 2
 
-[node name="Panelillo3" parent="." instance=ExtResource("6_4c46k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.524786, 2.4674544, -5.703482)
-num_panel = 3
+[node name="Hanoi" parent="." instance=ExtResource("6_4c46k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0299315, 0.36624, 0.99037933)
 
-[node name="Panelillo4" parent="." instance=ExtResource("6_4c46k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.924786, 2.4674544, -5.703482)
-num_panel = 4
+[node name="InteractiveScreen" parent="." instance=ExtResource("7_7th14")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2912536, 1.460238, -3.3364248)
+unique_name = "test_screen"
+content_size = Vector2(512, 512)
 
-[node name="Panelillo5" parent="." instance=ExtResource("6_4c46k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7247863, 1.8674545, -5.703482)
-num_panel = 5
+[node name="Content" parent="InteractiveScreen" instance=ExtResource("8_pbmur")]
+offset_left = 1270.0
+offset_top = 13.0
+offset_right = 630.0
+offset_bottom = -123.0
 
-[node name="Panelillo6" parent="." instance=ExtResource("6_4c46k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1247864, 1.8674545, -5.703482)
-num_panel = 6
+[node name="InteractiveScreen2" parent="." instance=ExtResource("7_7th14")]
+transform = Transform3D(1.78, 0, 0, 0, 1, 0, 0, 0, 1, 3.7852554, 2.158173, -3.2157466)
+unique_name = "pantalla_colas"
+content_size = Vector2(960, 540)
 
-[node name="Panelillo7" parent="." instance=ExtResource("6_4c46k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.524786, 1.8674545, -5.703482)
-num_panel = 7
-
-[node name="Panelillo8" parent="." instance=ExtResource("6_4c46k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.924786, 1.8674545, -5.703482)
-num_panel = 8
-
-[node name="Panelillo9" parent="." instance=ExtResource("6_4c46k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7247863, 1.2674546, -5.703482)
-num_panel = 9
-
-[node name="Panelillo10" parent="." instance=ExtResource("6_4c46k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1247864, 1.2674546, -5.703482)
-num_panel = 10
-
-[node name="Panelillo11" parent="." instance=ExtResource("6_4c46k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.524786, 1.2674546, -5.703482)
-num_panel = 11
-
-[node name="Panelillo12" parent="." instance=ExtResource("6_4c46k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.924786, 1.2674546, -5.703482)
-num_panel = 12
+[node name="Content" parent="InteractiveScreen2" instance=ExtResource("9_hr8uq")]

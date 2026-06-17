@@ -1,0 +1,138 @@
+[gd_scene load_steps=13 format=3 uid="uid://4tkha4x11f3f"]
+
+[ext_resource type="Script" uid="uid://c073ixxie8j3k" path="res://Scripts/hanoi_goat.gd" id="1_0pyee"]
+[ext_resource type="PackedScene" uid="uid://bnmg0a564wwjp" path="res://addons/goat/main_scenes/InteractiveItem.tscn" id="1_3dqja"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0pyee"]
+height = 0.7229004
+radius = 0.059570313
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0pyee"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.7
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8l3v3"]
+height = 0.7260132
+radius = 0.0546875
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7u3x2"]
+height = 0.722229
+radius = 0.0546875
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_r10my"]
+height = 0.08605957
+radius = 0.11621094
+
+[sub_resource type="TorusMesh" id="TorusMesh_8l3v3"]
+inner_radius = 0.057
+outer_radius = 0.108
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bxv20"]
+height = 0.07746124
+radius = 0.16503906
+
+[sub_resource type="TorusMesh" id="TorusMesh_7u3x2"]
+inner_radius = 0.096
+outer_radius = 0.161
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cxlyk"]
+height = 0.11828613
+radius = 0.21875
+
+[sub_resource type="TorusMesh" id="TorusMesh_bxv20"]
+inner_radius = 0.122
+outer_radius = 0.212
+
+[node name="Hanoi" type="Node3D"]
+script = ExtResource("1_0pyee")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="Torre1" parent="." instance=ExtResource("1_3dqja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6471219)
+unique_name = "torre_1"
+collision_shape = SubResource("CylinderShape3D_0pyee")
+
+[node name="CollisionShape3D" parent="Torre1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0034484863, 0)
+shape = SubResource("CylinderShape3D_0pyee")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Torre1"]
+mesh = SubResource("CylinderMesh_0pyee")
+
+[node name="Torre2" parent="." instance=ExtResource("1_3dqja")]
+unique_name = "torre_2"
+collision_shape = SubResource("CylinderShape3D_8l3v3")
+
+[node name="CollisionShape3D" parent="Torre2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.005126953, 0)
+shape = SubResource("CylinderShape3D_8l3v3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Torre2"]
+mesh = SubResource("CylinderMesh_0pyee")
+
+[node name="Torre3" parent="." instance=ExtResource("1_3dqja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6632007)
+unique_name = "torre_3"
+collision_shape = SubResource("CylinderShape3D_7u3x2")
+
+[node name="CollisionShape3D" parent="Torre3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0022583008, 0)
+shape = SubResource("CylinderShape3D_7u3x2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Torre3"]
+mesh = SubResource("CylinderMesh_0pyee")
+
+[node name="Disco1" parent="." instance=ExtResource("1_3dqja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1861727, 0.64692223)
+unique_name = "disco_1"
+collision_shape = SubResource("CylinderShape3D_r10my")
+
+[node name="CollisionShape3D" parent="Disco1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0044555664, 0)
+shape = SubResource("CylinderShape3D_r10my")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Disco1"]
+mesh = SubResource("TorusMesh_8l3v3")
+
+[node name="Disco2" parent="." instance=ExtResource("1_3dqja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07766705, 0.64692223)
+unique_name = "disco_2"
+collision_shape = SubResource("CylinderShape3D_bxv20")
+
+[node name="CollisionShape3D" parent="Disco2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.018344887, 0)
+shape = SubResource("CylinderShape3D_bxv20")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Disco2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.016979873, 0)
+mesh = SubResource("TorusMesh_7u3x2")
+
+[node name="Disco3" parent="." instance=ExtResource("1_3dqja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.031645164, 0.64692223)
+unique_name = "disco_3"
+collision_shape = SubResource("CylinderShape3D_cxlyk")
+
+[node name="CollisionShape3D" parent="Disco3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.017730698, 0)
+shape = SubResource("CylinderShape3D_cxlyk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Disco3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.016979873, 0)
+mesh = SubResource("TorusMesh_bxv20")
+
+[editable path="Torre1"]
+[editable path="Torre2"]
+[editable path="Torre3"]
+[editable path="Disco1"]
+[editable path="Disco2"]
+[editable path="Disco3"]

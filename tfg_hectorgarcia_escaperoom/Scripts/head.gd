@@ -25,7 +25,7 @@ func _interact_with_screen(screen_body: CollisionObject3D) -> void:
 	var result = raycast.get_collision_point()
 	var mesh: MeshInstance3D = screen_body.get_parent().get_node("MeshInstance3D")
 	var subviewport: SubViewport = screen_body.get_parent().get_node("SubViewport")
-
+	
 	var local_pos = mesh.to_local(result)
 	var uv = Vector2((local_pos.x + 0.5),(-local_pos.y + 0.5))
 	uv = uv.clamp(Vector2.ZERO, Vector2.ONE)
@@ -40,7 +40,7 @@ func _interact_with_screen(screen_body: CollisionObject3D) -> void:
 	subviewport.push_input(motion)
 	
 	await get_tree().process_frame
-
+	
 	# 2. Press
 	var press = InputEventMouseButton.new()
 	press.position = click_pos

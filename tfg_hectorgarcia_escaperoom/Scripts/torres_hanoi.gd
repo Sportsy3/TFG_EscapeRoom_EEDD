@@ -62,7 +62,7 @@ var puzzle_completado: bool = false
 # ─────────────────────────────────────────
  
 func _ready() -> void:
-	add_to_group("hanoi_puzzle")  # ← añade esta línea
+	add_to_group("hanoi_puzzle")
 	_inicializar_puzzle()
  
 # Reinicia el puzzle al estado inicial: todos los discos en Torre A.
@@ -97,7 +97,7 @@ func _inicializar_puzzle() -> void:
 func interactuar_con_torre(idx_torre: int) -> void:
 	if puzzle_completado:
 		return
- 
+	
 	if disco_seleccionado == -1:
 		# ── PASO 1: Intentar coger el disco de la cima ──
 		_intentar_seleccionar(idx_torre)
@@ -116,7 +116,6 @@ func interactuar_con_torre(idx_torre: int) -> void:
 func interactuar_con_disco(disco_id: int) -> void:
 	if puzzle_completado:
 		return
- 
 	# Buscar en qué torre está este disco y si es la cima
 	for i in range(3):
 		if torres[i].size() > 0 and torres[i].back() == disco_id:
@@ -129,7 +128,6 @@ func interactuar_con_disco(disco_id: int) -> void:
 					_deseleccionar_disco()
 				_seleccionar_disco(disco_id, i)
 			return
- 
 	# El disco no está en la cima de ninguna torre
 	movimiento_invalido.emit("Ese disco está tapado por otro. Mueve primero el de encima.")
  
