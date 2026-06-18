@@ -13,12 +13,21 @@ metadata/logic_bricks_graph = {
 }
 metadata/logic_bricks_frames = []
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-offset_left = 60.0
-offset_top = 41.0
-offset_right = 241.0
-offset_bottom = 623.0
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 29.0
+offset_right = 390.0
+offset_bottom = 401.0
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
 theme_override_constants/separation = 30
 metadata/logic_bricks_graph = {
 "connections": [],
@@ -27,7 +36,7 @@ metadata/logic_bricks_graph = {
 }
 metadata/logic_bricks_frames = []
 
-[node name="LabelRendija1" type="Label" parent="VBoxContainer"]
+[node name="LabelRendija1" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "RENDIJA 1"
 metadata/logic_bricks_graph = {
@@ -37,7 +46,7 @@ metadata/logic_bricks_graph = {
 }
 metadata/logic_bricks_frames = []
 
-[node name="SlotRendija1" type="HBoxContainer" parent="VBoxContainer"]
+[node name="SlotRendija1" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 metadata/logic_bricks_graph = {
 "connections": [],
@@ -46,7 +55,7 @@ metadata/logic_bricks_graph = {
 }
 metadata/logic_bricks_frames = []
 
-[node name="LabelRendija2" type="Label" parent="VBoxContainer"]
+[node name="LabelRendija2" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "RENDIJA 2"
 metadata/logic_bricks_graph = {
@@ -56,7 +65,7 @@ metadata/logic_bricks_graph = {
 }
 metadata/logic_bricks_frames = []
 
-[node name="SlotRendija2" type="HBoxContainer" parent="VBoxContainer"]
+[node name="SlotRendija2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 metadata/logic_bricks_graph = {
 "connections": [],
@@ -65,7 +74,7 @@ metadata/logic_bricks_graph = {
 }
 metadata/logic_bricks_frames = []
 
-[node name="BotonesElementos" type="HBoxContainer" parent="VBoxContainer"]
+[node name="BotonesElementos" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 metadata/logic_bricks_graph = {
 "connections": [],
@@ -74,7 +83,7 @@ metadata/logic_bricks_graph = {
 }
 metadata/logic_bricks_frames = []
 
-[node name="A" type="Button" parent="VBoxContainer/BotonesElementos"]
+[node name="A" type="Button" parent="HBoxContainer/VBoxContainer/BotonesElementos"]
 layout_mode = 2
 text = "A"
 metadata/logic_bricks_graph = {
@@ -84,7 +93,7 @@ metadata/logic_bricks_graph = {
 }
 metadata/logic_bricks_frames = []
 
-[node name="B" type="Button" parent="VBoxContainer/BotonesElementos"]
+[node name="B" type="Button" parent="HBoxContainer/VBoxContainer/BotonesElementos"]
 layout_mode = 2
 text = "B"
 metadata/logic_bricks_graph = {
@@ -94,17 +103,7 @@ metadata/logic_bricks_graph = {
 }
 metadata/logic_bricks_frames = []
 
-[node name="C" type="Button" parent="VBoxContainer/BotonesElementos"]
-layout_mode = 2
-text = "C"
-metadata/logic_bricks_graph = {
-"connections": [],
-"next_id": 0,
-"nodes": []
-}
-metadata/logic_bricks_frames = []
-
-[node name="D" type="Button" parent="VBoxContainer/BotonesElementos"]
+[node name="D" type="Button" parent="HBoxContainer/VBoxContainer/BotonesElementos"]
 layout_mode = 2
 text = "D"
 metadata/logic_bricks_graph = {
@@ -114,7 +113,7 @@ metadata/logic_bricks_graph = {
 }
 metadata/logic_bricks_frames = []
 
-[node name="E" type="Button" parent="VBoxContainer/BotonesElementos"]
+[node name="E" type="Button" parent="HBoxContainer/VBoxContainer/BotonesElementos"]
 layout_mode = 2
 text = "E"
 metadata/logic_bricks_graph = {
@@ -124,7 +123,7 @@ metadata/logic_bricks_graph = {
 }
 metadata/logic_bricks_frames = []
 
-[node name="BtnIntroducir" type="Button" parent="VBoxContainer"]
+[node name="BtnIntroducir" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Introducir en rendija 2"
 metadata/logic_bricks_graph = {
@@ -134,7 +133,7 @@ metadata/logic_bricks_graph = {
 }
 metadata/logic_bricks_frames = []
 
-[node name="BtnIntercambiar" type="Button" parent="VBoxContainer"]
+[node name="BtnIntercambiar" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Intercambiar"
 metadata/logic_bricks_graph = {
@@ -144,8 +143,19 @@ metadata/logic_bricks_graph = {
 }
 metadata/logic_bricks_frames = []
 
-[node name="LabelResultado" type="Label" parent="VBoxContainer"]
+[node name="LabelResultado" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="BotonReinicio" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Reiniciar"
 metadata/logic_bricks_graph = {
 "connections": [],
 "next_id": 0,
