@@ -1,0 +1,190 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtbq3w6xpiavn"]
+
+[ext_resource type="Texture2D" uid="uid://dxt8rr4uwkfqk" path="res://Images/Captura de pantalla 2026-06-29 152437.png" id="1_2q2n1"]
+[ext_resource type="Script" uid="uid://c1q2jl2jmst8v" path="res://Scripts/puzle_grafos_pantalla.gd" id="1_umhvh"]
+
+[node name="PuzleGrafosPantalla" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_umhvh")
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(388, 288.5)
+scale = Vector2(1.0902256, 1.0882353)
+texture = ExtResource("1_2q2n1")
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="Button0" type="Button" parent="."]
+layout_mode = 0
+offset_left = 574.0
+offset_top = 264.5
+offset_right = 623.0
+offset_bottom = 313.5
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="Button1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 464.99997
+offset_top = 455.5
+offset_right = 514.0
+offset_bottom = 504.5
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 245.99997
+offset_top = 454.5
+offset_right = 294.99997
+offset_bottom = 503.5
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 137.99997
+offset_top = 263.5
+offset_right = 186.99997
+offset_bottom = 312.5
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="Button4" type="Button" parent="."]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 77.0
+offset_right = 297.0
+offset_bottom = 126.0
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="Button5" type="Button" parent="."]
+layout_mode = 0
+offset_left = 464.99997
+offset_top = 76.5
+offset_right = 514.0
+offset_bottom = 125.5
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="BotonComprobarSolucion" type="Button" parent="."]
+layout_mode = 0
+offset_left = 754.0
+offset_top = 432.0
+offset_right = 991.0
+offset_bottom = 494.0
+text = "Comprobar ruta"
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="BotonReiniciar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 756.0
+offset_top = 514.0
+offset_right = 991.0
+offset_bottom = 569.0
+text = "Reiniciar"
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 742.0
+offset_top = 251.0
+offset_right = 863.0
+offset_bottom = 284.0
+text = "Ruta actual:"
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="RutaLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 742.0
+offset_top = 276.0
+offset_right = 1129.0
+offset_bottom = 363.0
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="FeedbackLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 666.0
+offset_top = 44.0
+offset_right = 1122.0
+offset_bottom = 217.0
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="PesoLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 742.0
+offset_top = 367.0
+offset_right = 1011.0
+offset_bottom = 400.0
+text = "Gasto de combustible: 0"
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []

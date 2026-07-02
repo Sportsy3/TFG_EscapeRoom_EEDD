@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dba0lektquwhy"]
+[gd_scene load_steps=17 format=3 uid="uid://dba0lektquwhy"]
 
 [ext_resource type="Script" uid="uid://bdnohhlt3ehv" path="res://Scripts/testing_room.gd" id="1_l8t6t"]
 [ext_resource type="PackedScene" uid="uid://bf1sbquxmub4a" path="res://Scenes/PanelilloGoat.tscn" id="5_5jrmv"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cgpwypaqja1oe" path="res://Meshes/ParraGrande.fbx" id="8_7th14"]
 [ext_resource type="PackedScene" uid="uid://bmewo8131lelf" path="res://Scenes/control.tscn" id="8_pbmur"]
 [ext_resource type="PackedScene" uid="uid://kqyc4fk2mqrp" path="res://Scenes/puzle_colas_pantalla.tscn" id="9_hr8uq"]
+[ext_resource type="PackedScene" uid="uid://dtbq3w6xpiavn" path="res://Scenes/puzle_grafos_pantalla.tscn" id="10_7th14"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_axfbw"]
 size = Vector3(30, 1, 30)
@@ -158,3 +159,10 @@ unique_name = "pantalla_colas"
 content_size = Vector2(960, 540)
 
 [node name="Content" parent="InteractiveScreen2" instance=ExtResource("9_hr8uq")]
+
+[node name="InteractiveScreen3" parent="." instance=ExtResource("7_7th14")]
+transform = Transform3D(1.78, 0, 0, 0, 1, 0, 0, 0, 1, 6.722281, 1.4151416, -3.2157466)
+unique_name = "pantalla_colas"
+content_size = Vector2(1152, 648)
+
+[node name="Content" parent="InteractiveScreen3" instance=ExtResource("10_7th14")]
