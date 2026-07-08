@@ -42,7 +42,7 @@ func introducir_nodo(nodo: int):
 			ruta_label.text = str(ruta_actual[i])
 		else:
 			ruta_label.text = ruta_label.text + " - " + str(ruta_actual[i])
-	peso_label.text = "Gasto de combustible: " + str(peso_total)
+	peso_label.text = "Gasto de combustible: " + str(peso_total) + "/17"
 	feedback_label.text = "Nodo " + str(nodo) + " añadido a la ruta."
 	nodo_actual = nodo
 
@@ -82,7 +82,7 @@ func _on_buttonsolution_pressed():
 func _on_buttonreiniciar_pressed():
 	peso_total = 0
 	feedback_label.text = ""
-	peso_label.text = "Gasto de combustible: " + str(peso_total)
+	peso_label.text = "Gasto de combustible: " + str(peso_total) + "/17"
 	ruta_label.text = ""
 	ruta_actual.clear()
 

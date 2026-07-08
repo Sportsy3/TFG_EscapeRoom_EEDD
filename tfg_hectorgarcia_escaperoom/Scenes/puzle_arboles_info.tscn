@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://byeoyi7c83w8h"]
+
+[node name="PuzleArbolesInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -459.0
+offset_bottom = -309.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 956.0
+offset_bottom = 1334.0
+color = Color(0, 0, 0, 1)
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 684.0
+offset_bottom = 931.0
+text = "Reporte de daños: 
+Se han perdido la ruta, la ubicación actual y el último destino del viaje.
+Configuración manual de la ruta requerida.
+
+Información sobre el entorno adquirida.
+Información sobre la última entrega del viaje adquirida.
+
+Árboles para la deducción de posición actual y destino generados.
+
+Configure manualmente la ruta en el mapa. Recuerde que, por políticas de la empresa,
+la nave siempre cuenta con el combustible exacto para terminar el viaje de ida."
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []

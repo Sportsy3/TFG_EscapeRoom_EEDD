@@ -181,7 +181,7 @@ offset_left = 742.0
 offset_top = 367.0
 offset_right = 1011.0
 offset_bottom = 400.0
-text = "Gasto de combustible: 0"
+text = "Gasto de combustible: 0/17"
 metadata/logic_bricks_graph = {
 "connections": [],
 "next_id": 0,
