@@ -67,6 +67,16 @@ shape = SubResource("BoxShape3D_ij8su")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.704857, 0.500587, -0.502583, 0, 0.708512, 0.705698, 0.709349, -0.497417, 0.4994, -9.80218, 4.46794, 0)
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
 
 [node name="Cube" type="RigidBody3D" parent="." groups=["panelillo", "pickable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75001705, 1.60327, -5.061345)
