@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TFG_HectorGarcia_EscapeRoom"
-run/main_scene="res://Scenes/TestingRoom.tscn"
+run/main_scene="uid://sah4i034hqkh"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -32,7 +32,11 @@ DialogueManager="*res://addons/goat/addons/dialogue_manager/dialogue_manager.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/goat/plugin.cfg", "res://addons/logic_bricks/plugin.cfg", "res://addons/project-time-tracker/plugin.cfg")
+enabled=PackedStringArray("res://addons/goat/plugin.cfg", "res://addons/project-time-tracker/plugin.cfg")
+
+[global_group]
+
+signals_test=""
 
 [input]
 

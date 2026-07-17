@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://c4lmhavj60tqh"]
 
-[ext_resource type="Script" path="res://addons/goat/main_scenes/Player.gd" id="1"]
+[ext_resource type="Script" uid="uid://ctx2r8hkqox40" path="res://addons/goat/main_scenes/Player.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://bhat28de4h0ds" path="res://addons/goat/helper_scenes/RayCast3D.tscn" id="3"]
 [ext_resource type="FontFile" uid="uid://dxkp5rfk21fkw" path="res://addons/goat/fonts/Tuffy.ttf" id="3_ooag5"]
 [ext_resource type="PackedScene" uid="uid://06q5uaw87s6g" path="res://addons/goat/helper_scenes/InventoryBar.tscn" id="4"]
@@ -25,20 +25,60 @@ dof_blur_amount = 0.29
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
 
 [node name="CollisionShapeStanding" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("1")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
 
 [node name="CollisionShapeCrouched" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
 shape = SubResource("2")
 disabled = true
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
 
 [node name="Camera3D" type="Camera3D" parent="." groups=["goat_cameras_player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 attributes = SubResource("CameraAttributesPractical_ku2yt")
 current = true
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
 
 [node name="RayCast3D" parent="Camera3D" instance=ExtResource("3")]
 target_position = Vector3(0, 0, -2)
@@ -46,6 +86,16 @@ category = "environment"
 
 [node name="Hand" type="Node3D" parent="Camera3D" groups=["goat_player_hand"]]
 transform = Transform3D(0.19, 0, 0, 0, 0.19, 0, 0, 0, 0.19, 0, -0.05, -0.069)
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
 
 [node name="Scope" type="Label" parent="."]
 anchors_preset = 8
@@ -63,6 +113,12 @@ theme_override_font_sizes/font_size = 8
 text = "·"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
 
 [node name="InventoryBar" parent="." instance=ExtResource("4")]
 
@@ -81,16 +137,52 @@ metadata/_edit_use_anchors_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 target_position = Vector3(0, -10, 0)
 collision_mask = 4
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
 
 [node name="GravityTimer" type="Timer" parent="."]
 wait_time = 0.01
 one_shot = true
 autostart = true
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
 
 [node name="AreaStanding" type="Area3D" parent="."]
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AreaStanding"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("1")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
 
 [connection signal="timeout" from="GravityTimer" to="." method="_on_GravityTimer_timeout"]

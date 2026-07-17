@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5xhb4uegl2ff"]
+
+[ext_resource type="Script" uid="uid://cko4ijjngs3eh" path="res://Scripts/signals_test_object.gd" id="1_3xu1i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_33lr5"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_chu5o"]
+material = SubResource("StandardMaterial3D_33lr5")
+radius = 0.2
+height = 0.4
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3xu1i"]
+
+[node name="SignalsTestObject" type="Node3D" groups=["signals_test"]]
+script = ExtResource("1_3xu1i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_chu5o")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_3xu1i")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

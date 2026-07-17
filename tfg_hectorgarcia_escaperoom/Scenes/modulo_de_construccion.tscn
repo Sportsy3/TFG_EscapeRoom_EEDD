@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://d0h7i2dv0u5b6"]
+
+[ext_resource type="PackedScene" uid="uid://cc1aktungcetg" path="res://Models/ModuloConstruccionInf.fbx" id="1_18c6x"]
+[ext_resource type="Script" uid="uid://bww6thr71ne6f" path="res://Scripts/modulo_de_construccion.gd" id="1_xml37"]
+[ext_resource type="PackedScene" uid="uid://ddiprw7wuqsjx" path="res://Models/ModuloConstruccionSup.fbx" id="2_xml37"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_iivu1"]
+height = 2.0200195
+radius = 1.0292969
+
+[sub_resource type="Animation" id="Animation_qjtel"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ModuloConstruccionSup:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dycty"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ModuloConstruccionSup:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.98374367, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sadhb"]
+_data = {
+&"RESET": SubResource("Animation_qjtel"),
+&"open": SubResource("Animation_dycty")
+}
+
+[node name="ModuloDeConstruccion" type="Node3D"]
+script = ExtResource("1_xml37")
+
+[node name="ModuloConstruccionInf" parent="." instance=ExtResource("1_18c6x")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ModuloConstruccionInf"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ModuloConstruccionInf/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0100098, 0)
+shape = SubResource("CylinderShape3D_iivu1")
+
+[node name="ModuloConstruccionSup" parent="." instance=ExtResource("2_xml37")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ModuloConstruccionSup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.014882, 0)
+collision_layer = 15
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ModuloConstruccionSup/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0100098, 0)
+shape = SubResource("CylinderShape3D_iivu1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_sadhb")
+}

@@ -30,7 +30,8 @@ metadata/logic_bricks_frames = []
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 684.0
+offset_left = 8.0
+offset_right = 692.0
 offset_bottom = 931.0
 text = "Reporte de daños: 
 Se han perdido la ruta, la ubicación actual y el último destino del viaje.
