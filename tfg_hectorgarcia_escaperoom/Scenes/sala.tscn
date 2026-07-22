@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://sah4i034hqkh"]
+[gd_scene load_steps=20 format=3 uid="uid://sah4i034hqkh"]
 
 [ext_resource type="PackedScene" uid="uid://c4lmhavj60tqh" path="res://addons/goat/main_scenes/Player.tscn" id="1_35tbc"]
+[ext_resource type="Script" uid="uid://cmi47roau81hi" path="res://Scripts/sala.gd" id="1_57om8"]
 [ext_resource type="PackedScene" uid="uid://bsv7k32eyyqqr" path="res://addons/goat/main_scenes/InteractiveScreen.tscn" id="2_05p84"]
 [ext_resource type="PackedScene" uid="uid://kqyc4fk2mqrp" path="res://Scenes/puzle_colas_pantalla.tscn" id="4_klxtk"]
 [ext_resource type="PackedScene" uid="uid://dtbq3w6xpiavn" path="res://Scenes/puzle_grafos_pantalla.tscn" id="5_4tsfr"]
@@ -10,7 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://cokoqppldqf00" path="res://Models/PantallaArbolesEInfo.fbx" id="8_klxtk"]
 [ext_resource type="PackedScene" uid="uid://d0h7i2dv0u5b6" path="res://Scenes/modulo_de_construccion.tscn" id="9_klxtk"]
 [ext_resource type="PackedScene" uid="uid://4tkha4x11f3f" path="res://Scenes/HanoiGoat.tscn" id="10_4tsfr"]
-[ext_resource type="PackedScene" uid="uid://b5xhb4uegl2ff" path="res://Scenes/signals_test_object.tscn" id="11_cmo62"]
+[ext_resource type="PackedScene" uid="uid://bnmg0a564wwjp" path="res://addons/goat/main_scenes/InteractiveItem.tscn" id="12_lo2ud"]
+[ext_resource type="PackedScene" uid="uid://bguikydpflmnn" path="res://resources/goat/inventory_items/models/PiezaOrdenador.tscn" id="13_e5d5u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2x4t4"]
 albedo_color = Color(0.46229059, 0.46229059, 0.46229059, 1)
@@ -32,6 +34,7 @@ size = Vector3(1, 1.7515259, 0.54382324)
 size = Vector3(4.817322, 5.264282, 4.0839844)
 
 [node name="Sala" type="Node3D"]
+script = ExtResource("1_57om8")
 metadata/logic_bricks_states = Array[Dictionary]([{
 "id": "state_1",
 "name": "State 1"
@@ -334,5 +337,11 @@ transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0.09630275, 0.019513
 [node name="Hanoi" parent="." instance=ExtResource("10_4tsfr")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.11905186, 1.7879469, 0.40179318)
 
-[node name="SignalsTestObject" parent="." instance=ExtResource("11_cmo62")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3432708, 1.500061, 0)
+[node name="InteractiveItem" parent="." instance=ExtResource("12_lo2ud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1316478, 0.57107615, 2.4468575)
+unique_name = "pieza_ordenador"
+item_type = 2
+inventory_item_name = "pieza_ordenador"
+
+[node name="pieza_ordenador" parent="InteractiveItem" instance=ExtResource("13_e5d5u")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

@@ -10,9 +10,12 @@ func _process(_delta):
 
 
 func make_icon_texture(model_scene_path):
+	print(model_scene_path + "(merengue)")
 	var scene = load(model_scene_path).instantiate()
 	scene.set_script(null)
 	for c in %Pivot.get_children():
 		%Pivot.remove_child(c)
 	%Pivot.add_child(scene)
 	return %SubViewport.get_texture()
+#res://addons/goat/locale/goat/inventory_items/models/PiezaOrdenador.tscn
+#res://addons/goat/locale/goat/inventory_items/models/PiezaOrdenador.tscn

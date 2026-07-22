@@ -38,6 +38,10 @@ enabled=PackedStringArray("res://addons/goat/plugin.cfg", "res://addons/project-
 
 signals_test=""
 
+[goat]
+
+general/game_resources_directory="res://resources"
+
 [input]
 
 up={
