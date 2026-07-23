@@ -1,9 +1,9 @@
 extends Node3D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
-func _ready() -> void:
-	pass
+var modulo_abierto: bool = false
 
 func open():
-	animation_player.play("open")
+	if modulo_abierto == false:
+		animation_player.play("open")
+		modulo_abierto = true

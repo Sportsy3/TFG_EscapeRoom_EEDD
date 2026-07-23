@@ -37,6 +37,7 @@ enabled=PackedStringArray("res://addons/goat/plugin.cfg", "res://addons/project-
 [global_group]
 
 signals_test=""
+abrir_modulo=""
 
 [goat]
 

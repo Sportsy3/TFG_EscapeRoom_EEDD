@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcqdvpklh4b4y"]
+
+[ext_resource type="Script" uid="uid://djp7tmee06rvw" path="res://Scripts/panel_modulo.gd" id="1_7j3x3"]
+
+[node name="PanelModulo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -618.0
+offset_bottom = -114.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7j3x3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 538.0
+offset_bottom = 602.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 530.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 25
+text = "Escanee el permiso para abrir el módulo"
+
+[node name="ColorRect2" type="ColorRect" parent="." groups=["abrir_modulo"]]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 206.0
+offset_right = 488.0
+offset_bottom = 499.0
+color = Color(1, 0, 0, 1)
