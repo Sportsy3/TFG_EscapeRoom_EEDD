@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bsv7k32eyyqqr" path="res://addons/goat/main_scenes/InteractiveScreen.tscn" id="7_7th14"]
 [ext_resource type="PackedScene" uid="uid://bnmg0a564wwjp" path="res://addons/goat/main_scenes/InteractiveItem.tscn" id="7_hr8uq"]
 [ext_resource type="PackedScene" uid="uid://c4lmhavj60tqh" path="res://addons/goat/main_scenes/Player.tscn" id="7_ynv1a"]
-[ext_resource type="PackedScene" uid="uid://cgpwypaqja1oe" path="res://Meshes/ParraGrande.fbx" id="8_7th14"]
 [ext_resource type="PackedScene" uid="uid://bmewo8131lelf" path="res://Scenes/control.tscn" id="8_pbmur"]
 [ext_resource type="PackedScene" uid="uid://kqyc4fk2mqrp" path="res://Scenes/puzle_colas_pantalla.tscn" id="9_hr8uq"]
 [ext_resource type="PackedScene" uid="uid://dtbq3w6xpiavn" path="res://Scenes/puzle_grafos_pantalla.tscn" id="10_7th14"]
@@ -26,6 +25,10 @@ albedo_color = Color(0.780893, 0, 0, 1)
 material = SubResource("StandardMaterial3D_meqnk")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2jc40"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_pbmur"]
+radius = 0.25
+height = 0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5jrmv"]
 
@@ -128,16 +131,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.61642027, 2.3062055, -4.76
 unique_name = "test_item"
 inventory_item_name = "Test item"
 
-[node name="ParraGrande" parent="InteractiveItem" instance=ExtResource("8_7th14")]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractiveItem"]
+mesh = SubResource("SphereMesh_pbmur")
 
 [node name="InteractiveItem2" parent="." instance=ExtResource("7_hr8uq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1103818, 2.3062055, -4.76373)
 unique_name = "test_item2"
 inventory_item_name = "Test item"
 
-[node name="ParraGrande" parent="InteractiveItem2" instance=ExtResource("8_7th14")]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractiveItem2"]
+mesh = SubResource("SphereMesh_pbmur")
 
 [node name="Panelillo1" parent="." instance=ExtResource("5_5jrmv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7253027, 1.8616123, -7.0849767)

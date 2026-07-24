@@ -1,4 +1,6 @@
-[gd_scene load_steps=10 format=4 uid="uid://dn8jnhj2f1sae"]
+[gd_scene load_steps=14 format=4 uid="uid://dn8jnhj2f1sae"]
+
+[ext_resource type="PackedScene" uid="uid://cu4mkdxt4wqlo" path="res://Models/TapaCajaPiezaModulo.fbx" id="1_cwo6q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m6e2e"]
 resource_name = "Material.001"
@@ -134,16 +136,50 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6wdru")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_cwo6q"]
-size = Vector3(0.025, 0.06, 0.005)
+[sub_resource type="BoxShape3D" id="BoxShape3D_vvrre"]
+size = Vector3(0.0024719238, 0.053691864, 0.015548706)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bsptm"]
+size = Vector3(0.020385742, 0.0053100586, 0.015487671)
 
 [sub_resource type="Animation" id="Animation_vvrre"]
 resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EjeTapa:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -1.3570982)]
+}
+
+[sub_resource type="Animation" id="Animation_10xb5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EjeTapa:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bsptm"]
 _data = {
+&"RESET": SubResource("Animation_10xb5"),
 &"open": SubResource("Animation_vvrre")
 }
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cwo6q"]
+size = Vector3(0.025, 0.06, 0.005)
 
 [node name="CajaPiezaModulo" type="Node3D"]
 
@@ -152,14 +188,38 @@ transform = Transform3D(100, 0, 0, 0, -4.3711384e-06, 99.99999, 0, -99.99999, -4
 mesh = SubResource("ArrayMesh_rnxe4")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(100.000015, 0, 0, 0, -4.3711393e-06, 100.00001, 0, -100.00001, -4.3711393e-06, -1.1920929e-07, -1.1920929e-07, 7.1054274e-15)
+[node name="StaticBody3D" type="StaticBody3D" parent="Caja"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0177737)
-shape = SubResource("BoxShape3D_cwo6q")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Caja/StaticBody3D"]
+transform = Transform3D(1.0000005, 0, 0, 0, 1.0000007, 2.4868996e-14, 0, -2.4868996e-14, 1.0000007, -0.009170553, 9.1475136e-05, 0.008079516)
+shape = SubResource("BoxShape3D_vvrre")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Caja/StaticBody3D"]
+transform = Transform3D(1.0000005, 0, 0, 0, 1.0000007, 2.4868996e-14, 0, -2.4868996e-14, 1.0000007, 0.009163236, 0.00010101403, 0.008079518)
+shape = SubResource("BoxShape3D_vvrre")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Caja/StaticBody3D"]
+transform = Transform3D(1.0000005, 0, 0, 0, 1.0000007, 2.4868996e-14, 0, -2.4868996e-14, 1.0000007, -6.0960734e-05, -0.026275631, 0.007896409)
+shape = SubResource("BoxShape3D_bsptm")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Caja/StaticBody3D"]
+transform = Transform3D(1.0000005, 0, 0, 0, 1.0000007, 2.4868996e-14, 0, -2.4868996e-14, 1.0000007, -6.0960734e-05, 0.026213288, 0.007896409)
+shape = SubResource("BoxShape3D_bsptm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_bsptm")
 }
+
+[node name="EjeTapa" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.98598254, 1.5683229, 0)
+
+[node name="TapaCajaPiezaModulo" parent="EjeTapa" instance=ExtResource("1_cwo6q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98598254, -1.5683229, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="EjeTapa/TapaCajaPiezaModulo"]
+transform = Transform3D(100.000015, 0, 0, 0, -4.3711393e-06, 100.00001, 0, -100.00001, -4.3711393e-06, -1.1920929e-07, -1.1920929e-07, 7.1054274e-15)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EjeTapa/TapaCajaPiezaModulo/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0177737)
+shape = SubResource("BoxShape3D_cwo6q")

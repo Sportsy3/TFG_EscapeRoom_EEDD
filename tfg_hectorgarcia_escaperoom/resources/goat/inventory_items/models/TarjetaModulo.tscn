@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://bs1cbvbqybjs"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_cc87d"]
+[ext_resource type="PackedScene" uid="uid://bimxiec38gm6v" path="res://Models/TarjetaModulo.fbx" id="1_t15ki"]
 
-[node name="TarjetaModulo" type="Node3D"]
+[node name="TarjetaModulo" instance=ExtResource("1_t15ki")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_cc87d")
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(-4.371139e-07, 10, 4.3711393e-07, 0, -4.3711393e-07, 10, 10, 4.371139e-07, 1.9106856e-14, 0, 0, 0)

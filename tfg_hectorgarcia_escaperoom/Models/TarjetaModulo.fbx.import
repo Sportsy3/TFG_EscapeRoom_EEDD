@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cgpwypaqja1oe"
-path="res://.godot/imported/ParraGrande.fbx-9118ec34d08d02b097dc526cd6c809fb.scn"
+uid="uid://bimxiec38gm6v"
+path="res://.godot/imported/TarjetaModulo.fbx-16fd6cc100af10f60bf6143b59d179dc.scn"
 
 [deps]
 
-source_file="res://Meshes/ParraGrande.fbx"
-dest_files=["res://.godot/imported/ParraGrande.fbx-9118ec34d08d02b097dc526cd6c809fb.scn"]
+source_file="res://Models/TarjetaModulo.fbx"
+dest_files=["res://.godot/imported/TarjetaModulo.fbx-16fd6cc100af10f60bf6143b59d179dc.scn"]
 
 [params]
 
