@@ -1,0 +1,100 @@
+[gd_scene load_steps=12 format=3 uid="uid://c4pvhfiue0itu"]
+
+[ext_resource type="Script" uid="uid://bndjpcsuf1nsb" path="res://Scripts/caja.gd" id="1_sokjp"]
+[ext_resource type="Script" uid="uid://civs7wkopsmgl" path="res://addons/goat/addons/randomAudioStreamPlayer/random_audio_stream_player_3D.gd" id="2_nnvm0"]
+[ext_resource type="Material" uid="uid://d20al6okuifpt" path="res://addons/goat/materials/item_interaction_icon.tres" id="3_ntk4k"]
+[ext_resource type="Texture2D" uid="uid://2t38vrxwiv4l" path="res://addons/goat/images/item_interaction_icon.png" id="4_k3738"]
+[ext_resource type="PackedScene" uid="uid://bxvbmaf6ewied" path="res://Models/Caja.fbx" id="5_ovwud"]
+[ext_resource type="PackedScene" uid="uid://ds3m3xb8tlp5u" path="res://Models/Tapa.fbx" id="6_bpbwt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sokjp"]
+
+[sub_resource type="BoxShape3D" id="1"]
+size = Vector3(2.486676, 2.1016066, 2.1635087)
+
+[sub_resource type="Animation" id="Animation_wonqo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EjeTapa:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_scb3r"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EjeTapa:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -2.4452412)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tjjn2"]
+_data = {
+&"RESET": SubResource("Animation_wonqo"),
+&"open": SubResource("Animation_scb3r")
+}
+
+[node name="InteractiveItem" type="StaticBody3D" groups=["goat_interactive_objects"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_sokjp")
+collision_shape = SubResource("BoxShape3D_sokjp")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03467709, 1.0663244, 0.019146055)
+shape = SubResource("1")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+
+[node name="RandomAudioPlayer" type="AudioStreamPlayer3D" parent="."]
+bus = &"GoatEffects"
+script = ExtResource("2_nnvm0")
+random_strategy = 1
+
+[node name="InteractionIcon" type="Sprite3D" parent="."]
+visible = false
+material_override = ExtResource("3_ntk4k")
+cast_shadow = 0
+pixel_size = 0.0002
+texture = ExtResource("4_k3738")
+
+[node name="Caja" parent="." instance=ExtResource("5_ovwud")]
+
+[node name="EjeTapa" type="Node3D" parent="."]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0.9956119, 1.5682715, 0)
+
+[node name="Tapa" parent="EjeTapa" instance=ExtResource("6_bpbwt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9956119, -1.5682715, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_tjjn2")
+}
+
+[connection signal="finished" from="RandomAudioPlayer" to="." method="_on_RandomAudioPlayer_finished"]

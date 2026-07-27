@@ -9,11 +9,15 @@ var rendija2: Array = []
 var seleccion_actual: String = ""
 var bloqueado: bool = false
 var bloqueo_total: bool = false
+var puzle_terminado: bool = false
 
 @onready var slots_r1 = $HBoxContainer/VBoxContainer/SlotRendija1
 @onready var slots_r2 = $HBoxContainer/VBoxContainer/SlotRendija2
 @onready var botones_elementos = $HBoxContainer/VBoxContainer/BotonesElementos
 @onready var label_resultado = $HBoxContainer/VBoxContainer/LabelResultado
+@onready var instrucciones: Label = $Instrucciones
+
+signal _abrir_caja
 
 func _ready():
 	# Conectar botones de elementos
@@ -25,10 +29,14 @@ func _ready():
 	actualizar_ui()
 
 func _on_elemento_pressed(elemento: String):
+	if puzle_terminado:
+		return
 	seleccion_actual = elemento
 	label_resultado.text = "Seleccionado: " + elemento
 
 func _on_introducir_pressed():
+	if puzle_terminado:
+		return
 	if bloqueo_total:
 		label_resultado.text = "Espera a que acabe el intercambio."
 		return
@@ -45,6 +53,8 @@ func _on_introducir_pressed():
 	actualizar_ui()
 
 func _on_intercambiar_pressed():
+	if puzle_terminado:
+		return
 	if bloqueo_total:
 		label_resultado.text = "Espera a que acabe el intercambio."
 		return
@@ -58,6 +68,8 @@ func _on_intercambiar_pressed():
 	comprobar_victoria()
 
 func realizar_intercambio():
+	if puzle_terminado:
+		return
 	bloqueo_total = true
 	# Las transferencias son secuenciales, FIFO (pop del frente, push al final)
 	await transferir(rendija2, rendija1, 3)  # Paso 1: R2 → R1 (3 elementos)
@@ -79,6 +91,8 @@ func transferir(origen: Array, destino: Array, cantidad: int):
 func comprobar_victoria():
 	if rendija1 == OBJETIVO:
 		label_resultado.text = "¡Puzle resuelto!"
+		puzle_terminado = true
+		emit_signal("_abrir_caja")
 	else:
 		bloqueado = true
 		label_resultado.text = "Incorrecto. Sigue intentándolo."
@@ -103,8 +117,10 @@ func _actualizar_slots(contenedor: HBoxContainer, datos: Array):
 		contenedor.add_child(panel)
 
 func _on_reinicio_pressed():
+	if puzle_terminado:
+		return
 	if bloqueo_total:
-		label_resultado.text = "Espera a que acabe el intercambio."
+		label_resultado.text = "Espere a que acabe el intercambio."
 		return
 	reiniciar_puzle()
 
@@ -117,3 +133,18 @@ func reiniciar_puzle():
 	seleccion_actual = ""
 	actualizar_ui()
 	bloqueado = false
+
+func actualizar_instrucciones():
+	instrucciones.text = "
+	La contraseña correcta es ABCD.
+	Para introducirla en la línea superior,
+	ambas rendijas se intercambiarán letras 
+	como si fueran colas.
+	Solo puedes introducir letras en la línea inferior.
+	Los intercambios son los siguientes:
+	
+	3 pasan de abajo a arriba.
+	1 de arriba a abajo.
+	2 de abajo a arriba.
+	2 de arriba a abajo.
+	2 de abajo a arriba."

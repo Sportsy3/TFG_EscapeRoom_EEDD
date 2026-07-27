@@ -7,7 +7,7 @@ var torres = {
 	"torre_3": []
 }
 
-var disco_seleccionado = null  # número de disco actualmente "en mano"
+var disco_seleccionado = null  # número de disco actualmente en mano
 
 # Posiciones físicas de cada torre (ajusta a tu escena)
 @onready var posiciones_torre = {
@@ -55,11 +55,8 @@ func _seleccionar_disco(numero):
 func _mover_a_torre(torre_destino):
 	if disco_seleccionado == null:
 		return
-
 	var pila_destino = torres[torre_destino]
-
-	# Regla de Hanoi: solo se puede colocar si el destino está vacío
-	# o el disco superior del destino es más grande
+	# Regla de Hanoi: solo se puede colocar si el destino está vacío o el disco superior del destino es más grande
 	if pila_destino.is_empty() or pila_destino[-1] > disco_seleccionado:
 		# Quitar el disco de su torre actual
 		for torre_nombre in torres:
@@ -68,7 +65,7 @@ func _mover_a_torre(torre_destino):
 				pila.pop_back()
 				break
 
-		# Añadirlo al nuevo torre
+		# Añadirlo a la nueva torre
 		pila_destino.append(disco_seleccionado)
 		discos[disco_seleccionado].position.y -= 0.3  # bajarlo de "en mano"
 		disco_seleccionado = null
@@ -92,5 +89,4 @@ func _actualizar_posiciones():
 func _comprobar_victoria():
 	if torres["torre_3"] == [3, 2, 1]:
 		print("¡Puzzle resuelto!")
-		# Aquí: abrir una puerta, dar un objeto al jugador, etc.
-		# Por ejemplo: goat_inventory.register_item("llave_dorada")
+		get_parent().fabricar_pieza()

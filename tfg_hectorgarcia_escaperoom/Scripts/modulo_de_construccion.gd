@@ -7,3 +7,7 @@ func open():
 	if modulo_abierto == false:
 		animation_player.play("open")
 		modulo_abierto = true
+
+func close():
+	modulo_abierto = false
+	animation_player.play_backwards("open")

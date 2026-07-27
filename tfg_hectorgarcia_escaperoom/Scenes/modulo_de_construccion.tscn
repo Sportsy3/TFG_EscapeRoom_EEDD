@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ddiprw7wuqsjx" path="res://Models/ModuloConstruccionSup.fbx" id="2_xml37"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_iivu1"]
-height = 2.0200195
+height = 1.9328613
 radius = 1.0292969
 
 [sub_resource type="Animation" id="Animation_qjtel"]
@@ -52,7 +52,7 @@ script = ExtResource("1_xml37")
 [node name="StaticBody3D" type="StaticBody3D" parent="ModuloConstruccionInf"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ModuloConstruccionInf/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0100098, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.96643066, 0)
 shape = SubResource("CylinderShape3D_iivu1")
 
 [node name="ModuloConstruccionSup" parent="." instance=ExtResource("2_xml37")]

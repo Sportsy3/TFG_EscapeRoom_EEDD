@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=4 uid="uid://dn8jnhj2f1sae"]
+[gd_scene load_steps=23 format=4 uid="uid://dn8jnhj2f1sae"]
 
 [ext_resource type="PackedScene" uid="uid://cu4mkdxt4wqlo" path="res://Models/TapaCajaPiezaModulo.fbx" id="1_cwo6q"]
+[ext_resource type="Script" uid="uid://bm05406qg0amy" path="res://Scripts/caja_pieza_modulo.gd" id="1_vvrre"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m6e2e"]
 resource_name = "Material.001"
@@ -142,6 +143,20 @@ size = Vector3(0.0024719238, 0.053691864, 0.015548706)
 [sub_resource type="BoxShape3D" id="BoxShape3D_bsptm"]
 size = Vector3(0.020385742, 0.0053100586, 0.015487671)
 
+[sub_resource type="Animation" id="Animation_10xb5"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EjeTapa:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -1.2505109)]
+}
+
 [sub_resource type="Animation" id="Animation_vvrre"]
 resource_name = "open"
 tracks/0/type = "value"
@@ -157,21 +172,6 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 0, -1.3570982)]
 }
 
-[sub_resource type="Animation" id="Animation_10xb5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("EjeTapa:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bsptm"]
 _data = {
 &"RESET": SubResource("Animation_10xb5"),
@@ -181,7 +181,32 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_cwo6q"]
 size = Vector3(0.025, 0.06, 0.005)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vvrre"]
+albedo_color = Color(0.40448624, 0.4035049, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bsptm"]
+material = SubResource("StandardMaterial3D_vvrre")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_10xb5"]
+albedo_color = Color(2.8878452e-07, 0.3214887, 0.32166788, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qe43v"]
+material = SubResource("StandardMaterial3D_10xb5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1sil"]
+albedo_color = Color(0.012663129, 0.3244945, 0.00576669, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xwpnf"]
+material = SubResource("StandardMaterial3D_t1sil")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gbyyr"]
+albedo_color = Color(0.35479265, 9.1039314e-05, 0.35770515, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_84112"]
+material = SubResource("StandardMaterial3D_gbyyr")
+
 [node name="CajaPiezaModulo" type="Node3D"]
+script = ExtResource("1_vvrre")
 
 [node name="Caja" type="MeshInstance3D" parent="."]
 transform = Transform3D(100, 0, 0, 0, -4.3711384e-06, 99.99999, 0, -99.99999, -4.3711384e-06, 0, 0, 0)
@@ -219,7 +244,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98598254, -1.5683229, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="EjeTapa/TapaCajaPiezaModulo"]
 transform = Transform3D(100.000015, 0, 0, 0, -4.3711393e-06, 100.00001, 0, -100.00001, -4.3711393e-06, -1.1920929e-07, -1.1920929e-07, 7.1054274e-15)
+collision_layer = 15
+collision_mask = 15
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EjeTapa/TapaCajaPiezaModulo/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0177737)
 shape = SubResource("BoxShape3D_cwo6q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9468123, 0, -0.32178652, 0, 1, 0, 0.32178652, 0, 0.9468123, 0, 0.5821847, 1.8626724)
+mesh = SubResource("BoxMesh_bsptm")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.86230165, 0, -0.506395, 0, 1, 0, 0.506395, 0, 0.86230165, 0, 0.5821847, -1.8844714)
+mesh = SubResource("BoxMesh_qe43v")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.99817926, 0, 0.06031685, 0, 1, 0, -0.06031685, 0, 0.99817926, 0, 0.5821847, -0.58454275)
+mesh = SubResource("BoxMesh_xwpnf")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.996522, 0, 0.08333, 0, 1, 0, -0.08333, 0, 0.996522, 0, 0.5821847, 0.4553362)
+mesh = SubResource("BoxMesh_84112")

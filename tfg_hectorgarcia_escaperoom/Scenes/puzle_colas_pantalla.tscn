@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b1xtwxf8ebhfp" path="res://Scripts/puzle_colas_pantalla.gd" id="1_u01cd"]
 
-[node name="PuzleColasPantalla" type="Control"]
+[node name="PuzleColasPantalla" type="Control" groups=["abrir_caja"]]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_u01cd")
@@ -162,3 +162,13 @@ metadata/logic_bricks_graph = {
 "nodes": []
 }
 metadata/logic_bricks_frames = []
+
+[node name="Instrucciones" type="Label" parent="."]
+layout_mode = 0
+offset_left = 534.0
+offset_top = 21.0
+offset_right = 986.0
+offset_bottom = 409.0
+theme_override_font_sizes/font_size = 18
+text = "Disquete de instrucciones de intercambio 
+requerido"

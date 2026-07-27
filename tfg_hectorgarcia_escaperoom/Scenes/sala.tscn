@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://sah4i034hqkh"]
+[gd_scene load_steps=35 format=3 uid="uid://sah4i034hqkh"]
 
 [ext_resource type="PackedScene" uid="uid://c4lmhavj60tqh" path="res://addons/goat/main_scenes/Player.tscn" id="1_35tbc"]
 [ext_resource type="Script" uid="uid://cmi47roau81hi" path="res://Scripts/sala.gd" id="1_57om8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://kqyc4fk2mqrp" path="res://Scenes/puzle_colas_pantalla.tscn" id="4_klxtk"]
 [ext_resource type="PackedScene" uid="uid://dtbq3w6xpiavn" path="res://Scenes/puzle_grafos_pantalla.tscn" id="5_4tsfr"]
 [ext_resource type="PackedScene" uid="uid://byeoyi7c83w8h" path="res://Scenes/puzle_arboles_info.tscn" id="6_cmo62"]
+[ext_resource type="PackedScene" uid="uid://dn8jnhj2f1sae" path="res://Scenes/caja_pieza_modulo.tscn" id="6_kcn3k"]
 [ext_resource type="PackedScene" uid="uid://ch5luddfk3irq" path="res://Models/PantallaPuzleColas.fbx" id="7_05p84"]
 [ext_resource type="PackedScene" uid="uid://dcqdvpklh4b4y" path="res://Scenes/panel_modulo.tscn" id="8_e5d5u"]
 [ext_resource type="PackedScene" uid="uid://cibiotvdfp2x" path="res://Models/PantallaPuzleGrafos.fbx" id="8_emu0x"]
@@ -15,6 +16,57 @@
 [ext_resource type="PackedScene" uid="uid://bnmg0a564wwjp" path="res://addons/goat/main_scenes/InteractiveItem.tscn" id="12_lo2ud"]
 [ext_resource type="PackedScene" uid="uid://bguikydpflmnn" path="res://resources/goat/inventory_items/models/PiezaOrdenador.tscn" id="13_e5d5u"]
 [ext_resource type="PackedScene" uid="uid://bs1cbvbqybjs" path="res://resources/goat/inventory_items/models/TarjetaModulo.tscn" id="15_5dgsf"]
+[ext_resource type="PackedScene" uid="uid://c4pvhfiue0itu" path="res://Scenes/Caja.tscn" id="17_mw4mc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_emu0x"]
+size = Vector3(1.28, 1, 0.51)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_klxtk"]
+size = Vector3(1, 1.7515259, 0.54382324)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4tsfr"]
+size = Vector3(4.817322, 5.264282, 4.0839844)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mw4mc"]
+albedo_color = Color(0, 0.49411765, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_sxx02"]
+material = SubResource("StandardMaterial3D_mw4mc")
+top_radius = 0.01
+bottom_radius = 0.01
+height = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efi15"]
+albedo_color = Color(0.49424517, 1.4018082e-06, 2.4065375e-07, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3jlx0"]
+material = SubResource("StandardMaterial3D_efi15")
+top_radius = 0.01
+bottom_radius = 0.01
+height = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1fkdo"]
+albedo_color = Color(0, 0.49411765, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rvm5s"]
+material = SubResource("StandardMaterial3D_1fkdo")
+top_radius = 0.01
+bottom_radius = 0.01
+height = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_apc0p"]
+albedo_color = Color(0.26293245, 0.26293245, 0.26293245, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kf1lc"]
+material = SubResource("StandardMaterial3D_apc0p")
+size = Vector3(0.1, 0.3, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kcn3k"]
+albedo_color = Color(0.12156863, 0.14509805, 0.27450982, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mw4mc"]
+material = SubResource("StandardMaterial3D_kcn3k")
+size = Vector3(0.945, 0.38, 1.745)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2x4t4"]
 albedo_color = Color(0.46229059, 0.46229059, 0.46229059, 1)
@@ -26,62 +78,14 @@ size = Vector3(30, 1, 30)
 [sub_resource type="BoxShape3D" id="BoxShape3D_uhgjh"]
 size = Vector3(30, 1, 30)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_emu0x"]
-size = Vector3(1.28, 1, 0.51)
+[sub_resource type="BoxShape3D" id="BoxShape3D_sxx02"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_klxtk"]
-size = Vector3(1, 1.7515259, 0.54382324)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_4tsfr"]
-size = Vector3(4.817322, 5.264282, 4.0839844)
-
-[node name="Sala" type="Node3D" node_paths=PackedStringArray("panel_modulo", "modulo_de_construccion")]
+[node name="Sala" type="Node3D" node_paths=PackedStringArray("panel_modulo", "modulo_de_construccion", "pieza_ordenador", "torres_hanoi")]
 script = ExtResource("1_57om8")
 panel_modulo = NodePath("PanelModulo/Content")
 modulo_de_construccion = NodePath("ModuloDeConstruccion")
-metadata/logic_bricks_states = Array[Dictionary]([{
-"id": "state_1",
-"name": "State 1"
-}])
-metadata/logic_bricks_graph = {
-"connections": [],
-"next_id": 0,
-"nodes": []
-}
-metadata/logic_bricks_frames = []
-
-[node name="Suelo" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.4144206, 0, 0, 0, 1, 0, 0, 0, 0.4144206, 0, -0.48376, 0)
-layers = 1023
-mesh = SubResource("BoxMesh_vbwy0")
-metadata/logic_bricks_states = Array[Dictionary]([{
-"id": "state_1",
-"name": "State 1"
-}])
-metadata/logic_bricks_graph = {
-"connections": [],
-"next_id": 0,
-"nodes": []
-}
-metadata/logic_bricks_frames = []
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Suelo"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48376, 0)
-collision_layer = 255
-metadata/logic_bricks_states = Array[Dictionary]([{
-"id": "state_1",
-"name": "State 1"
-}])
-metadata/logic_bricks_graph = {
-"connections": [],
-"next_id": 0,
-"nodes": []
-}
-metadata/logic_bricks_frames = []
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Suelo/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.48376, 0)
-shape = SubResource("BoxShape3D_uhgjh")
+pieza_ordenador = NodePath("InteractiveItem")
+torres_hanoi = NodePath("Hanoi")
 metadata/logic_bricks_states = Array[Dictionary]([{
 "id": "state_1",
 "name": "State 1"
@@ -106,8 +110,8 @@ metadata/logic_bricks_graph = {
 }
 metadata/logic_bricks_frames = []
 
-[node name="Player" parent="." instance=ExtResource("1_35tbc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5421014, 0.052711606, 5.0331283)
+[node name="CajaPiezaModulo" parent="." instance=ExtResource("6_kcn3k")]
+transform = Transform3D(0.2999999, 0, -5.7620357e-09, 0, 0.2999999, 0, -1.0228468e-08, 0, 0.30081996, 4.839802, 0.35253978, 4.201722)
 
 [node name="PantallaColas" parent="." instance=ExtResource("2_05p84")]
 transform = Transform3D(-7.780626e-08, 0, -0.99999994, 0, 0.99999994, 0, 1.7799999, 0, -4.3711385e-08, 4.901767, 1.7264678, 1.9664934)
@@ -144,7 +148,7 @@ transform = Transform3D(0.9999997, 0, 0, 0, 0.9999901, 0, 0, 0, 0.9999901, 0, -0
 shape = SubResource("BoxShape3D_klxtk")
 
 [node name="PanelModulo" parent="." instance=ExtResource("2_05p84")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.798766, 1.2401224, 0)
+transform = Transform3D(-1.9233012e-08, 0, -0.44, 0, 0.44, 0, 0.44, 0, -1.9233012e-08, -0.72007465, 1.2645564, 0.4259954)
 unique_name = "panel_modulo"
 content_size = Vector2(534, 534)
 
@@ -159,180 +163,6 @@ content_size = Vector2(693, 339)
 [node name="Content" parent="InteractiveScreen5" instance=ExtResource("6_cmo62")]
 metadata/_edit_use_anchors_ = true
 
-[node name="Pared" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.42458242, 0, 0, 0, -4.3711385e-08, -0.27884406, 0, 0.99999994, -1.2188661e-08, 0, 4.017, -5.859)
-layers = 1023
-mesh = SubResource("BoxMesh_vbwy0")
-metadata/logic_bricks_states = Array[Dictionary]([{
-"id": "state_1",
-"name": "State 1"
-}])
-metadata/logic_bricks_graph = {
-"connections": [],
-"next_id": 0,
-"nodes": []
-}
-metadata/logic_bricks_frames = []
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Pared"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48376, 0)
-collision_layer = 255
-metadata/logic_bricks_states = Array[Dictionary]([{
-"id": "state_1",
-"name": "State 1"
-}])
-metadata/logic_bricks_graph = {
-"connections": [],
-"next_id": 0,
-"nodes": []
-}
-metadata/logic_bricks_frames = []
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pared/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.48376, 0)
-shape = SubResource("BoxShape3D_uhgjh")
-metadata/logic_bricks_states = Array[Dictionary]([{
-"id": "state_1",
-"name": "State 1"
-}])
-metadata/logic_bricks_graph = {
-"connections": [],
-"next_id": 0,
-"nodes": []
-}
-metadata/logic_bricks_frames = []
-
-[node name="Pared2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.9032948e-08, 0.99999994, -1.21886625e-08, 0, -4.3711385e-08, -0.2788441, -0.43542308, -4.3711385e-08, 5.3278335e-16, -5.859, 4.017, 0)
-visible = false
-layers = 1023
-mesh = SubResource("BoxMesh_vbwy0")
-metadata/logic_bricks_states = Array[Dictionary]([{
-"id": "state_1",
-"name": "State 1"
-}])
-metadata/logic_bricks_graph = {
-"connections": [],
-"next_id": 0,
-"nodes": []
-}
-metadata/logic_bricks_frames = []
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Pared2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48376, 0)
-collision_layer = 255
-metadata/logic_bricks_states = Array[Dictionary]([{
-"id": "state_1",
-"name": "State 1"
-}])
-metadata/logic_bricks_graph = {
-"connections": [],
-"next_id": 0,
-"nodes": []
-}
-metadata/logic_bricks_frames = []
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pared2/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.48376, 0)
-shape = SubResource("BoxShape3D_uhgjh")
-metadata/logic_bricks_states = Array[Dictionary]([{
-"id": "state_1",
-"name": "State 1"
-}])
-metadata/logic_bricks_graph = {
-"connections": [],
-"next_id": 0,
-"nodes": []
-}
-metadata/logic_bricks_frames = []
-
-[node name="Pared3" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.4282474, 0, 0, 0, -4.3711385e-08, -0.27884406, 0, 0.99999994, -1.2188661e-08, 0, 4.017, 5.859)
-visible = false
-layers = 1023
-mesh = SubResource("BoxMesh_vbwy0")
-metadata/logic_bricks_states = Array[Dictionary]([{
-"id": "state_1",
-"name": "State 1"
-}])
-metadata/logic_bricks_graph = {
-"connections": [],
-"next_id": 0,
-"nodes": []
-}
-metadata/logic_bricks_frames = []
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Pared3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48376, 0)
-collision_layer = 255
-metadata/logic_bricks_states = Array[Dictionary]([{
-"id": "state_1",
-"name": "State 1"
-}])
-metadata/logic_bricks_graph = {
-"connections": [],
-"next_id": 0,
-"nodes": []
-}
-metadata/logic_bricks_frames = []
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pared3/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.48376, 0)
-shape = SubResource("BoxShape3D_uhgjh")
-metadata/logic_bricks_states = Array[Dictionary]([{
-"id": "state_1",
-"name": "State 1"
-}])
-metadata/logic_bricks_graph = {
-"connections": [],
-"next_id": 0,
-"nodes": []
-}
-metadata/logic_bricks_frames = []
-
-[node name="Pared4" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.813998e-08, 0.99999994, -1.21886625e-08, 0, -4.3711385e-08, -0.2788441, -0.41499436, -4.3711385e-08, 5.3278335e-16, 5.8586235, 4.01714, 0)
-layers = 1023
-mesh = SubResource("BoxMesh_vbwy0")
-metadata/logic_bricks_states = Array[Dictionary]([{
-"id": "state_1",
-"name": "State 1"
-}])
-metadata/logic_bricks_graph = {
-"connections": [],
-"next_id": 0,
-"nodes": []
-}
-metadata/logic_bricks_frames = []
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Pared4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48376, 0)
-collision_layer = 255
-metadata/logic_bricks_states = Array[Dictionary]([{
-"id": "state_1",
-"name": "State 1"
-}])
-metadata/logic_bricks_graph = {
-"connections": [],
-"next_id": 0,
-"nodes": []
-}
-metadata/logic_bricks_frames = []
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pared4/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.48376, 0)
-shape = SubResource("BoxShape3D_uhgjh")
-metadata/logic_bricks_states = Array[Dictionary]([{
-"id": "state_1",
-"name": "State 1"
-}])
-metadata/logic_bricks_graph = {
-"connections": [],
-"next_id": 0,
-"nodes": []
-}
-metadata/logic_bricks_frames = []
-
 [node name="PantallaArbolesEInfo" parent="." instance=ExtResource("8_klxtk")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.9307729, 0.00903362, -4.416605)
 
@@ -343,24 +173,295 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007232666, 2.132141, -0.070
 shape = SubResource("BoxShape3D_4tsfr")
 
 [node name="ModuloDeConstruccion" parent="." instance=ExtResource("9_klxtk")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0.09630275, 0.019513369, 0.42656183)
+transform = Transform3D(-0.75, 0, 6.556708e-08, 0, 0.75, 0, -6.556708e-08, 0, -0.75, 0.09630275, 0.019513369, 0.42656183)
 
 [node name="Hanoi" parent="." instance=ExtResource("10_4tsfr")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.11905186, 1.7879469, 0.40179318)
 
 [node name="InteractiveItem" parent="." instance=ExtResource("12_lo2ud")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1316478, 0.57107615, 2.4468575)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.10010362, 1.802397, 0.40164798)
+visible = false
 unique_name = "pieza_ordenador"
 item_type = 2
 inventory_item_name = "pieza_ordenador"
+
+[node name="CollisionShape3D" parent="InteractiveItem" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0021026656, -0.04991448, -0.0058654845)
 
 [node name="pieza_ordenador" parent="InteractiveItem" instance=ExtResource("13_e5d5u")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="InteractiveItem2" parent="." instance=ExtResource("12_lo2ud")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62308025, 2.836276)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8403754, 0.67848647, 4.2645574)
 unique_name = "tarjeta_modulo"
 item_type = 2
 inventory_item_name = "tarjeta_modulo"
 
 [node name="TarjetaModulo" parent="InteractiveItem2" instance=ExtResource("15_5dgsf")]
+transform = Transform3D(0.49999997, 0.86602545, 3.7855173e-08, 0, -4.371139e-08, 1, 0.86602545, -0.49999997, -2.1855692e-08, 0, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_35tbc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.8830683)
+
+[node name="Decoraciones" type="Node" parent="."]
+
+[node name="Cable1" type="MeshInstance3D" parent="Decoraciones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.340976, 1.0946524, 4.686827)
+mesh = SubResource("CylinderMesh_sxx02")
+skeleton = NodePath("../..")
+
+[node name="Cable2" type="MeshInstance3D" parent="Decoraciones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.340976, 1.0946524, 4.7313547)
+mesh = SubResource("CylinderMesh_3jlx0")
+skeleton = NodePath("../..")
+
+[node name="Cable3" type="MeshInstance3D" parent="Decoraciones"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5.340976, 1.9337465, 3.8487258)
+mesh = SubResource("CylinderMesh_rvm5s")
+skeleton = NodePath("../..")
+
+[node name="Cable4" type="MeshInstance3D" parent="Decoraciones"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5.340976, 1.978274, 3.8487258)
+mesh = SubResource("CylinderMesh_3jlx0")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Decoraciones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3136344, 1.9529495, 4.7022963)
+mesh = SubResource("BoxMesh_kf1lc")
+skeleton = NodePath("../..")
+
+[node name="ApoyoCaja" type="MeshInstance3D" parent="Decoraciones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9744034, 0.16233619, 4.2094917)
+mesh = SubResource("BoxMesh_mw4mc")
+skeleton = NodePath("../..")
+
+[node name="Suelo" type="MeshInstance3D" parent="Decoraciones"]
+transform = Transform3D(0.4144206, 0, 0, 0, 1, 0, 0, 0, 0.4144206, 0, -0.48376, 0)
+layers = 1023
+mesh = SubResource("BoxMesh_vbwy0")
+skeleton = NodePath("../..")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Decoraciones/Suelo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48376, 0)
+collision_layer = 255
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Decoraciones/Suelo/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.48376, 0)
+shape = SubResource("BoxShape3D_uhgjh")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="Pared" type="MeshInstance3D" parent="Decoraciones"]
+transform = Transform3D(0.42458242, 0, 0, 0, -4.3711385e-08, -0.27884406, 0, 0.99999994, -1.2188661e-08, 0, 4.017, -5.859)
+layers = 1023
+mesh = SubResource("BoxMesh_vbwy0")
+skeleton = NodePath("../..")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Decoraciones/Pared"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48376, 0)
+collision_layer = 255
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Decoraciones/Pared/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.48376, 0)
+shape = SubResource("BoxShape3D_uhgjh")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="Pared2" type="MeshInstance3D" parent="Decoraciones"]
+transform = Transform3D(-1.9032948e-08, 0.99999994, -1.21886625e-08, 0, -4.3711385e-08, -0.2788441, -0.43542308, -4.3711385e-08, 5.3278335e-16, -5.859, 4.017, 0)
+visible = false
+layers = 1023
+mesh = SubResource("BoxMesh_vbwy0")
+skeleton = NodePath("../..")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Decoraciones/Pared2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48376, 0)
+collision_layer = 255
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Decoraciones/Pared2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.48376, 0)
+shape = SubResource("BoxShape3D_uhgjh")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="Pared3" type="MeshInstance3D" parent="Decoraciones"]
+transform = Transform3D(0.4282474, 0, 0, 0, -4.3711385e-08, -0.27884406, 0, 0.99999994, -1.2188661e-08, 0, 4.017, 5.859)
+visible = false
+layers = 1023
+mesh = SubResource("BoxMesh_vbwy0")
+skeleton = NodePath("../..")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Decoraciones/Pared3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48376, 0)
+collision_layer = 255
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Decoraciones/Pared3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.48376, 0)
+shape = SubResource("BoxShape3D_uhgjh")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="Pared4" type="MeshInstance3D" parent="Decoraciones"]
+transform = Transform3D(-1.813998e-08, 0.99999994, -1.21886625e-08, 0, -4.3711385e-08, -0.2788441, -0.41499436, -4.3711385e-08, 5.3278335e-16, 5.8667107, 4.01714, 0.015535831)
+layers = 1023
+mesh = SubResource("BoxMesh_vbwy0")
+skeleton = NodePath("../..")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Decoraciones/Pared4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48376, 0)
+collision_layer = 255
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Decoraciones/Pared4/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.48376, 0)
+shape = SubResource("BoxShape3D_uhgjh")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="Caja" parent="." instance=ExtResource("17_mw4mc")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 2.7473123, 0.96802676, 0)
+unique_name = "caja"
+collision_shape = SubResource("BoxShape3D_sxx02")
+
+[connection signal="_abrir_caja" from="PantallaColas/Content" to="CajaPiezaModulo" method="_on_content__abrir_caja"]
+
+[editable path="InteractiveItem"]

@@ -62,6 +62,7 @@ func _input(event):
 	update_movement_direction()
 	
 	if Input.is_action_just_pressed("goat_crouch"):
+		return
 		var new_height = collision_shape_crouched.shape.height - 0.1
 		var tween = _create_tween()
 		tween.tween_property(camera, "position:y", new_height, 0.2)

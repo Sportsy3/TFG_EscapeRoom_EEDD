@@ -27,6 +27,7 @@ enum ItemType {
 @onready var interaction_icon = $InteractionIcon
 @onready var random_audio_player = $RandomAudioPlayer
 @onready var collision_shape_node = $CollisionShape3D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 const COLLISION_MASK_LAYER = 2
 
@@ -252,3 +253,7 @@ func _disable_collisions():
 
 func _enable_collisions():
 	collision_shape_node.disabled = false
+
+func abrir_caja():
+	animation_player.play("open")
+	_disable_collisions()
