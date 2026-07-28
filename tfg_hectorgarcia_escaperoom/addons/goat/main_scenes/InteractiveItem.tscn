@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://civs7wkopsmgl" path="res://addons/goat/addons/randomAudioStreamPlayer/random_audio_stream_player_3D.gd" id="4"]
 
 [sub_resource type="BoxShape3D" id="1"]
-size = Vector3(0.2, 0.2, 0.2)
+size = Vector3(0.32201108, 0.09331055, 0.43672258)
 
 [node name="InteractiveItem" type="StaticBody3D" groups=["goat_interactive_objects"]]
 collision_layer = 2

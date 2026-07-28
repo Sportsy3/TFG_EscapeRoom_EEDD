@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ihhghrm2m1ok"]
+
+[ext_resource type="PackedScene" uid="uid://cuhh3wglpdp6g" path="res://Models/DiscoInstrucciones.fbx" id="1_sph3e"]
+
+[node name="DiscoInstrucciones" instance=ExtResource("1_sph3e")]
+
+[node name="Cylinder" parent="." index="0"]
+transform = Transform3D(40, 0, 0, 0, 34.641018, 20, 0, -20, 34.641018, 0, 0, 0)

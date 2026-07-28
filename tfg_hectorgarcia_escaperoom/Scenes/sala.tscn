@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://sah4i034hqkh"]
+[gd_scene load_steps=43 format=3 uid="uid://sah4i034hqkh"]
 
 [ext_resource type="PackedScene" uid="uid://c4lmhavj60tqh" path="res://addons/goat/main_scenes/Player.tscn" id="1_35tbc"]
 [ext_resource type="Script" uid="uid://cmi47roau81hi" path="res://Scripts/sala.gd" id="1_57om8"]
@@ -17,6 +17,70 @@
 [ext_resource type="PackedScene" uid="uid://bguikydpflmnn" path="res://resources/goat/inventory_items/models/PiezaOrdenador.tscn" id="13_e5d5u"]
 [ext_resource type="PackedScene" uid="uid://bs1cbvbqybjs" path="res://resources/goat/inventory_items/models/TarjetaModulo.tscn" id="15_5dgsf"]
 [ext_resource type="PackedScene" uid="uid://c4pvhfiue0itu" path="res://Scenes/Caja.tscn" id="17_mw4mc"]
+[ext_resource type="PackedScene" uid="uid://bcklvauewks5b" path="res://Models/RanuraInstrucciones.fbx" id="18_1fkdo"]
+[ext_resource type="PackedScene" uid="uid://bxvbmaf6ewied" path="res://Models/Caja.fbx" id="18_efi15"]
+[ext_resource type="PackedScene" uid="uid://ds3m3xb8tlp5u" path="res://Models/Tapa.fbx" id="19_3jlx0"]
+[ext_resource type="PackedScene" uid="uid://cuhh3wglpdp6g" path="res://Models/DiscoInstrucciones.fbx" id="20_3jlx0"]
+
+[sub_resource type="Animation" id="Animation_rvm5s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DiscoInstrucciones:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DiscoInstrucciones:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(5.9604645e-08, 0.22458631, 0.3611722)]
+}
+
+[sub_resource type="Animation" id="Animation_1fkdo"]
+resource_name = "meter_disco"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DiscoInstrucciones:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.04),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DiscoInstrucciones:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.04, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(5.9604645e-08, 0.22458631, 0.3611722), Vector3(5.9604645e-08, 0.22458631, -0.0917964)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_apc0p"]
+_data = {
+&"RESET": SubResource("Animation_rvm5s"),
+&"meter_disco": SubResource("Animation_1fkdo")
+}
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_emu0x"]
 size = Vector3(1.28, 1, 0.51)
@@ -26,6 +90,8 @@ size = Vector3(1, 1.7515259, 0.54382324)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4tsfr"]
 size = Vector3(4.817322, 5.264282, 4.0839844)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sxx02"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mw4mc"]
 albedo_color = Color(0, 0.49411765, 0, 1)
@@ -78,14 +144,18 @@ size = Vector3(30, 1, 30)
 [sub_resource type="BoxShape3D" id="BoxShape3D_uhgjh"]
 size = Vector3(30, 1, 30)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_sxx02"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_efi15"]
+size = Vector3(2.2581482, 2.5532227, 2.1574707)
 
-[node name="Sala" type="Node3D" node_paths=PackedStringArray("panel_modulo", "modulo_de_construccion", "pieza_ordenador", "torres_hanoi")]
+[node name="Sala" type="Node3D" node_paths=PackedStringArray("panel_modulo", "modulo_de_construccion", "pieza_ordenador", "torres_hanoi", "caja", "animation_player", "pantalla_colas")]
 script = ExtResource("1_57om8")
 panel_modulo = NodePath("PanelModulo/Content")
 modulo_de_construccion = NodePath("ModuloDeConstruccion")
-pieza_ordenador = NodePath("InteractiveItem")
+pieza_ordenador = NodePath("PiezaOrdenador")
 torres_hanoi = NodePath("Hanoi")
+caja = NodePath("Caja")
+animation_player = NodePath("AnimationPlayer")
+pantalla_colas = NodePath("PantallaColas/Content")
 metadata/logic_bricks_states = Array[Dictionary]([{
 "id": "state_1",
 "name": "State 1"
@@ -96,6 +166,12 @@ metadata/logic_bricks_graph = {
 "nodes": []
 }
 metadata/logic_bricks_frames = []
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../RanuraDisco")
+libraries = {
+&"": SubResource("AnimationLibrary_apc0p")
+}
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.70485723, 0.5005869, -0.50258243, 0, 0.70851195, 0.70569885, 0.7093492, -0.4974169, 0.49939978, -81.398926, 19.72346, 0)
@@ -154,13 +230,13 @@ content_size = Vector2(534, 534)
 
 [node name="Content" parent="PanelModulo" instance=ExtResource("8_e5d5u")]
 
-[node name="InteractiveScreen5" parent="." instance=ExtResource("2_05p84")]
+[node name="PantallaInfo" parent="." instance=ExtResource("2_05p84")]
 transform = Transform3D(2.04, 0, 0, 0, 1, 0, 0, 0, 1, 0.931, 1.7731506, -4.41)
 collision_layer = 0
 collision_mask = 0
 content_size = Vector2(693, 339)
 
-[node name="Content" parent="InteractiveScreen5" instance=ExtResource("6_cmo62")]
+[node name="Content" parent="PantallaInfo" instance=ExtResource("6_cmo62")]
 metadata/_edit_use_anchors_ = true
 
 [node name="PantallaArbolesEInfo" parent="." instance=ExtResource("8_klxtk")]
@@ -178,27 +254,62 @@ transform = Transform3D(-0.75, 0, 6.556708e-08, 0, 0.75, 0, -6.556708e-08, 0, -0
 [node name="Hanoi" parent="." instance=ExtResource("10_4tsfr")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.11905186, 1.7879469, 0.40179318)
 
-[node name="InteractiveItem" parent="." instance=ExtResource("12_lo2ud")]
+[node name="PiezaOrdenador" parent="." instance=ExtResource("12_lo2ud")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.10010362, 1.802397, 0.40164798)
 visible = false
 unique_name = "pieza_ordenador"
 item_type = 2
 inventory_item_name = "pieza_ordenador"
 
-[node name="CollisionShape3D" parent="InteractiveItem" index="0"]
+[node name="CollisionShape3D" parent="PiezaOrdenador" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0021026656, -0.04991448, -0.0058654845)
 
-[node name="pieza_ordenador" parent="InteractiveItem" instance=ExtResource("13_e5d5u")]
+[node name="pieza_ordenador" parent="PiezaOrdenador" instance=ExtResource("13_e5d5u")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
-[node name="InteractiveItem2" parent="." instance=ExtResource("12_lo2ud")]
+[node name="TarjetaModulo" parent="." instance=ExtResource("12_lo2ud")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8403754, 0.67848647, 4.2645574)
 unique_name = "tarjeta_modulo"
 item_type = 2
 inventory_item_name = "tarjeta_modulo"
 
-[node name="TarjetaModulo" parent="InteractiveItem2" instance=ExtResource("15_5dgsf")]
+[node name="CollisionShape3D" parent="TarjetaModulo" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0098929405, 0, 0)
+
+[node name="TarjetaModulo" parent="TarjetaModulo" instance=ExtResource("15_5dgsf")]
 transform = Transform3D(0.49999997, 0.86602545, 3.7855173e-08, 0, -4.371139e-08, 1, 0.86602545, -0.49999997, -2.1855692e-08, 0, 0, 0)
+
+[node name="Caja" parent="." instance=ExtResource("17_mw4mc")]
+transform = Transform3D(0.124446064, 0, 0.272971, 0, 0.29999998, 0, -0.272971, 0, 0.124446064, 4.213899, 0.596783, -4.549156)
+unique_name = "caja"
+item_type = 1
+collision_shape = SubResource("BoxShape3D_sxx02")
+
+[node name="DiscoInstrucciones" parent="." instance=ExtResource("12_lo2ud")]
+transform = Transform3D(0.9335804, -0.29710048, -0.2003968, 0, 0.5591929, -0.82903755, 0.35836795, 0.7739732, 0.5220515, 4.279155, 0.82579094, -4.666743)
+unique_name = "disco_instrucciones"
+item_type = 2
+inventory_item_name = "disco_instrucciones"
+
+[node name="CollisionShape3D" parent="DiscoInstrucciones" index="0"]
+transform = Transform3D(1.0000001, -8.940697e-08, -1.3113022e-05, 5.9604645e-08, 1.0000001, 1.5556812e-05, -1.1920929e-07, 0, 1.000011, -0.0034799576, 0.026581764, 0.009102821)
+
+[node name="DiscoInstrucciones" parent="DiscoInstrucciones" instance=ExtResource("20_3jlx0")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="RanuraDisco" parent="." instance=ExtResource("12_lo2ud")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.0239406, 0.34799033, 0.8681247)
+unique_name = "ranura_instrucciones"
+
+[node name="CollisionShape3D" parent="RanuraDisco" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0033186674, 0.2540527, -0.06891203)
+
+[node name="RanuraInstrucciones" parent="RanuraDisco" instance=ExtResource("18_1fkdo")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="DiscoInstrucciones" parent="RanuraDisco" instance=ExtResource("20_3jlx0")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 5.9604645e-08, 0.22458631, 0.3611722)
+visible = false
 
 [node name="Player" parent="." instance=ExtResource("1_35tbc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.8830683)
@@ -207,6 +318,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.8830683)
 
 [node name="Cable1" type="MeshInstance3D" parent="Decoraciones"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.340976, 1.0946524, 4.686827)
+mesh = SubResource("CylinderMesh_sxx02")
+skeleton = NodePath("../..")
+
+[node name="Cable5" type="MeshInstance3D" parent="Decoraciones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.340976, 1.1724185, 0.8442631)
 mesh = SubResource("CylinderMesh_sxx02")
 skeleton = NodePath("../..")
 
@@ -232,6 +348,11 @@ skeleton = NodePath("../..")
 
 [node name="ApoyoCaja" type="MeshInstance3D" parent="Decoraciones"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9744034, 0.16233619, 4.2094917)
+mesh = SubResource("BoxMesh_mw4mc")
+skeleton = NodePath("../..")
+
+[node name="ApoyoCaja2" type="MeshInstance3D" parent="Decoraciones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.254212, 0.16233619, 0.85099053)
 mesh = SubResource("BoxMesh_mw4mc")
 skeleton = NodePath("../..")
 
@@ -457,11 +578,33 @@ metadata/logic_bricks_graph = {
 }
 metadata/logic_bricks_frames = []
 
-[node name="Caja" parent="." instance=ExtResource("17_mw4mc")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 2.7473123, 0.96802676, 0)
-unique_name = "caja"
-collision_shape = SubResource("BoxShape3D_sxx02")
+[node name="Caja" parent="Decoraciones" instance=ExtResource("18_efi15")]
+transform = Transform3D(0.28550085, 0, -0.09213723, 0, 0.3, 0, 0.09213723, 0, 0.28550085, 3.8939886, 1.1920929e-07, -4.691547)
+
+[node name="Tapa" parent="Decoraciones/Caja" instance=ExtResource("19_3jlx0")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Decoraciones/Caja"]
+collision_layer = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Decoraciones/Caja/StaticBody3D"]
+transform = Transform3D(0.9999999, 0, 2.9802322e-08, 0, 0.99999976, 0, -2.9802322e-08, 0, 0.9999999, 0.056011677, 0.77661026, 0.0018291473)
+shape = SubResource("BoxShape3D_efi15")
+
+[node name="Caja2" parent="Decoraciones" instance=ExtResource("18_efi15")]
+transform = Transform3D(0.10280281, 0, -0.28183606, 0, 0.29999998, 0, 0.28183606, 0, 0.10280281, 4.5614223, 1.1920929e-07, -4.3753834)
+
+[node name="Tapa" parent="Decoraciones/Caja2" instance=ExtResource("19_3jlx0")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Decoraciones/Caja2"]
+collision_layer = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Decoraciones/Caja2/StaticBody3D"]
+transform = Transform3D(0.9999999, 0, 2.9802322e-08, 0, 0.99999976, 0, -2.9802322e-08, 0, 0.9999999, 0.056011677, 0.77661026, 0.0018291473)
+shape = SubResource("BoxShape3D_efi15")
 
 [connection signal="_abrir_caja" from="PantallaColas/Content" to="CajaPiezaModulo" method="_on_content__abrir_caja"]
 
-[editable path="InteractiveItem"]
+[editable path="PiezaOrdenador"]
+[editable path="TarjetaModulo"]
+[editable path="DiscoInstrucciones"]
+[editable path="RanuraDisco"]
