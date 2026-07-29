@@ -1,7 +1,131 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtbq3w6xpiavn"]
+[gd_scene load_steps=19 format=3 uid="uid://dtbq3w6xpiavn"]
 
 [ext_resource type="Texture2D" uid="uid://dxt8rr4uwkfqk" path="res://Images/Captura de pantalla 2026-06-29 152437.png" id="1_2q2n1"]
 [ext_resource type="Script" uid="uid://c1q2jl2jmst8v" path="res://Scripts/puzle_grafos_pantalla.gd" id="1_umhvh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_umhvh"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 800
+corner_radius_top_right = 800
+corner_radius_bottom_right = 800
+corner_radius_bottom_left = 800
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2rya"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.78431374, 0.78431374, 0.78431374, 1)
+corner_radius_top_left = 800
+corner_radius_top_right = 800
+corner_radius_bottom_right = 800
+corner_radius_bottom_left = 800
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nkad2"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 800
+corner_radius_top_right = 800
+corner_radius_bottom_right = 800
+corner_radius_bottom_left = 800
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xqfsc"]
+corner_radius_top_left = 800
+corner_radius_top_right = 800
+corner_radius_bottom_right = 800
+corner_radius_bottom_left = 800
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yii68"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 800
+corner_radius_top_right = 800
+corner_radius_bottom_right = 800
+corner_radius_bottom_left = 800
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rn2s4"]
+corner_radius_top_left = 800
+corner_radius_top_right = 800
+corner_radius_bottom_right = 800
+corner_radius_bottom_left = 800
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ad5a4"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 800
+corner_radius_top_right = 800
+corner_radius_bottom_right = 800
+corner_radius_bottom_left = 800
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slesg"]
+corner_radius_top_left = 800
+corner_radius_top_right = 800
+corner_radius_bottom_right = 800
+corner_radius_bottom_left = 800
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ehh6"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 800
+corner_radius_top_right = 800
+corner_radius_bottom_right = 800
+corner_radius_bottom_left = 800
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ruitd"]
+corner_radius_top_left = 800
+corner_radius_top_right = 800
+corner_radius_bottom_right = 800
+corner_radius_bottom_left = 800
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46lyh"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 800
+corner_radius_top_right = 800
+corner_radius_bottom_right = 800
+corner_radius_bottom_left = 800
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ecwd4"]
+corner_radius_top_left = 800
+corner_radius_top_right = 800
+corner_radius_bottom_right = 800
+corner_radius_bottom_left = 800
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gn3ht"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uea5d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3755"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btsak"]
 
 [node name="PuzleGrafosPantalla" type="Control"]
 layout_mode = 3
@@ -19,6 +143,7 @@ metadata/logic_bricks_graph = {
 metadata/logic_bricks_frames = []
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(388, 288.5)
 scale = Vector2(1.0902256, 1.0882353)
 texture = ExtResource("1_2q2n1")
@@ -31,10 +156,21 @@ metadata/logic_bricks_frames = []
 
 [node name="Button0" type="Button" parent="."]
 layout_mode = 0
-offset_left = 574.0
-offset_top = 264.5
-offset_right = 623.0
-offset_bottom = 313.5
+offset_left = 566.0
+offset_top = 256.0
+offset_right = 633.0
+offset_bottom = 323.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0.5019608)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_umhvh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h2rya")
+text = "A"
 metadata/logic_bricks_graph = {
 "connections": [],
 "next_id": 0,
@@ -44,10 +180,21 @@ metadata/logic_bricks_frames = []
 
 [node name="Button1" type="Button" parent="."]
 layout_mode = 0
-offset_left = 464.99997
-offset_top = 455.5
-offset_right = 514.0
-offset_bottom = 504.5
+offset_left = 457.0
+offset_top = 445.0
+offset_right = 524.0
+offset_bottom = 511.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_nkad2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xqfsc")
+text = "B"
 metadata/logic_bricks_graph = {
 "connections": [],
 "next_id": 0,
@@ -57,10 +204,21 @@ metadata/logic_bricks_frames = []
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 245.99997
-offset_top = 454.5
-offset_right = 294.99997
-offset_bottom = 503.5
+offset_left = 240.0
+offset_top = 445.0
+offset_right = 305.0
+offset_bottom = 511.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_yii68")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rn2s4")
+text = "C"
 metadata/logic_bricks_graph = {
 "connections": [],
 "next_id": 0,
@@ -70,10 +228,21 @@ metadata/logic_bricks_frames = []
 
 [node name="Button3" type="Button" parent="."]
 layout_mode = 0
-offset_left = 137.99997
-offset_top = 263.5
-offset_right = 186.99997
-offset_bottom = 312.5
+offset_left = 131.0
+offset_top = 257.0
+offset_right = 196.0
+offset_bottom = 322.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_ad5a4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_slesg")
+text = "D"
 metadata/logic_bricks_graph = {
 "connections": [],
 "next_id": 0,
@@ -83,10 +252,21 @@ metadata/logic_bricks_frames = []
 
 [node name="Button4" type="Button" parent="."]
 layout_mode = 0
-offset_left = 248.0
-offset_top = 77.0
-offset_right = 297.0
-offset_bottom = 126.0
+offset_left = 240.0
+offset_top = 68.0
+offset_right = 305.0
+offset_bottom = 133.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_6ehh6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ruitd")
+text = "E"
 metadata/logic_bricks_graph = {
 "connections": [],
 "next_id": 0,
@@ -96,10 +276,21 @@ metadata/logic_bricks_frames = []
 
 [node name="Button5" type="Button" parent="."]
 layout_mode = 0
-offset_left = 464.99997
-offset_top = 76.5
-offset_right = 514.0
-offset_bottom = 125.5
+offset_left = 457.0
+offset_top = 68.0
+offset_right = 524.0
+offset_bottom = 135.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_46lyh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ecwd4")
+text = "F"
 metadata/logic_bricks_graph = {
 "connections": [],
 "next_id": 0,
@@ -113,6 +304,14 @@ offset_left = 754.0
 offset_top = 432.0
 offset_right = 991.0
 offset_bottom = 494.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_gn3ht")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uea5d")
 text = "Comprobar ruta"
 metadata/logic_bricks_graph = {
 "connections": [],
@@ -127,6 +326,15 @@ offset_left = 756.0
 offset_top = 514.0
 offset_right = 991.0
 offset_bottom = 569.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_s3755")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btsak")
 text = "Reiniciar"
 metadata/logic_bricks_graph = {
 "connections": [],
@@ -164,9 +372,9 @@ metadata/logic_bricks_frames = []
 
 [node name="FeedbackLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 666.0
+offset_left = 686.0
 offset_top = 44.0
-offset_right = 1122.0
+offset_right = 1144.0
 offset_bottom = 217.0
 metadata/logic_bricks_graph = {
 "connections": [],
@@ -188,3 +396,12 @@ metadata/logic_bricks_graph = {
 "nodes": []
 }
 metadata/logic_bricks_frames = []
+
+[node name="PantallaApagada" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -38.0
+offset_top = -32.0
+offset_right = 1204.0
+offset_bottom = 689.0
+color = Color(0, 0, 0, 1)

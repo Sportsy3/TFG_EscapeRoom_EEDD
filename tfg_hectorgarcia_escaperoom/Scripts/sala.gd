@@ -1,18 +1,19 @@
 extends Node3D
 
-@export var panel_modulo: Control
-@export var modulo_de_construccion: Node3D
-@export var pieza_ordenador: StaticBody3D
-@export var torres_hanoi: Node3D
-@export var caja: StaticBody3D
-@export var animation_player: AnimationPlayer
-@export var pantalla_colas: Control
-@export var compartimento_pieza: StaticBody3D
-@export var modelo_pieza_compartimento: Node3D
-@export var pantalla_info_arboles: Control
 @export var modo_debug: bool = false
 @export var objetos_debugging: Node
+@export var panel_modulo: Control
+@export var pantalla_info_arboles: Control
+@export var pantalla_colas: Control
+@export var pantalla_grafos: Control
+@export var pieza_ordenador: StaticBody3D
+@export var compartimento_pieza: StaticBody3D
+@export var caja: StaticBody3D
+@export var torres_hanoi: Node3D
+@export var modelo_pieza_compartimento: Node3D
+@export var modulo_de_construccion: Node3D
 @export var pantalla_arboles: MeshInstance3D
+@export var animation_player: AnimationPlayer
 
 var compartimento_abierto: bool = false
 var ordenador_arreglado: bool = false
@@ -36,6 +37,7 @@ func _on_item_used(item_name,used_on_name):
 		goat_inventory.remove_item("pieza_ordenador")
 		await pantalla_info_arboles.mostrar_texto()
 		pantalla_arboles.set_surface_override_material(0,material_arboles)
+		pantalla_grafos.encender()
 		
 	if item_name == "tarjeta_modulo" and used_on_name == "panel_modulo":
 		panel_modulo.abrir_modulo()
@@ -80,4 +82,3 @@ func desactivar_modo_debug():
 	var objetos = objetos_debugging.get_children()
 	for i in objetos:
 		i.queue_free()
-	

@@ -11,10 +11,11 @@ extends Control
 @onready var feedback_label: Label = $FeedbackLabel
 @onready var peso_label: Label = $PesoLabel
 @onready var ruta_label: Label = $RutaLabel
+@onready var pantalla_apagada: ColorRect = $PantallaApagada
 
 var ruta_correcta: Array = [2,0,1,3,5]
 var peso_correcto: int = 17
-var ruta_actual: Array
+var ruta_actual: Array = []
 var nodo_actual: int
 var nodo_destino: int
 var matriz_pesos: Array = [[0, 4, 2, 0, 0, 0],
@@ -23,7 +24,9 @@ var matriz_pesos: Array = [[0, 4, 2, 0, 0, 0],
 	[0, 5, 8, 0, 2, 6],
 	[0, 0, 10, 2, 0, 3],
 	[0, 0, 0, 6, 3, 0]]
+var posicion_nodos: Array
 var peso_total: int = 0
+var buttons: Array
 
 func _ready() -> void:
 	button_0.pressed.connect(_on_button0_pressed)
@@ -34,14 +37,31 @@ func _ready() -> void:
 	button_5.pressed.connect(_on_button5_pressed)
 	boton_comprobar_solucion.pressed.connect(_on_buttonsolution_pressed)
 	boton_reiniciar.pressed.connect(_on_buttonreiniciar_pressed)
+	pantalla_apagada.visible = true
+	buttons.append(button_0)
+	buttons.append(button_1)
+	buttons.append(button_2)
+	buttons.append(button_3)
+	buttons.append(button_4)
+	buttons.append(button_5)
+	
+	await get_tree().process_frame
+	
+	var inverse_transform = get_global_transform().affine_inverse()
+	
+	for b in buttons:
+		posicion_nodos.append(inverse_transform * (b.global_position + b.size / 2))
+	
+	queue_redraw()
 
 func introducir_nodo(nodo: int):
 	ruta_actual.append(nodo)
-	for i in ruta_actual.size():
-		if i == 0:
-			ruta_label.text = str(ruta_actual[i])
-		else:
-			ruta_label.text = ruta_label.text + " - " + str(ruta_actual[i])
+	queue_redraw()
+	#print(ruta_actual.size())
+	if ruta_actual.size() == 1:
+		ruta_label.text = buttons[ruta_actual[0]].text
+	else:
+		ruta_label.text = ruta_label.text + " - " + buttons[ruta_actual[ruta_actual.size()-1]].text
 	peso_label.text = "Gasto de combustible: " + str(peso_total) + "/17"
 	feedback_label.text = "Nodo " + str(nodo) + " añadido a la ruta."
 	nodo_actual = nodo
@@ -85,6 +105,7 @@ func _on_buttonreiniciar_pressed():
 	peso_label.text = "Gasto de combustible: " + str(peso_total) + "/17"
 	ruta_label.text = ""
 	ruta_actual.clear()
+	queue_redraw()
 
 func establecer_ruta():
 	if ruta_actual.is_empty():
@@ -95,3 +116,42 @@ func establecer_ruta():
 			introducir_nodo(nodo_destino)
 		else:
 			feedback_label.text = "Nodos no conectados."
+
+func encender():
+	pantalla_apagada.queue_free()
+	queue_redraw()
+
+func _draw():
+	draw_rect(Rect2(Vector2.ZERO, size), Color.BLACK)
+	var num_nodos = matriz_pesos.size()
+	
+	if posicion_nodos.size() < num_nodos:
+		return
+	#print("posicion_nodos: ", posicion_nodos)
+	#print("rect size del Control: ", size)
+	
+	
+	# Dibujar aristas
+	for i in range(num_nodos):
+		for j in range(i + 1, num_nodos):
+			var peso = matriz_pesos[i][j]
+			if peso > 0:
+				#print(peso)
+				var pos_inicial = posicion_nodos[i]
+				var pos_final = posicion_nodos[j]
+				#print("Dibujando línea de ", pos_inicial, " a ", pos_final)
+				var es_camino = false
+				for k in range(ruta_actual.size() - 1):
+					if (ruta_actual[k] == i and ruta_actual[k + 1] == j) or \
+					   (ruta_actual[k] == j and ruta_actual[k + 1] == i):
+						es_camino = true
+						break
+				if es_camino:
+					draw_line(pos_inicial, pos_final, Color.GREEN, 5)
+				else:
+					draw_line(pos_inicial, pos_final, Color.GRAY, 5)
+				
+				# Dibujar pesos
+				var pos_media = (pos_inicial + pos_final) / 2
+				draw_circle(pos_media, 15, Color.WHITE)
+				draw_string(ThemeDB.fallback_font, pos_media - Vector2(8, -5), str(peso), HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color.BLACK)
