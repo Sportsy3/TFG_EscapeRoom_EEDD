@@ -10,6 +10,8 @@ var seleccion_actual: String = ""
 var bloqueado: bool = false
 var bloqueo_total: bool = false
 var puzle_terminado: bool = false
+var velocidad_tecleo: float = 50
+var tiempo_tecleo: float
 
 @onready var slots_r1 = $HBoxContainer/VBoxContainer/SlotRendija1
 @onready var slots_r2 = $HBoxContainer/VBoxContainer/SlotRendija2
@@ -148,3 +150,12 @@ func actualizar_instrucciones():
 	2 de abajo a arriba.
 	2 de arriba a abajo.
 	2 de abajo a arriba."
+	mostrar_texto()
+
+func mostrar_texto():
+	instrucciones.visible_characters = 0
+	tiempo_tecleo = 0
+	while instrucciones.visible_characters < instrucciones.get_total_character_count():
+		tiempo_tecleo += get_process_delta_time()
+		instrucciones.visible_characters = int(velocidad_tecleo * tiempo_tecleo)
+		await get_tree().process_frame

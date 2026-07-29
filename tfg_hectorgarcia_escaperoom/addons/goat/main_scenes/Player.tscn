@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c4lmhavj60tqh"]
+[gd_scene load_steps=13 format=3 uid="uid://c4lmhavj60tqh"]
 
 [ext_resource type="Script" uid="uid://ctx2r8hkqox40" path="res://addons/goat/main_scenes/Player.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://bhat28de4h0ds" path="res://addons/goat/helper_scenes/RayCast3D.tscn" id="3"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cyx7u5m2w8vek" path="res://addons/goat/helper_scenes/ContextInventory.tscn" id="6"]
 [ext_resource type="PackedScene" uid="uid://bfp8pkh3uyq0f" path="res://addons/goat/helper_scenes/Subtitles.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://dffabq48ebajf" path="res://addons/goat/helper_scenes/Settings.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://0nirtci7k3f0" path="res://UI/interaction_pointer.tscn" id="9_4jwrx"]
 
 [sub_resource type="CylinderShape3D" id="1"]
 height = 1.8
@@ -184,5 +185,7 @@ metadata/logic_bricks_graph = {
 "nodes": []
 }
 metadata/logic_bricks_frames = []
+
+[node name="InteractionPointer" parent="." instance=ExtResource("9_4jwrx")]
 
 [connection signal="timeout" from="GravityTimer" to="." method="_on_GravityTimer_timeout"]

@@ -89,4 +89,4 @@ func _actualizar_posiciones():
 func _comprobar_victoria():
 	if torres["torre_3"] == [3, 2, 1]:
 		print("¡Puzzle resuelto!")
-		get_parent().fabricar_pieza()
+		get_parent().get_parent().fabricar_pieza()

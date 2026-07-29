@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://byeoyi7c83w8h"]
+[gd_scene load_steps=2 format=3 uid="uid://byeoyi7c83w8h"]
+
+[ext_resource type="Script" uid="uid://dqu0anf3kcrv7" path="res://Scripts/puzle_arboles_info.gd" id="1_bfiax"]
 
 [node name="PuzleArbolesInfo" type="Control"]
 layout_mode = 3
@@ -9,6 +11,7 @@ offset_right = -459.0
 offset_bottom = -309.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_bfiax")
 metadata/logic_bricks_graph = {
 "connections": [],
 "next_id": 0,
@@ -28,7 +31,7 @@ metadata/logic_bricks_graph = {
 }
 metadata/logic_bricks_frames = []
 
-[node name="Label" type="Label" parent="."]
+[node name="Texto" type="Label" parent="."]
 layout_mode = 0
 offset_left = 8.0
 offset_right = 692.0
@@ -44,6 +47,19 @@ Información sobre la última entrega del viaje adquirida.
 
 Configure manualmente la ruta en el mapa. Recuerde que, por políticas de la empresa,
 la nave siempre cuenta con el combustible exacto para terminar el viaje de ida."
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="PantallaApagada" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 956.0
+offset_bottom = 1334.0
+color = Color(0, 0, 0, 1)
 metadata/logic_bricks_graph = {
 "connections": [],
 "next_id": 0,
