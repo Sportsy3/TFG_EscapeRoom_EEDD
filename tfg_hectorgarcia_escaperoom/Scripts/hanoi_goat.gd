@@ -22,7 +22,7 @@ var disco_seleccionado = null  # número de disco actualmente en mano
 	3: $Disco3
 }
 
-const ALTURA_DISCO = 0.2  # grosor de cada disco, para apilar visualmente
+const ALTURA_DISCO = 0.1  # grosor de cada disco, para apilar visualmente
 
 func _ready():
 	goat_interaction.object_activated.connect(_on_object_activated)

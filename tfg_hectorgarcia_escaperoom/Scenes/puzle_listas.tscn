@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1xd5vfhwoere"]
+
+[ext_resource type="Script" uid="uid://ldtsi44r4ym7" path="res://Scripts/puzle_listas.gd" id="1_c7mvr"]
+[ext_resource type="PackedScene" uid="uid://bf1sbquxmub4a" path="res://Scenes/PanelilloGoat.tscn" id="2_kycux"]
+[ext_resource type="PackedScene" uid="uid://bnmg0a564wwjp" path="res://addons/goat/main_scenes/InteractiveItem.tscn" id="3_kycux"]
+[ext_resource type="PackedScene" uid="uid://bsv7k32eyyqqr" path="res://addons/goat/main_scenes/InteractiveScreen.tscn" id="4_24sl2"]
+[ext_resource type="PackedScene" uid="uid://dtntib3bj04hw" path="res://Scenes/pantalla_secuencia_listas.tscn" id="5_gjoun"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_24sl2"]
+size = Vector3(0.4, 0.3, 0.3)
+
+[node name="PuzleListas" type="Node3D" node_paths=PackedStringArray("panelillo_1", "panelillo_2", "panelillo_3", "panelillo_4", "panelillo_5", "panelillo_6", "panelillo_7", "panelillo_8", "panelillo_9", "pantalla_secuencia")]
+script = ExtResource("1_c7mvr")
+panelillo_1 = NodePath("Panelillo1")
+panelillo_2 = NodePath("Panelillo2")
+panelillo_3 = NodePath("Panelillo3")
+panelillo_4 = NodePath("Panelillo4")
+panelillo_5 = NodePath("Panelillo5")
+panelillo_6 = NodePath("Panelillo6")
+panelillo_7 = NodePath("Panelillo7")
+panelillo_8 = NodePath("Panelillo8")
+panelillo_9 = NodePath("Panelillo9")
+pantalla_secuencia = NodePath("InteractiveScreen/Content")
+
+[node name="Panelillo1" parent="." instance=ExtResource("2_kycux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.6, 0)
+unique_name = "panelillo_1"
+num_panel = 3
+
+[node name="Panelillo2" parent="." instance=ExtResource("2_kycux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+unique_name = "panelillo_2"
+num_panel = 4
+
+[node name="Panelillo3" parent="." instance=ExtResource("2_kycux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.6, 0)
+unique_name = "panelillo_3"
+num_panel = 1
+
+[node name="Panelillo4" parent="." instance=ExtResource("2_kycux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0)
+unique_name = "panelillo_4"
+num_panel = 2
+
+[node name="Panelillo5" parent="." instance=ExtResource("2_kycux")]
+unique_name = "panelillo_5"
+num_panel = 7
+
+[node name="Panelillo6" parent="." instance=ExtResource("2_kycux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0)
+unique_name = "panelillo_6"
+num_panel = 9
+
+[node name="Panelillo7" parent="." instance=ExtResource("2_kycux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, -0.6, 0)
+unique_name = "panelillo_7"
+num_panel = 5
+
+[node name="Panelillo8" parent="." instance=ExtResource("2_kycux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
+unique_name = "panelillo_8"
+num_panel = 6
+
+[node name="Panelillo9" parent="." instance=ExtResource("2_kycux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, -0.6, 0)
+unique_name = "panelillo_9"
+num_panel = 8
+
+[node name="BotonReiniciar" parent="." instance=ExtResource("3_kycux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5958358, -0.5998595, 0)
+unique_name = "boton_reiniciar"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BotonReiniciar"]
+mesh = SubResource("BoxMesh_24sl2")
+
+[node name="InteractiveScreen" parent="." instance=ExtResource("4_24sl2")]
+transform = Transform3D(1, 0, 0, 0, 0.167, 0, 0, 0, 0.167, 1.4622658, -0.051880896, 0)
+content_size = Vector2(648, 108)
+
+[node name="CollisionShape3D" parent="InteractiveScreen" index="0"]
+shape = null
+
+[node name="Content" parent="InteractiveScreen" instance=ExtResource("5_gjoun")]
+
+[editable path="InteractiveScreen"]

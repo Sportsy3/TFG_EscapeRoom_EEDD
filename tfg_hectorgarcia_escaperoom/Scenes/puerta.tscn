@@ -1,0 +1,124 @@
+[gd_scene load_steps=12 format=3 uid="uid://cjjs87obfrmna"]
+
+[ext_resource type="PackedScene" uid="uid://b27gtvrbrlgk1" path="res://Models/PuertaDcha.fbx" id="1_0nvjv"]
+[ext_resource type="Script" uid="uid://ub6nxn8byo65" path="res://Scripts/puerta.gd" id="1_8lxdd"]
+[ext_resource type="PackedScene" uid="uid://br0kfdpud0ats" path="res://Models/PuertaIzq.fbx" id="2_8lxdd"]
+[ext_resource type="PackedScene" uid="uid://dfu3uqs3jr82d" path="res://Models/MarcoPuerta.fbx" id="3_yocse"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7qjlv"]
+size = Vector3(0.49047852, 4.088928, 1.8237915)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1i6uv"]
+size = Vector3(0.57788086, 3.038391, 4.2263184)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aol8t"]
+size = Vector3(0.5383301, 4.0180664, 4.345581)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yi085"]
+size = Vector3(0.56388855, 6.000702, 0.66381836)
+
+[sub_resource type="Animation" id="Animation_bd0je"]
+resource_name = "abrir_puerta"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PuertaDcha:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -4.469049)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PuertaIzq:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 4.5561824)]
+}
+
+[sub_resource type="Animation" id="Animation_2srua"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PuertaDcha:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PuertaIzq:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k0egv"]
+_data = {
+&"RESET": SubResource("Animation_2srua"),
+&"abrir_puerta": SubResource("Animation_bd0je")
+}
+
+[node name="Puerta" type="Node3D"]
+script = ExtResource("1_8lxdd")
+
+[node name="PuertaDcha" parent="." instance=ExtResource("1_0nvjv")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PuertaDcha"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PuertaDcha/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13928223, 1.9957888, -2.1745906)
+shape = SubResource("BoxShape3D_7qjlv")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="PuertaDcha"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5279264, -1.1568005)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PuertaDcha/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14001465, 0.07711792, 0.17834473)
+shape = SubResource("BoxShape3D_1i6uv")
+
+[node name="PuertaIzq" parent="." instance=ExtResource("2_8lxdd")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PuertaIzq"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PuertaIzq/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15930176, 2.0314298, 0.95288897)
+shape = SubResource("BoxShape3D_aol8t")
+
+[node name="MarcoPuerta" parent="." instance=ExtResource("3_yocse")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MarcoPuerta"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MarcoPuerta/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15413666, 3.022441, 3.4717875)
+shape = SubResource("BoxShape3D_yi085")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="MarcoPuerta"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.940341)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MarcoPuerta/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13876343, 3.022441, 3.4717875)
+shape = SubResource("BoxShape3D_yi085")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_k0egv")
+}

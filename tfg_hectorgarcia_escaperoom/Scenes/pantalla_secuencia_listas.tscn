@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtntib3bj04hw"]
+
+[ext_resource type="Script" uid="uid://di2rrhouwuivo" path="res://Scripts/pantalla_secuencia_listas.gd" id="1_ga4y0"]
+
+[node name="PantallaSecuenciaListas" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -504.0
+offset_bottom = -540.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ga4y0")
+
+[node name="SecuenciaLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 648.0
+offset_bottom = 108.0
+theme_override_font_sizes/font_size = 53

@@ -256,13 +256,10 @@ func girar_panelillo():
 	if panel_girado == false:
 		animation_player.play("panel_rotation")
 		panel_girado = true
-		GameManager.combinacion_actual_paneles.append(num_panel)
-		for i in range(GameManager.combinacion_actual_paneles.size()):
-			print(GameManager.combinacion_actual_paneles[i])
 
 
 func resetear_panelillo():
-	print("Gira el panel")
+	#print("Gira el panel")
 	if panel_girado == true:
 		animation_player.play_backwards("panel_rotation")
 		panel_girado = false

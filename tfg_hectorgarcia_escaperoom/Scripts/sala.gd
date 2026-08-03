@@ -6,12 +6,14 @@ extends Node3D
 @export var pantalla_info_arboles: Control
 @export var pantalla_colas: Control
 @export var pantalla_grafos: Control
+@export var panel_puerta: Control
 @export var pieza_ordenador: StaticBody3D
 @export var compartimento_pieza: StaticBody3D
 @export var caja: StaticBody3D
 @export var torres_hanoi: Node3D
 @export var modelo_pieza_compartimento: Node3D
 @export var modulo_de_construccion: Node3D
+@export var puerta: Node3D
 @export var pantalla_arboles: MeshInstance3D
 @export var animation_player: AnimationPlayer
 
@@ -77,6 +79,10 @@ func fabricar_pieza():
 	modulo_de_construccion.open()
 	torres_hanoi.queue_free()
 	#print("modulo abierto")
+
+func abrir_puerta():
+	print("abriendo puerta")
+	puerta.abrir()
 
 func desactivar_modo_debug():
 	var objetos = objetos_debugging.get_children()

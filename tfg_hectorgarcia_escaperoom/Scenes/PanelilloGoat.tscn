@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://2t38vrxwiv4l" path="res://addons/goat/images/item_interaction_icon.png" id="4_ote1n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l610m"]
+size = Vector3(0.5, 0.5, 0.013)
 
 [sub_resource type="BoxShape3D" id="1"]
 size = Vector3(0.5001953, 0.5047485, 0.012646485)
