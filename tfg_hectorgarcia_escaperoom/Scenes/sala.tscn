@@ -1,10 +1,11 @@
-[gd_scene load_steps=61 format=4 uid="uid://sah4i034hqkh"]
+[gd_scene load_steps=66 format=4 uid="uid://sah4i034hqkh"]
 
 [ext_resource type="PackedScene" uid="uid://c4lmhavj60tqh" path="res://addons/goat/main_scenes/Player.tscn" id="1_35tbc"]
 [ext_resource type="Script" uid="uid://cmi47roau81hi" path="res://Scripts/sala.gd" id="1_57om8"]
 [ext_resource type="PackedScene" uid="uid://bsv7k32eyyqqr" path="res://addons/goat/main_scenes/InteractiveScreen.tscn" id="2_05p84"]
 [ext_resource type="PackedScene" uid="uid://kqyc4fk2mqrp" path="res://Scenes/puzle_colas_pantalla.tscn" id="4_klxtk"]
 [ext_resource type="PackedScene" uid="uid://dtbq3w6xpiavn" path="res://Scenes/puzle_grafos_pantalla.tscn" id="5_4tsfr"]
+[ext_resource type="PackedScene" uid="uid://bpk6enk788lr1" path="res://Models/ParedMarcoPuerta.fbx" id="5_xsjx1"]
 [ext_resource type="PackedScene" uid="uid://byeoyi7c83w8h" path="res://Scenes/puzle_arboles_info.tscn" id="6_cmo62"]
 [ext_resource type="PackedScene" uid="uid://dn8jnhj2f1sae" path="res://Scenes/caja_pieza_modulo.tscn" id="6_kcn3k"]
 [ext_resource type="PackedScene" uid="uid://ch5luddfk3irq" path="res://Models/PantallaPuzleColas.fbx" id="7_05p84"]
@@ -184,15 +185,29 @@ size = Vector3(30, 1, 30)
 [sub_resource type="BoxShape3D" id="BoxShape3D_uhgjh"]
 size = Vector3(30, 1, 30)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xsjx1"]
+albedo_color = Color(0.10980392, 0.09411765, 0.21176471, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_giv11"]
+material = SubResource("StandardMaterial3D_xsjx1")
+size = Vector3(30, 1, 30)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j00go"]
 albedo_color = Color(0.14509805, 0.12156863, 0.27450982, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_xsjx1"]
 material = SubResource("StandardMaterial3D_j00go")
-size = Vector3(30, 1.43, 30)
+size = Vector3(30, 1.43, 36.565)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xsjx1"]
+size = Vector3(36.64685, 1.4291992, 29.794067)
+
+[sub_resource type="BoxMesh" id="BoxMesh_361mr"]
+material = SubResource("StandardMaterial3D_j00go")
+size = Vector3(16.11, 1.43, 35.165)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_361mr"]
-size = Vector3(30, 1.4291992, 30)
+size = Vector3(16.001465, 1.4291992, 35.02881)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_efi15"]
 size = Vector3(2.2581482, 2.5532227, 2.1574707)
@@ -294,10 +309,12 @@ metadata/logic_bricks_frames = []
 transform = Transform3D(0.2999999, 0, -5.7620357e-09, 0, 0.2999999, 0, -1.0228468e-08, 0, 0.30081996, 4.839802, 0.35253978, 4.201722)
 
 [node name="ModuloDeConstruccion" parent="." instance=ExtResource("9_klxtk")]
-transform = Transform3D(-0.75, 0, 6.556708e-08, 0, 0.75, 0, -6.556708e-08, 0, -0.75, 0.09630275, 0.019513369, 0.42656183)
+transform = Transform3D(-0.75, 0, 6.556708e-08, 0, 0.75, 0, -6.556708e-08, 0, -0.75, 0.09630275, -0.12068176, 0.42656183)
 
 [node name="Puerta" parent="." instance=ExtResource("26_v5b5x")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -2.4101133, 0, 4.3893886)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -2.5125175, 0, 4.3893886)
+
+[node name="ParedMarcoPuerta" parent="Puerta" instance=ExtResource("5_xsjx1")]
 
 [node name="Player" parent="." instance=ExtResource("1_35tbc")]
 transform = Transform3D(0.6643698, 0, 0.747404, 0, 1, 0, -0.747404, 0, 0.6643698, 2.942888, 0, 4.090104)
@@ -357,7 +374,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0098929405, 0, 0)
 transform = Transform3D(0.49999997, 0.86602545, 3.7855173e-08, 0, -4.371139e-08, 1, 0.86602545, -0.49999997, -2.1855692e-08, 0, 0, 0)
 
 [node name="PiezaOrdenador" parent="ObjetosInteractuables" instance=ExtResource("12_lo2ud")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.10010362, 1.802397, 0.40164798)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.10010362, 1.6622019, 0.40164798)
 visible = false
 unique_name = "pieza_ordenador"
 item_type = 2
@@ -370,7 +387,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0021026656, -0.04991448, -0
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Hanoi" parent="ObjetosInteractuables" instance=ExtResource("10_4tsfr")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.11905186, 1.7879469, 0.40179318)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.11905186, 1.6477518, 0.40179318)
 
 [node name="CompartimentoPieza" parent="ObjetosInteractuables" instance=ExtResource("12_lo2ud")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.2840954, 1.5602697, -4.5071774)
@@ -415,7 +432,7 @@ content_size = Vector2(693, 339)
 metadata/_edit_use_anchors_ = true
 
 [node name="PanelModulo" parent="PantallasInteractuables" instance=ExtResource("2_05p84")]
-transform = Transform3D(-1.9233012e-08, 0, -0.44, 0, 0.44, 0, 0.44, 0, -1.9233012e-08, -0.72007465, 1.2645564, 0.4259954)
+transform = Transform3D(-1.9233012e-08, 0, -0.44, 0, 0.44, 0, 0.44, 0, -1.9233012e-08, -0.72007465, 1.128126, 0.4259954)
 unique_name = "panel_modulo"
 content_size = Vector2(534, 534)
 
@@ -466,31 +483,37 @@ content_size = Vector2(648, 648)
 
 [node name="Cable1" type="MeshInstance3D" parent="Decoraciones"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.340976, 1.0946524, 4.686827)
+visible = false
 mesh = SubResource("CylinderMesh_sxx02")
 skeleton = NodePath("../..")
 
 [node name="Cable5" type="MeshInstance3D" parent="Decoraciones"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.388391, 1.1724185, 1.233973)
+visible = false
 mesh = SubResource("CylinderMesh_sxx02")
 skeleton = NodePath("../..")
 
 [node name="Cable2" type="MeshInstance3D" parent="Decoraciones"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.340976, 1.0946524, 4.7313547)
+visible = false
 mesh = SubResource("CylinderMesh_3jlx0")
 skeleton = NodePath("../..")
 
 [node name="Cable3" type="MeshInstance3D" parent="Decoraciones"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5.340976, 1.9337465, 3.8487258)
+visible = false
 mesh = SubResource("CylinderMesh_rvm5s")
 skeleton = NodePath("../..")
 
 [node name="Cable4" type="MeshInstance3D" parent="Decoraciones"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 5.340976, 1.978274, 3.8487258)
+visible = false
 mesh = SubResource("CylinderMesh_3jlx0")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="Decoraciones"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3136344, 1.9529495, 4.7022963)
+visible = false
 mesh = SubResource("BoxMesh_kf1lc")
 skeleton = NodePath("../..")
 
@@ -554,6 +577,50 @@ metadata/logic_bricks_graph = {
 metadata/logic_bricks_frames = []
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Decoraciones/Suelo/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.48376, 0)
+shape = SubResource("BoxShape3D_uhgjh")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="Techo" type="MeshInstance3D" parent="Decoraciones"]
+transform = Transform3D(0.4144206, 0, 0, 0, 1, 0, 0, 0, 0.4144206, 0, 3.4966865, 0)
+layers = 1023
+mesh = SubResource("BoxMesh_giv11")
+skeleton = NodePath("../..")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Decoraciones/Techo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48376, 0)
+collision_layer = 255
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Decoraciones/Techo/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.48376, 0)
 shape = SubResource("BoxShape3D_uhgjh")
 metadata/logic_bricks_states = Array[Dictionary]([{
@@ -643,7 +710,51 @@ metadata/logic_bricks_graph = {
 metadata/logic_bricks_frames = []
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Decoraciones/Pared5/StaticBody3D"]
-transform = Transform3D(0.99999607, 0, 0, 0, 1, 0, 0, 1.7053026e-13, 1, 0, -0.48498058, 0)
+transform = Transform3D(0.9999815, 0, 0, 0, 1, 0, 0, 1.7053026e-13, 1, -3.2433052, -0.48498058, -3.3729897)
+shape = SubResource("BoxShape3D_xsjx1")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="Pared6" type="MeshInstance3D" parent="Decoraciones"]
+transform = Transform3D(0.12495401, 0, 0, 0, -6.047404e-08, -0.10059087, 0, 1.3834848, -4.396967e-09, -2.3301797, 1.2200106, 6.660275)
+layers = 1023
+mesh = SubResource("BoxMesh_361mr")
+skeleton = NodePath("../..")
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Decoraciones/Pared6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48376, 0)
+collision_layer = 255
+metadata/logic_bricks_states = Array[Dictionary]([{
+"id": "state_1",
+"name": "State 1"
+}])
+metadata/logic_bricks_graph = {
+"connections": [],
+"next_id": 0,
+"nodes": []
+}
+metadata/logic_bricks_frames = []
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Decoraciones/Pared6/StaticBody3D"]
+transform = Transform3D(0.9999833, 0, 0, 0, 1, 0, 0, 1.7053026e-13, 1, -0.0339489, -0.48498058, -0.056883812)
 shape = SubResource("BoxShape3D_361mr")
 metadata/logic_bricks_states = Array[Dictionary]([{
 "id": "state_1",
@@ -886,17 +997,17 @@ visible = false
 [node name="Pared2" parent="Paredes/Pared3/Pared2/Pared2" instance=ExtResource("28_t4cvi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.2268908)
 
-[node name="JuntaIzq" type="MeshInstance3D" parent="Paredes/Pared3/Pared2/Pared2/Pared2"]
-transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 33.91098, 0, -99.99999, -4.0425043e-06, 0, 0, 0)
-mesh = SubResource("ArrayMesh_r6rna")
-skeleton = NodePath("")
-
 [node name="Pared2" parent="Paredes/Pared3/Pared2/Pared2/Pared2" instance=ExtResource("28_t4cvi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.536743e-07, 0, 2.2268908)
 
 [node name="ParedGirosDentro" parent="Paredes/Pared3/Pared2/Pared2/Pared2/Pared2" instance=ExtResource("30_xsjx1")]
 
 [node name="GiroDentroDcha" parent="Paredes/Pared3/Pared2/Pared2/Pared2/Pared2/ParedGirosDentro" index="0"]
+visible = false
+
+[node name="ParedJuntas" parent="Paredes/Pared3/Pared2/Pared2/Pared2" instance=ExtResource("29_j00go")]
+
+[node name="JuntaDcha" parent="Paredes/Pared3/Pared2/Pared2/Pared2/ParedJuntas" index="0"]
 visible = false
 
 [node name="ParedJuntas2" parent="Paredes/Pared3" instance=ExtResource("29_j00go")]
@@ -1025,6 +1136,7 @@ visible = false
 [editable path="Paredes/Pared3/Pared2/ParedJuntas"]
 [editable path="Paredes/Pared3/Pared2/Pared2/ParedJuntas"]
 [editable path="Paredes/Pared3/Pared2/Pared2/Pared2/Pared2/ParedGirosDentro"]
+[editable path="Paredes/Pared3/Pared2/Pared2/Pared2/ParedJuntas"]
 [editable path="Paredes/Pared3/ParedJuntas2"]
 [editable path="Paredes/Pared2/ParedJuntas"]
 [editable path="Paredes/Pared2/Pared2/ParedJuntas"]

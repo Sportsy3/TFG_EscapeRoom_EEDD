@@ -14,6 +14,7 @@ extends Control
 
 @export var pista_label_text: String
 var combinacion_actual: Array
+var panel_resuelto: bool = false
 @export var combinacion_correcta: Array
 
 func _ready() -> void:
@@ -29,6 +30,8 @@ func _ready() -> void:
 	button_9.pressed.connect(_on_button9_pressed)
 
 func introducir_combinacion(num: int):
+	if panel_resuelto == true:
+		return
 	input_label.text += str(num)
 	combinacion_actual.append(num)
 	if combinacion_actual.size() == combinacion_correcta.size():
@@ -64,6 +67,7 @@ func _on_button9_pressed():
 func comprobar_combinacion():
 	if combinacion_actual == combinacion_correcta:
 		get_parent().get_parent().get_parent().get_parent().abrir_puerta()
+		panel_resuelto = true
 	else:
 		reiniciar_combinacion()
 
