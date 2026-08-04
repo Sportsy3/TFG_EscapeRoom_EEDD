@@ -12,7 +12,7 @@ extends Control
 @onready var input_label: Label = $InputLabel
 @onready var pista_label: Label = $PistaLabel
 
-@export var pista_label_text: String
+@export_multiline var pista_label_text: String
 var combinacion_actual: Array
 var panel_resuelto: bool = false
 @export var combinacion_correcta: Array

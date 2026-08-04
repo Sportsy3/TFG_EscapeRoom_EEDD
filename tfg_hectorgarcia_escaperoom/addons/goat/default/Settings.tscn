@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://few834mpf2ju"]
 
-[ext_resource type="Script" path="res://addons/goat/default/Settings.gd" id="1_s3n40"]
+[ext_resource type="Script" uid="uid://con3nsht2nls4" path="res://addons/goat/default/Settings.gd" id="1_s3n40"]
 [ext_resource type="StyleBox" path="res://addons/goat/styles/settings_background.tres" id="2_u2ket"]
 [ext_resource type="FontFile" uid="uid://dxkp5rfk21fkw" path="res://addons/goat/fonts/Tuffy.ttf" id="3_bxwal"]
 [ext_resource type="PackedScene" uid="uid://d341ge06bejmu" path="res://addons/goat/settings/Settings.tscn" id="4_e4qsy"]
@@ -28,10 +28,11 @@ layout_mode = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_bxwal")
 theme_override_font_sizes/font_size = 20
-text = "Settings"
+text = "Configuración"
 
 [node name="Settings" parent="PanelContainer/VBoxContainer" instance=ExtResource("4_e4qsy")]
 layout_mode = 2
+current_tab = 0
 
 [node name="Buttons" type="CenterContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -43,12 +44,12 @@ theme_override_constants/separation = 20
 [node name="Exit" parent="PanelContainer/VBoxContainer/Buttons/HBoxContainer" instance=ExtResource("5_twl18")]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "Exit"
+text = "Salir"
 
 [node name="Resume" parent="PanelContainer/VBoxContainer/Buttons/HBoxContainer" instance=ExtResource("5_twl18")]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "Resume"
+text = "Reanudar"
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Buttons/HBoxContainer/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Buttons/HBoxContainer/Resume" to="." method="_on_Resume_pressed"]

@@ -37,7 +37,7 @@ func _on_object_activated(object_name,point):
 				if panelillos[i].panel_girado:
 					return
 				secuencia_actual.append(panelillos[i].num_panel)
-				print(str(secuencia_actual))
+				#print(str(secuencia_actual))
 				panelillos[i].girar_panelillo()
 				pantalla_secuencia.actualizar_secuencia(secuencia_actual)
 				#print("panelillo unique name: "+panelillos[i].unique_name)

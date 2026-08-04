@@ -81,7 +81,7 @@ func fabricar_pieza():
 	#print("modulo abierto")
 
 func abrir_puerta():
-	print("abriendo puerta")
+	#print("abriendo puerta")
 	puerta.abrir()
 
 func desactivar_modo_debug():

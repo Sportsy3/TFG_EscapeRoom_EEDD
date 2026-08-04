@@ -27,7 +27,7 @@ func _ready():
 		btn.pressed.connect(_on_elemento_pressed.bind(btn.text))
 	$HBoxContainer/VBoxContainer/BtnIntroducir.pressed.connect(_on_introducir_pressed)
 	$HBoxContainer/VBoxContainer/BtnIntercambiar.pressed.connect(_on_intercambiar_pressed)
-	$HBoxContainer/BotonReinicio.pressed.connect(_on_reinicio_pressed)
+	$HBoxContainer/VBoxContainer/BotonReinicio.pressed.connect(_on_reinicio_pressed)
 	actualizar_ui()
 
 func _on_elemento_pressed(elemento: String):
@@ -40,7 +40,8 @@ func _on_introducir_pressed():
 	if puzle_terminado:
 		return
 	if bloqueo_total:
-		label_resultado.text = "Espera a que acabe el intercambio."
+		label_resultado.text = "Espera a que acabe
+		el intercambio."
 		return
 	if bloqueado:
 		label_resultado.text = "Reinicia el sistema."
@@ -58,13 +59,15 @@ func _on_intercambiar_pressed():
 	if puzle_terminado:
 		return
 	if bloqueo_total:
-		label_resultado.text = "Espera a que acabe el intercambio."
+		label_resultado.text = "Espera a que acabe
+		el intercambio."
 		return
 	if bloqueado:
 		label_resultado.text = "Reinicia el sistema."
 		return
 	if rendija2.size() < 4:
-		label_resultado.text = "La Rendija 2 necesita 4 elementos."
+		label_resultado.text = "La Rendija 2
+		necesita 4 elementos."
 		return
 	await realizar_intercambio()
 	comprobar_victoria()
@@ -92,12 +95,14 @@ func transferir(origen: Array, destino: Array, cantidad: int):
 
 func comprobar_victoria():
 	if rendija1 == OBJETIVO:
-		label_resultado.text = "¡Puzle resuelto!"
+		label_resultado.text = "Correcto.
+		Abriendo caja de seguridad."
 		puzle_terminado = true
 		emit_signal("_abrir_caja")
 	else:
 		bloqueado = true
-		label_resultado.text = "Incorrecto. Sigue intentándolo."
+		label_resultado.text = "Incorrecto.
+		Sigue intentándolo."
 
 func actualizar_ui():
 	_actualizar_slots(slots_r1, rendija1)
@@ -114,6 +119,7 @@ func _actualizar_slots(contenedor: HBoxContainer, datos: Array):
 		var label = Label.new()
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		label.add_theme_font_size_override("font_size",35)
 		label.text = datos[i] if i < datos.size() else ""
 		panel.add_child(label)
 		contenedor.add_child(panel)
@@ -122,7 +128,8 @@ func _on_reinicio_pressed():
 	if puzle_terminado:
 		return
 	if bloqueo_total:
-		label_resultado.text = "Espere a que acabe el intercambio."
+		label_resultado.text = "Espere a que acabe
+		el intercambio."
 		return
 	reiniciar_puzle()
 
@@ -138,17 +145,24 @@ func reiniciar_puzle():
 
 func actualizar_instrucciones():
 	instrucciones.text = "
-	La contraseña correcta es ABCD.
+	La contraseña correcta es ABCDE.
 	Para introducirla en la línea superior,
 	ambas rendijas se intercambiarán letras 
 	como si fueran colas.
-	Solo puedes introducir letras en la línea inferior.
+	Solo puedes introducir letras en la
+	línea inferior.
 	Los intercambios son los siguientes:
 	
+	
+	
 	3 pasan de abajo a arriba.
+	
 	1 de arriba a abajo.
+	
 	2 de abajo a arriba.
+	
 	2 de arriba a abajo.
+	
 	2 de abajo a arriba."
 	mostrar_texto()
 

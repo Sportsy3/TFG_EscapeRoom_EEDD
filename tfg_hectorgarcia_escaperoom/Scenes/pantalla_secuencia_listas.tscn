@@ -13,8 +13,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ga4y0")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 702.0
+offset_bottom = 309.0
+color = Color(0, 0, 0, 1)
+
 [node name="SecuenciaLabel" type="Label" parent="."]
 layout_mode = 0
 offset_right = 648.0
 offset_bottom = 108.0
-theme_override_font_sizes/font_size = 53
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1

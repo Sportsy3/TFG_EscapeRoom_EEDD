@@ -96,6 +96,7 @@ metadata/logic_bricks_frames = []
 [node name="CanvasLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
 [node name="InteractionPointer" parent="Head/Camera3D/CanvasLayer" instance=ExtResource("3_6t5aa")]
+visible = false
 
 [node name="PuzleColasPantalla" parent="Head/Camera3D/CanvasLayer" instance=ExtResource("4_vgqql")]
 

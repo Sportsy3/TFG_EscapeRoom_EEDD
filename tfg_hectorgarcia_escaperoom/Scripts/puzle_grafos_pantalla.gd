@@ -92,12 +92,15 @@ func _on_button5_pressed():
 
 func _on_buttonsolution_pressed():
 	if peso_total < peso_correcto:
-		feedback_label.text = "Ruta incorrecta, sobra combustible."
+		feedback_label.text = "Ruta incorrecta,
+		sobra combustible."
 	if peso_total > peso_correcto:
-		feedback_label.text = "Ruta incorrecta, se gasta demasiado combustible."
+		feedback_label.text = "Ruta incorrecta,
+		se gasta demasiado combustible."
 	if peso_total == peso_correcto:
 		if ruta_actual == ruta_correcta:
-			feedback_label.text = "Ruta configurada. Todo listo para retomar el viaje."
+			feedback_label.text = "Ruta configurada.
+			Todo listo para retomar el viaje."
 		else:
 			feedback_label.text = "Ruta Incorrecta."
 

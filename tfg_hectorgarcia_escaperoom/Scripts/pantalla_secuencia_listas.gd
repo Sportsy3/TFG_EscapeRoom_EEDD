@@ -8,5 +8,5 @@ func actualizar_secuencia(secuencia: Array):
 		if i == secuencia.size() - 1:
 			secuencia_string += str(secuencia[i])
 		else:
-			secuencia_string += str(secuencia[i]) + " - "
+			secuencia_string += str(secuencia[i]) + "-"
 	secuencia_label.text = secuencia_string

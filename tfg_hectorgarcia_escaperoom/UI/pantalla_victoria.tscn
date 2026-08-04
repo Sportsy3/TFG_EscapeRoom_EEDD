@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbwo7iledvfyf"]
+
+[ext_resource type="Script" uid="uid://cao2foobubbtd" path="res://Scripts/pantalla_victoria.gd" id="1_pooxl"]
+
+[node name="PantallaVictoria" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pooxl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 63.0
+offset_right = 1152.0
+offset_bottom = 311.0
+theme_override_font_sizes/font_size = 87
+text = "¡Lo lograste!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_top = 337.0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_font_sizes/font_size = 23
+text = "Has conseguido restaurar la ruta de la nave,
+y pronto podrás acabar los repartos de hoy.
+Esperemos que este incidente no afecte a tu sueldo."
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 457.0
+offset_right = 712.0
+offset_bottom = 557.0
+theme_override_font_sizes/font_size = 22
+text = "Volver al menú"

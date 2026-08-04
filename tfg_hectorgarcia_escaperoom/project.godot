@@ -11,14 +11,13 @@ config_version=5
 [application]
 
 config/name="TFG_HectorGarcia_EscapeRoom"
-run/main_scene="uid://sah4i034hqkh"
+run/main_scene="uid://c6au2urfmln1i"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameManager="*res://Scenes/game_manager.tscn"
-GlobalVars="*res://addons/logic_bricks/global_vars.gd"
 goat_audio_bus="*res://addons/goat/autoload/audio_bus.gd"
 goat_locale="*res://addons/goat/autoload/locale.gd"
 goat_utils="*res://addons/goat/globals/goat_utils.gd"
@@ -55,6 +54,10 @@ abrir_caja=""
 [goat]
 
 general/game_resources_directory="res://resources"
+
+[gui]
+
+theme/custom_font="uid://d4ckm2dc8y6uc"
 
 [input]
 

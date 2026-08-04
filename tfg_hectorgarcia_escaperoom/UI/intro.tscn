@@ -1,0 +1,72 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5btnxgfjvpuj"]
+
+[ext_resource type="Script" uid="uid://ccox1xb6e6t3m" path="res://Scripts/intro.gd" id="1_boeer"]
+
+[node name="Intro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_boeer")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -3844.0
+offset_top = -2206.0
+offset_right = 5693.0
+offset_bottom = 3743.0
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 65
+alignment = 1
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 87.53)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Trabajas para una empresa de repartos espaciales de dudosa
+moralidad y no tan dudosas malas condiciones laborales.
+
+Durante la las entregas de este viaje, ha habido un pequeño accidente
+tras el cual la nave ha perdido la ruta de repartos.
+
+Para evitar que malgastes combustible, la nave está programada para
+no moverse si no es por la ruta de entregas.
+Para colmo, todos los sistemas se han roto o están bloqueados.
+
+Arregla todo antes de que tenga que venir una patrulla de rescate y te
+despidan por un accidente laboral que no tendría por qué haber ocurrido."
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 122
+alignment = 1
+
+[node name="ButtonComenzar" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(248, 63)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 22
+text = "Comenzar"
+
+[node name="ButtonTutorial" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 63)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Cómo se juega"
+
+[node name="Control2" type="Control" parent="VBoxContainer"]
+layout_mode = 2

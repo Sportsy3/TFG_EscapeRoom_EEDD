@@ -5,14 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://d1gee0o3x4iw0" path="res://addons/goat/settings/SettingsLanguageButton.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://bl2uahppnp2if" path="res://addons/goat/settings/SettingsCheckButton.tscn" id="4"]
 
-[sub_resource type="StyleBoxFlat" id="1"]
-content_margin_left = 10.0
+[sub_resource type="StyleBoxFlat" id="3"]
 content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 6.0
 bg_color = Color(1, 1, 1, 0)
-border_width_bottom = 2
-border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="2"]
 content_margin_left = 10.0
@@ -21,9 +16,14 @@ content_margin_right = 10.0
 content_margin_bottom = 6.0
 bg_color = Color(1, 1, 1, 0)
 
-[sub_resource type="StyleBoxFlat" id="3"]
+[sub_resource type="StyleBoxFlat" id="1"]
+content_margin_left = 10.0
 content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 6.0
 bg_color = Color(1, 1, 1, 0)
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="4"]
 content_margin_left = 6.0
@@ -35,16 +35,19 @@ offset_right = 8.0
 offset_bottom = 36.0
 theme_override_fonts/font = ExtResource("2_fm38x")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/tab_selected = SubResource("1")
-theme_override_styles/tab_unselected = SubResource("2")
 theme_override_styles/panel = SubResource("3")
+theme_override_styles/tab_unselected = SubResource("2")
+theme_override_styles/tab_selected = SubResource("1")
 tab_alignment = 1
+current_tab = 1
 use_hidden_tabs_for_min_size = true
 
 [node name="Display" type="VBoxContainer" parent="."]
+visible = false
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme_override_constants/separation = 4
+metadata/_tab_index = 0
 
 [node name="Language" type="HBoxContainer" parent="Display"]
 custom_minimum_size = Vector2(0, 50)
@@ -123,10 +126,10 @@ settings_section = "gui"
 settings_key = "scope"
 
 [node name="Sound" type="VBoxContainer" parent="."]
-visible = false
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme_override_constants/separation = 4
+metadata/_tab_index = 1
 
 [node name="MusicLabel" type="Label" parent="Sound"]
 custom_minimum_size = Vector2(0, 34)
@@ -167,13 +170,14 @@ visible = false
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme_override_constants/separation = 4
+metadata/_tab_index = 2
 
 [node name="MouseLabel" type="Label" parent="Controls"]
 custom_minimum_size = Vector2(0, 34)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_fm38x")
 theme_override_font_sizes/font_size = 20
-text = "Mouse sensitivity (3D)"
+text = "Sensibilidad del ratón (3D)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -196,7 +200,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_fm38x")
 theme_override_font_sizes/font_size = 20
-text = "Movement"
+text = "Movimiento"
 vertical_alignment = 1
 
 [node name="Value" type="Label" parent="Controls/Movement"]
@@ -204,7 +208,7 @@ custom_minimum_size = Vector2(130, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_fm38x")
 theme_override_font_sizes/font_size = 20
-text = "WSAD,Arrow keys"
+text = "WSAD, Flechas"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -218,7 +222,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_fm38x")
 theme_override_font_sizes/font_size = 20
-text = "Camera3D rotation"
+text = "Moder la cámara"
 vertical_alignment = 1
 
 [node name="Value" type="Label" parent="Controls/CameraRotation"]
@@ -226,7 +230,7 @@ custom_minimum_size = Vector2(130, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_fm38x")
 theme_override_font_sizes/font_size = 20
-text = "Mouse"
+text = "Ratón"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -240,7 +244,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_fm38x")
 theme_override_font_sizes/font_size = 20
-text = "Use/pick up"
+text = "Usar objeto/recoger objeto"
 vertical_alignment = 1
 
 [node name="Value" type="Label" parent="Controls/Interact"]
@@ -248,7 +252,7 @@ custom_minimum_size = Vector2(130, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_fm38x")
 theme_override_font_sizes/font_size = 20
-text = "LMB"
+text = "Clic Izq."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -262,7 +266,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_fm38x")
 theme_override_font_sizes/font_size = 20
-text = "Open inventory"
+text = "Abrir Inventario"
 vertical_alignment = 1
 
 [node name="Value" type="Label" parent="Controls/Inventory"]
@@ -284,7 +288,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_fm38x")
 theme_override_font_sizes/font_size = 20
-text = "Open context inventory"
+text = "Abrir inventario contextual"
 vertical_alignment = 1
 
 [node name="Value" type="Label" parent="Controls/ContextInventory"]
@@ -292,7 +296,8 @@ custom_minimum_size = Vector2(130, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_fm38x")
 theme_override_font_sizes/font_size = 20
-text = "RMB"
+text = "Clic dcho.
+(sobre un objeto)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -306,7 +311,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_fm38x")
 theme_override_font_sizes/font_size = 20
-text = "Show settings screen"
+text = "Mostrar configuraciones"
 vertical_alignment = 1
 
 [node name="Value" type="Label" parent="Controls/Settings"]
@@ -328,7 +333,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_fm38x")
 theme_override_font_sizes/font_size = 20
-text = "Take a screenshot"
+text = "Captura de pantalla"
 vertical_alignment = 1
 
 [node name="Value" type="Label" parent="Controls/Screenshot"]
