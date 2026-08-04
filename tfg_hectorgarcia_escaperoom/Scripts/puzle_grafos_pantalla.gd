@@ -28,6 +28,8 @@ var posicion_nodos: Array
 var peso_total: int = 0
 var buttons: Array
 
+signal ruta_configurada
+
 func _ready() -> void:
 	button_0.pressed.connect(_on_button0_pressed)
 	button_1.pressed.connect(_on_button1_pressed)
@@ -101,6 +103,7 @@ func _on_buttonsolution_pressed():
 		if ruta_actual == ruta_correcta:
 			feedback_label.text = "Ruta configurada.
 			Todo listo para retomar el viaje."
+			emit_signal("ruta_configurada")
 		else:
 			feedback_label.text = "Ruta Incorrecta."
 

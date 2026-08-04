@@ -16,6 +16,7 @@ extends Node3D
 @export var puerta: Node3D
 @export var pantalla_arboles: MeshInstance3D
 @export var animation_player: AnimationPlayer
+@onready var timer: Timer = $Timer
 
 var compartimento_abierto: bool = false
 var ordenador_arreglado: bool = false
@@ -88,3 +89,12 @@ func desactivar_modo_debug():
 	var objetos = objetos_debugging.get_children()
 	for i in objetos:
 		i.queue_free()
+
+func _on_timer_timeout() -> void:
+	get_tree().change_scene_to_file("res://UI/pantalla_derrota.tscn")
+
+func _on_content_ruta_configurada() -> void:
+	print("acabar escape room")
+	timer.stop()
+	await get_tree().create_timer(2.0).timeout
+	get_tree().change_scene_to_file("res://UI/pantalla_victoria.tscn")

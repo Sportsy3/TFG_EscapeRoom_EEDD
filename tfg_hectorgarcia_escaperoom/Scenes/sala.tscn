@@ -286,6 +286,12 @@ metadata/logic_bricks_graph = {
 }
 metadata/logic_bricks_frames = []
 
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 1800.0
+one_shot = true
+autostart = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../ObjetosInteractuables/RanuraDisco")
 libraries = {
@@ -1127,6 +1133,8 @@ visible = false
 
 [node name="ParedJuntas" parent="Paredes/Pared/Pared2/Pared2/Pared2" instance=ExtResource("29_j00go")]
 
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="ruta_configurada" from="PantallasInteractuables/PantallaGrafos/Content" to="." method="_on_content_ruta_configurada"]
 [connection signal="_abrir_caja" from="PantallasInteractuables/PantallaColas/Content" to="CajaPiezaModulo" method="_on_content__abrir_caja"]
 
 [editable path="ObjetosInteractuables/RanuraDisco"]
