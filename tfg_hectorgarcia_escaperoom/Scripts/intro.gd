@@ -11,4 +11,4 @@ func _comenzar():
 	get_tree().change_scene_to_file("res://Scenes/sala.tscn")
 
 func _tutorial():
-	pass
+	get_tree().change_scene_to_file("res://UI/tutorial.tscn")

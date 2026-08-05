@@ -16,7 +16,6 @@ extends Node3D
 @export var puerta: Node3D
 @export var pantalla_arboles: MeshInstance3D
 @export var animation_player: AnimationPlayer
-@onready var timer: Timer = $Timer
 
 var compartimento_abierto: bool = false
 var ordenador_arreglado: bool = false
@@ -54,7 +53,7 @@ func _on_item_used(item_name,used_on_name):
 		pantalla_colas.actualizar_instrucciones()
 		goat_inventory.remove_item("disco_instrucciones")
 
-func _on_object_activated(object_name, point):
+func _on_object_activated(object_name,_point):
 	if object_name == "caja":
 		caja.abrir_caja()
 	if object_name == "compartimento_pieza":
@@ -90,11 +89,7 @@ func desactivar_modo_debug():
 	for i in objetos:
 		i.queue_free()
 
-func _on_timer_timeout() -> void:
-	get_tree().change_scene_to_file("res://UI/pantalla_derrota.tscn")
-
 func _on_content_ruta_configurada() -> void:
 	print("acabar escape room")
-	timer.stop()
 	await get_tree().create_timer(2.0).timeout
 	get_tree().change_scene_to_file("res://UI/pantalla_victoria.tscn")

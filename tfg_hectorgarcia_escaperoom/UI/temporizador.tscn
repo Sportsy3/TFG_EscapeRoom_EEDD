@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://mc1hsmr52hml"]
+
+[ext_resource type="Script" uid="uid://c2yx2r1arj2lx" path="res://Scripts/temporizador.gd" id="1_ox1m3"]
+
+[node name="Temporizador" type="Control"]
+visibility_layer = 0
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ox1m3")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 1800.0
+one_shot = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 70)
+layout_mode = 2
+color = Color(0.015686275, 0.015686275, 0.015686275, 0.7294118)
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -3,9 +3,7 @@ extends Control
 @onready var label: Label = $Label
 @onready var color_rect_2: ColorRect = $ColorRect2
 var modulo_abierto: bool = false
-
-func _ready() -> void:
-	connect("_abrir_modulo",abrir_modulo)
+signal _abrir_modulo
 
 func abrir_modulo():
 	if modulo_abierto == false:

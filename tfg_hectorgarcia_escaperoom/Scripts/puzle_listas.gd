@@ -26,7 +26,7 @@ func _ready() -> void:
 	panelillos.append(panelillo_8)
 	panelillos.append(panelillo_9)
 
-func _on_object_activated(object_name,point):
+func _on_object_activated(object_name,_point):
 	if object_name == "boton_reiniciar":
 		reiniciar_puzle()
 	if "panelillo_" in object_name:

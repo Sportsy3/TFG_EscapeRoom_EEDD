@@ -1,0 +1,71 @@
+[gd_scene load_steps=2 format=3 uid="uid://k72jku0ryh0h"]
+
+[ext_resource type="Script" uid="uid://pu2g1kqfi3br" path="res://Scripts/tutorial.gd" id="1_50hb1"]
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_50hb1")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 38
+alignment = 1
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/line_spacing = 10
+theme_override_font_sizes/font_size = 19
+text = "Para moverte, puedes utilizar tanto las teclas WASD como las flechas.
+Para mover la cámara mueve el ratón.
+
+Cuando pases el cursor por encima de un objeto interactuable aparecerá
+un icono de una mano. Al hacer clic sobre ese objeto interactuarás con él.
+
+Algunos objetos se pueden recoger y utilizar en el entorno.
+Puedes mirar tu inventario con Tab.
+Para usar objetos del inventario, pasa el cursor sobre un objeto
+interactuable y haz clic derecho, se abrirá el inventario y te dejará elegir
+qué objeto usar.
+
+Si necesitas consultar los controles, pulsa Esc.
+"
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(248, 63)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 22
+text = "Comenzar"
+
+[node name="Control2" type="Control" parent="VBoxContainer"]
+layout_mode = 2

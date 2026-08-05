@@ -24,11 +24,12 @@ var disco_seleccionado = null  # número de disco actualmente en mano
 
 const ALTURA_DISCO = 0.1  # grosor de cada disco, para apilar visualmente
 
+
 func _ready():
 	goat_interaction.object_activated.connect(_on_object_activated)
 	_actualizar_posiciones()
 
-func _on_object_activated(object_name, point):
+func _on_object_activated(object_name,_point):
 	if object_name.begins_with("disco_"):
 		var numero = int(object_name.split("_")[1])
 		_seleccionar_disco(numero)
