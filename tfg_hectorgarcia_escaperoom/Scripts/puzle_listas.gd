@@ -11,6 +11,7 @@ var panelillos: Array = []
 @export var panelillo_8: StaticBody3D
 @export var panelillo_9: StaticBody3D
 @export var pantalla_secuencia: Control
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var secuencia_actual: Array = []
 
@@ -28,6 +29,7 @@ func _ready() -> void:
 
 func _on_object_activated(object_name,_point):
 	if object_name == "boton_reiniciar":
+		animation_player.play("reinicio")
 		reiniciar_puzle()
 	if "panelillo_" in object_name:
 		#print("object name: " + object_name)

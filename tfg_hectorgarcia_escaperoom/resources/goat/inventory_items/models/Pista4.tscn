@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkewugfr6nq2t"]
+
+[ext_resource type="PackedScene" uid="uid://d2ncgvrfy48tx" path="res://Models/Pista4.fbx" id="1_bcyct"]
+
+[node name="Pista4" instance=ExtResource("1_bcyct")]
+
+[node name="Cylinder" parent="." index="0"]
+transform = Transform3D(800, 0, 0, 0, -3.496911e-05, 800, 0, -800, -3.496911e-05, 0, 0, 0)

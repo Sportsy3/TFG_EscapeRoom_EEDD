@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dior0d5jecvy2"]
+
+[ext_resource type="FontFile" uid="uid://dxkp5rfk21fkw" path="res://addons/goat/fonts/Tuffy.ttf" id="1_48wye"]
+[ext_resource type="Script" uid="uid://bv8e7vxhka70j" path="res://Scripts/boton_pistas.gd" id="2_j4ue5"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(150, 50)
+theme_override_fonts/font = ExtResource("1_48wye")
+theme_override_font_sizes/font_size = 23
+text = "Pedir pista"
+script = ExtResource("2_j4ue5")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://sah4i034hqkh"]
+[gd_scene load_steps=85 format=4 uid="uid://sah4i034hqkh"]
 
 [ext_resource type="PackedScene" uid="uid://c4lmhavj60tqh" path="res://addons/goat/main_scenes/Player.tscn" id="1_35tbc"]
 [ext_resource type="Script" uid="uid://cmi47roau81hi" path="res://Scripts/sala.gd" id="1_57om8"]
@@ -22,15 +22,23 @@
 [ext_resource type="PackedScene" uid="uid://c4pvhfiue0itu" path="res://Scenes/Caja.tscn" id="17_mw4mc"]
 [ext_resource type="PackedScene" uid="uid://bcklvauewks5b" path="res://Models/RanuraInstrucciones.fbx" id="18_1fkdo"]
 [ext_resource type="PackedScene" uid="uid://bxvbmaf6ewied" path="res://Models/Caja.fbx" id="18_efi15"]
+[ext_resource type="PackedScene" uid="uid://d3dchyc72ad5i" path="res://Models/Fax.fbx" id="19_3ems3"]
 [ext_resource type="PackedScene" uid="uid://ds3m3xb8tlp5u" path="res://Models/Tapa.fbx" id="19_3jlx0"]
 [ext_resource type="PackedScene" uid="uid://cuhh3wglpdp6g" path="res://Models/DiscoInstrucciones.fbx" id="20_3jlx0"]
+[ext_resource type="PackedScene" uid="uid://cqp18ftp5e7k6" path="res://Models/Pista1.fbx" id="20_pvs6f"]
+[ext_resource type="PackedScene" uid="uid://ifq8nm0eso4r" path="res://Models/Pista2.fbx" id="21_uitlq"]
+[ext_resource type="PackedScene" uid="uid://baod76hwrpikv" path="res://Models/Pista3.fbx" id="22_j18x2"]
+[ext_resource type="PackedScene" uid="uid://d2ncgvrfy48tx" path="res://Models/Pista4.fbx" id="23_i86h8"]
+[ext_resource type="PackedScene" uid="uid://c0b1kkvvuaxmv" path="res://Models/Pista5.fbx" id="24_cqjna"]
 [ext_resource type="PackedScene" uid="uid://c1xd5vfhwoere" path="res://Scenes/puzle_listas.tscn" id="25_6ungl"]
 [ext_resource type="PackedScene" uid="uid://co17oel02bvw5" path="res://Scenes/panel_puerta.tscn" id="25_bli6e"]
 [ext_resource type="PackedScene" uid="uid://cjjs87obfrmna" path="res://Scenes/puerta.tscn" id="26_v5b5x"]
 [ext_resource type="PackedScene" uid="uid://dcqdvpklh4b4y" path="res://Scenes/panel_modulo.tscn" id="26_xsjx1"]
+[ext_resource type="PackedScene" uid="uid://bqlbjdw4ebhp3" path="res://Scenes/pantallas_diagnosticos.tscn" id="27_361mr"]
 [ext_resource type="PackedScene" uid="uid://bamdrh8ubme63" path="res://Models/Pared.fbx" id="28_t4cvi"]
 [ext_resource type="PackedScene" uid="uid://dbqy8fhqqd03b" path="res://Models/ParedJuntas.fbx" id="29_j00go"]
 [ext_resource type="PackedScene" uid="uid://jg5xajtixhri" path="res://Models/ParedGirosDentro.fbx" id="30_xsjx1"]
+[ext_resource type="PackedScene" uid="uid://da5n4ne5vvltg" path="res://Models/Nota.fbx" id="33_giv11"]
 
 [sub_resource type="Animation" id="Animation_apc0p"]
 resource_name = "AbrirCompartimento"
@@ -85,6 +93,130 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Fax/Pistas/Pista1:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.8971152, 0.8731731, 5.131998)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Fax/Pistas/Pista2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.8971152, 0.8731731, 5.131998)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Fax/Pistas/Pista3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.8971152, 0.8731731, 5.131998)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Fax/Pistas/Pista4:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.8971152, 0.8731731, 5.131998)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Fax/Pistas/Pista5:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.8971152, 0.8731731, 5.131998)]
+}
+
+[sub_resource type="Animation" id="Animation_3ems3"]
+resource_name = "imprimir"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Fax/Pistas/Pista1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.8971152, 0.8731731, 5.131998), Vector3(1.8971152, 1.2974669, 5.131998)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Fax/Pistas/Pista2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.8971152, 0.8731731, 5.131998), Vector3(1.8971152, 1.2974669, 5.131998)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Fax/Pistas/Pista3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.8971152, 0.8731731, 5.131998), Vector3(1.8971152, 1.2974669, 5.131998)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Fax/Pistas/Pista4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.8971152, 0.8731731, 5.131998), Vector3(1.8971152, 1.2974669, 5.131998)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Fax/Pistas/Pista5:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.8971152, 0.8731731, 5.131998), Vector3(1.8971152, 1.2974669, 5.131998)]
+}
 
 [sub_resource type="Animation" id="Animation_1fkdo"]
 resource_name = "meter_disco"
@@ -117,10 +249,29 @@ tracks/1/keys = {
 _data = {
 &"AbrirCompartimento": SubResource("Animation_apc0p"),
 &"RESET": SubResource("Animation_rvm5s"),
+&"imprimir": SubResource("Animation_3ems3"),
 &"meter_disco": SubResource("Animation_1fkdo")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sxx02"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t2clt"]
+size = Vector3(0.45437223, 0.23732147, 0.4164633)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_530pn"]
+size = Vector3(0.13731319, 0.24421844, 0.0071625933)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oecfy"]
+size = Vector3(0.13731319, 0.2427536, 0.0071625933)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vrmpn"]
+size = Vector3(0.13601287, 0.24414483, 0.0071625933)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n6lb8"]
+size = Vector3(0.13576873, 0.2437481, 0.0071625933)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_klkfc"]
+size = Vector3(0.13545027, 0.24325666, 0.0071625933)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4tsfr"]
 size = Vector3(4.817322, 5.264282, 4.0839844)
@@ -172,11 +323,25 @@ albedo_color = Color(0.12156863, 0.14509805, 0.27450982, 1)
 material = SubResource("StandardMaterial3D_kcn3k")
 size = Vector3(0.945, 0.38, 1.745)
 
+[sub_resource type="BoxMesh" id="BoxMesh_o4xgo"]
+material = SubResource("StandardMaterial3D_kcn3k")
+size = Vector3(0.945, 0.38, 0.78)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sdxmx"]
+size = Vector3(0.94641113, 0.6777344, 0.7758789)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_1fkdo"]
 size = Vector3(1, 0.34423828, 1.7504883)
 
+[sub_resource type="BoxMesh" id="BoxMesh_2il0u"]
+material = SubResource("StandardMaterial3D_kcn3k")
+size = Vector3(0.945, 0.38, 4.04)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o4xgo"]
+size = Vector3(1, 0.34423828, 4.0406494)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2x4t4"]
-albedo_color = Color(0.46229059, 0.46229059, 0.46229059, 1)
+albedo_color = Color(0.08200549, 0.06575502, 0.17095414, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_vbwy0"]
 material = SubResource("StandardMaterial3D_2x4t4")
@@ -257,9 +422,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_elhir")
 
-[node name="Sala" type="Node3D" node_paths=PackedStringArray("objetos_debugging", "panel_modulo", "pantalla_info_arboles", "pantalla_colas", "pantalla_grafos", "panel_puerta", "pieza_ordenador", "compartimento_pieza", "caja", "torres_hanoi", "modelo_pieza_compartimento", "modulo_de_construccion", "puerta", "pantalla_arboles", "animation_player")]
+[node name="Sala" type="Node3D" node_paths=PackedStringArray("objetos_debugging", "panel_modulo", "pantalla_info_arboles", "pantalla_colas", "pantalla_grafos", "panel_puerta", "pieza_ordenador", "compartimento_pieza", "caja", "torres_hanoi", "modelo_pieza_compartimento", "modulo_de_construccion", "puerta", "pantallas_diagnosticos", "pantalla_arboles", "animation_player", "pistas")]
 script = ExtResource("1_57om8")
-modo_debug = true
 objetos_debugging = NodePath("ObjetosDeDebugging")
 panel_modulo = NodePath("PantallasInteractuables/PanelModulo/Content")
 pantalla_info_arboles = NodePath("PantallasInteractuables/PantallaInfo/Content")
@@ -273,8 +437,10 @@ torres_hanoi = NodePath("ObjetosInteractuables/Hanoi")
 modelo_pieza_compartimento = NodePath("ObjetosInteractuables/CompartimentoPieza/pieza_ordenador")
 modulo_de_construccion = NodePath("ModuloDeConstruccion")
 puerta = NodePath("Puerta")
+pantallas_diagnosticos = NodePath("PantallasInteractuables/PantallasDiagnosticos")
 pantalla_arboles = NodePath("PantallasInteractuables/PantallaArbolesEInfo/Plane")
 animation_player = NodePath("AnimationPlayer")
+pistas = NodePath("ObjetosInteractuables/Fax/Pistas")
 metadata/logic_bricks_states = Array[Dictionary]([{
 "id": "state_1",
 "name": "State 1"
@@ -293,9 +459,9 @@ libraries = {
 }
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.70485723, 0.5005869, -0.50258243, 0, 0.70851195, 0.70569885, 0.7093492, -0.4974169, 0.49939978, 2.110857, 19.72346, 0)
-visible = false
-light_energy = 3.916
+transform = Transform3D(0.8886913, -0.34229523, 0.30506083, -0.18180305, 0.3477331, 0.9197986, -0.4209221, -0.87287796, 0.24679689, 2.110857, 19.72346, 0)
+light_energy = 2.015
+light_indirect_energy = 0.606
 metadata/logic_bricks_states = Array[Dictionary]([{
 "id": "state_1",
 "name": "State 1"
@@ -317,6 +483,9 @@ transform = Transform3D(-0.75, 0, 6.556708e-08, 0, 0.75, 0, -6.556708e-08, 0, -0
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -2.5125175, 0, 4.3893886)
 
 [node name="ParedMarcoPuerta" parent="Puerta" instance=ExtResource("5_xsjx1")]
+
+[node name="Nota" parent="." instance=ExtResource("33_giv11")]
+transform = Transform3D(-1.0359599e-07, 0, -2.37, 0, 2.37, 0, 2.37, 0, -1.0359599e-07, 5.915784, 1.6873994, -2.203254)
 
 [node name="Player" parent="." instance=ExtResource("1_35tbc")]
 transform = Transform3D(0.6643698, 0, 0.747404, 0, 1, 0, -0.747404, 0, 0.6643698, 2.942888, 0, 4.090104)
@@ -411,6 +580,83 @@ visible = false
 [node name="PuzleListas" parent="ObjetosInteractuables" instance=ExtResource("25_6ungl")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.695425, 1.5003517, -1.1845162)
 
+[node name="Fax" parent="ObjetosInteractuables" instance=ExtResource("12_lo2ud")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.9007046, 0.841625, 4.977477)
+unique_name = "fax"
+
+[node name="CollisionShape3D" parent="ObjetosInteractuables/Fax" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115242764, 0)
+shape = SubResource("BoxShape3D_t2clt")
+
+[node name="Fax" parent="ObjetosInteractuables/Fax" instance=ExtResource("19_3ems3")]
+
+[node name="Pistas" type="Node" parent="ObjetosInteractuables/Fax"]
+
+[node name="Pista1" parent="ObjetosInteractuables/Fax/Pistas" instance=ExtResource("12_lo2ud")]
+transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 1.8971152, 0.8731731, 5.131998)
+unique_name = "pista_1"
+item_type = 2
+inventory_item_name = "pista_1"
+
+[node name="CollisionShape3D" parent="ObjetosInteractuables/Fax/Pistas/Pista1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0011375546, 0)
+shape = SubResource("BoxShape3D_530pn")
+
+[node name="Pista1" parent="ObjetosInteractuables/Fax/Pistas/Pista1" instance=ExtResource("20_pvs6f")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="Pista2" parent="ObjetosInteractuables/Fax/Pistas" instance=ExtResource("12_lo2ud")]
+transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 1.8971152, 0.8731731, 5.131998)
+unique_name = "pista_2"
+item_type = 2
+inventory_item_name = "pista_2"
+
+[node name="CollisionShape3D" parent="ObjetosInteractuables/Fax/Pistas/Pista2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00040513277, 0)
+shape = SubResource("BoxShape3D_oecfy")
+
+[node name="Pista2" parent="ObjetosInteractuables/Fax/Pistas/Pista2" instance=ExtResource("21_uitlq")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="Pista3" parent="ObjetosInteractuables/Fax/Pistas" instance=ExtResource("12_lo2ud")]
+transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 1.8971152, 0.8731731, 5.131998)
+unique_name = "pista_3"
+item_type = 2
+inventory_item_name = "pista_3"
+
+[node name="CollisionShape3D" parent="ObjetosInteractuables/Fax/Pistas/Pista3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00019311409, -0.0005647391, 7.450581e-09)
+shape = SubResource("BoxShape3D_vrmpn")
+
+[node name="Pista3" parent="ObjetosInteractuables/Fax/Pistas/Pista3" instance=ExtResource("22_j18x2")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="Pista4" parent="ObjetosInteractuables/Fax/Pistas" instance=ExtResource("12_lo2ud")]
+transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 1.8971152, 0.8731731, 5.131998)
+unique_name = "pista_4"
+item_type = 2
+inventory_item_name = "pista_4"
+
+[node name="CollisionShape3D" parent="ObjetosInteractuables/Fax/Pistas/Pista4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0003151844, -0.0004413575, 7.450581e-09)
+shape = SubResource("BoxShape3D_n6lb8")
+
+[node name="Pista4" parent="ObjetosInteractuables/Fax/Pistas/Pista4" instance=ExtResource("23_i86h8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="Pista5" parent="ObjetosInteractuables/Fax/Pistas" instance=ExtResource("12_lo2ud")]
+transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 1.8971152, 0.8731731, 5.131998)
+unique_name = "pista_5"
+item_type = 2
+inventory_item_name = "pista_5"
+
+[node name="CollisionShape3D" parent="ObjetosInteractuables/Fax/Pistas/Pista5" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00016249716, -0.00057448447, 7.450581e-09)
+shape = SubResource("BoxShape3D_klkfc")
+
+[node name="Pista5" parent="ObjetosInteractuables/Fax/Pistas/Pista5" instance=ExtResource("24_cqjna")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
 [node name="PantallasInteractuables" type="Node" parent="."]
 
 [node name="PantallaArbolesEInfo" parent="PantallasInteractuables" instance=ExtResource("8_klxtk")]
@@ -434,7 +680,7 @@ content_size = Vector2(693, 339)
 metadata/_edit_use_anchors_ = true
 
 [node name="PantallaGrafos" parent="PantallasInteractuables" instance=ExtResource("2_05p84")]
-transform = Transform3D(1.78, 0, 0, 0, 1, 0, 0, 0, 1, -3.4477463, 1.4151416, -5.3296623)
+transform = Transform3D(1.78, 0, 0, 0, 1, 0, 0, 0, 1, -1.8286945, 1.4151416, -4.551098)
 unique_name = "pantalla_colas"
 content_size = Vector2(1152, 648)
 
@@ -483,6 +729,9 @@ content_size = Vector2(534, 534)
 
 [node name="Content" parent="PantallasInteractuables/PanelModulo" instance=ExtResource("26_xsjx1")]
 
+[node name="PantallasDiagnosticos" parent="PantallasInteractuables" instance=ExtResource("27_361mr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2001295, 0.848889, -4.669047)
+
 [node name="Decoraciones" type="Node" parent="."]
 
 [node name="Cable1" type="MeshInstance3D" parent="Decoraciones"]
@@ -526,6 +775,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9744034, 0.16233619, 4.2094
 mesh = SubResource("BoxMesh_mw4mc")
 skeleton = NodePath("../..")
 
+[node name="ApoyoFax" type="MeshInstance3D" parent="Decoraciones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8960607, 0.16233619, 5.0815473)
+mesh = SubResource("BoxMesh_o4xgo")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Decoraciones/ApoyoFax"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Decoraciones/ApoyoFax/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0014038086, -0.16113281, -0.0017089844)
+shape = SubResource("BoxShape3D_sdxmx")
+
 [node name="ApoyoCaja2" type="MeshInstance3D" parent="Decoraciones"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.254212, 0.16233619, 1.2497245)
 mesh = SubResource("BoxMesh_mw4mc")
@@ -539,16 +799,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01928711, -0.0021972656)
 shape = SubResource("BoxShape3D_1fkdo")
 
 [node name="ApoyoCaja3" type="MeshInstance3D" parent="Decoraciones"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 7.585, 0, -1, 0, -4.371139e-08, -0.16815159, 0.9761937, -5.4437947)
-mesh = SubResource("BoxMesh_mw4mc")
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 7.585, 0, -1, 0, -4.371139e-08, -1.2866356, 0.9761937, -5.4437947)
+mesh = SubResource("BoxMesh_2il0u")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Decoraciones/ApoyoCaja3"]
 collision_layer = 15
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Decoraciones/ApoyoCaja3/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01928711, -0.0021972656)
-shape = SubResource("BoxShape3D_1fkdo")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01928711, -0.016662598)
+shape = SubResource("BoxShape3D_o4xgo")
 
 [node name="Suelo" type="MeshInstance3D" parent="Decoraciones"]
 transform = Transform3D(0.4144206, 0, 0, 0, 1, 0, 0, 0, 0.4144206, 0, -0.48376, 0)
@@ -1134,6 +1394,12 @@ visible = false
 [editable path="ObjetosInteractuables/DiscoInstrucciones"]
 [editable path="ObjetosInteractuables/TarjetaModulo"]
 [editable path="ObjetosInteractuables/PiezaOrdenador"]
+[editable path="ObjetosInteractuables/Fax"]
+[editable path="ObjetosInteractuables/Fax/Pistas/Pista1"]
+[editable path="ObjetosInteractuables/Fax/Pistas/Pista2"]
+[editable path="ObjetosInteractuables/Fax/Pistas/Pista3"]
+[editable path="ObjetosInteractuables/Fax/Pistas/Pista4"]
+[editable path="ObjetosInteractuables/Fax/Pistas/Pista5"]
 [editable path="PantallasInteractuables/PantallaArbolesEInfo"]
 [editable path="ObjetosDeDebugging/DebugPiezaOrdenador"]
 [editable path="ObjetosDeDebugging/DebugDiscoInstrucciones"]

@@ -1,0 +1,88 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2rqgexu8o8wg"]
+
+[ext_resource type="Texture2D" uid="uid://by62afp2b4fl8" path="res://Images/Estrellas.png" id="1_h2cjb"]
+[ext_resource type="Script" uid="uid://d1ktfrwlc8rmt" path="res://Scripts/diagnostico_destino_actual.gd" id="1_veskl"]
+
+[node name="DiagnosticoDestinoActual" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -452.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_veskl")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 853.0
+offset_bottom = 539.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 38.0
+offset_right = 621.0
+offset_bottom = 89.0
+theme_override_font_sizes/font_size = 24
+text = "Diagnóstico de ubicación actual:"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 102.0
+offset_right = 647.0
+offset_bottom = 127.0
+theme_override_font_sizes/font_size = 18
+text = "Fotografía de estrellas en dirrección norte:"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 144.0
+offset_right = 362.0
+offset_bottom = 418.0
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect"]
+scale = Vector2(0.485, 0.485)
+texture = ExtResource("1_h2cjb")
+centered = false
+offset = Vector2(12, 12)
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 441.0
+offset_right = 698.0
+offset_bottom = 636.0
+theme_override_font_sizes/font_size = 18
+text = "Bioma del planeta habitable del sistema: Nevado
+
+Habitantes: 4 mil millones
+
+Cantidad de planetas en el sistema: 7
+
+Color de la estrella central: Rojo
+
+"
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -635.0
+offset_top = -454.0
+offset_right = 1344.0
+offset_bottom = 693.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

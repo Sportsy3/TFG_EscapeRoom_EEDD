@@ -14,19 +14,41 @@ extends Node3D
 @export var modelo_pieza_compartimento: Node3D
 @export var modulo_de_construccion: Node3D
 @export var puerta: Node3D
+@export var pantallas_diagnosticos: Node3D
 @export var pantalla_arboles: MeshInstance3D
 @export var animation_player: AnimationPlayer
+
+var array_pistas: Array
+var puede_imprimir: bool = true
+var pistas_impresas: Array
+@export var pistas: Node
 
 var compartimento_abierto: bool = false
 var ordenador_arreglado: bool = false
 var material_arboles = preload("res://Images/ImageMaterials/material_arboles.tres")
 
 func _ready() -> void:
+	array_pistas = pistas.get_children()
+	for pista in array_pistas:
+		pistas_impresas.append(false)
+		pista._disable_collisions()
+		pista.visible = false
+	GameManager.progreso = GameManager.puzles.LISTAS
 	goat_inventory.item_used.connect(_on_item_used)
+	goat_inventory.item_added.connect(_comprobar_objeto)
 	goat_interaction.object_activated.connect(_on_object_activated)
 	pieza_ordenador._disable_collisions()
 	if modo_debug == false:
 		desactivar_modo_debug()
+	#print(goat_inventory._config.keys())
+
+#func _init():
+	#if not goat.get_game_resources_directory():
+		#print("No inventory items loaded")
+		#return
+	#var models_directory = goat.get_game_resources_directory() + "/goat/inventory_items/models/"
+	#var files = goat_utils.list_directory(models_directory)
+	#print("Archivos encontrados: ", files)
 
 func _on_item_used(item_name,used_on_name):
 	if item_name == "pieza_ordenador" and used_on_name == "compartimento_pieza":
@@ -39,6 +61,7 @@ func _on_item_used(item_name,used_on_name):
 		goat_inventory.remove_item("pieza_ordenador")
 		await pantalla_info_arboles.mostrar_texto()
 		pantalla_arboles.set_surface_override_material(0,material_arboles)
+		pantallas_diagnosticos.encender()
 		pantalla_grafos.encender()
 		
 	if item_name == "tarjeta_modulo" and used_on_name == "panel_modulo":
@@ -65,6 +88,39 @@ func _on_object_activated(object_name,_point):
 		else:
 			animation_player.play_backwards("AbrirCompartimento")
 			compartimento_abierto = false
+	
+	if object_name == "fax":
+		if puede_imprimir == false:
+			return
+		
+		#comprobar el progreso del jugador
+		if GameManager.progreso == GameManager.puzles.LISTAS:
+			if pistas_impresas[0] == false:
+				pistas_impresas[0] = true
+				array_pistas[0].visible = true
+				array_pistas[0]._enable_collisions()
+				animation_player.play("imprimir")
+				
+		if GameManager.progreso == GameManager.puzles.COLAS:
+			if pistas_impresas[1] == false:
+				pistas_impresas[1] = true
+				array_pistas[1].visible = true
+				array_pistas[1]._enable_collisions()
+				animation_player.play("imprimir")
+				
+		if GameManager.progreso == GameManager.puzles.TORRES:
+			if pistas_impresas[2] == false:
+				pistas_impresas[2] = true
+				array_pistas[2].visible = true
+				array_pistas[2]._enable_collisions()
+				animation_player.play("imprimir")
+				
+		if GameManager.progreso == GameManager.puzles.ARBOLES:
+			if pistas_impresas[3] == false:
+				pistas_impresas[3] = true
+				array_pistas[3].visible = true
+				array_pistas[3]._enable_collisions()
+				animation_player.play("imprimir")
 
 func fabricar_pieza():
 	modulo_de_construccion.close()
@@ -93,3 +149,7 @@ func _on_content_ruta_configurada() -> void:
 	print("acabar escape room")
 	await get_tree().create_timer(2.0).timeout
 	get_tree().change_scene_to_file("res://UI/pantalla_victoria.tscn")
+
+func _comprobar_objeto(item_name):
+	if item_name.begins_with("pista"):
+		puede_imprimir = true

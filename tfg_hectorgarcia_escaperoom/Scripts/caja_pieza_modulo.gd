@@ -10,6 +10,5 @@ func _ready() -> void:
 func open():
 	animation_player.play("open")
 
-
-func _on_connect_abrir_caja() -> void:
+func _on_content__abrir_caja() -> void:
 	open()

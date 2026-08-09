@@ -68,6 +68,7 @@ func comprobar_combinacion():
 	if combinacion_actual == combinacion_correcta:
 		get_parent().get_parent().get_parent().get_parent().abrir_puerta()
 		panel_resuelto = true
+		GameManager.progreso = GameManager.puzles.COLAS
 	else:
 		reiniciar_combinacion()
 

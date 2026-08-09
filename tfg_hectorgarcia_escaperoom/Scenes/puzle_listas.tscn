@@ -1,13 +1,60 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1xd5vfhwoere"]
+[gd_scene load_steps=21 format=3 uid="uid://c1xd5vfhwoere"]
 
 [ext_resource type="Script" uid="uid://ldtsi44r4ym7" path="res://Scripts/puzle_listas.gd" id="1_c7mvr"]
 [ext_resource type="PackedScene" uid="uid://bf1sbquxmub4a" path="res://Scenes/PanelilloGoat.tscn" id="2_kycux"]
 [ext_resource type="PackedScene" uid="uid://bnmg0a564wwjp" path="res://addons/goat/main_scenes/InteractiveItem.tscn" id="3_kycux"]
 [ext_resource type="PackedScene" uid="uid://bsv7k32eyyqqr" path="res://addons/goat/main_scenes/InteractiveScreen.tscn" id="4_24sl2"]
+[ext_resource type="PackedScene" uid="uid://ctoyevnn6me4o" path="res://Models/Panelillos/Panelillo2.fbx" id="4_rwce3"]
 [ext_resource type="PackedScene" uid="uid://dtntib3bj04hw" path="res://Scenes/pantalla_secuencia_listas.tscn" id="5_gjoun"]
+[ext_resource type="PackedScene" uid="uid://bwy8rw6v8n748" path="res://Models/Panelillos/Panelillo3.fbx" id="5_vi3dy"]
+[ext_resource type="PackedScene" uid="uid://con0uvivptddy" path="res://Models/Panelillos/Panelillo4.fbx" id="6_no5gr"]
+[ext_resource type="PackedScene" uid="uid://bf8nhvvdkkuas" path="res://Models/Panelillos/Panelillo5.fbx" id="7_ce3jx"]
+[ext_resource type="PackedScene" uid="uid://ccnxoofrdwune" path="res://Models/Panelillos/Panelillo6.fbx" id="8_3uab1"]
+[ext_resource type="PackedScene" uid="uid://dp66bn7l6ookk" path="res://Models/Panelillos/Panelillo7.fbx" id="9_e4d4c"]
+[ext_resource type="PackedScene" uid="uid://c7wkv5xaaylxs" path="res://Models/Panelillos/Panelillo0.fbx" id="9_ykt52"]
+[ext_resource type="PackedScene" uid="uid://k24wymt11axi" path="res://Models/Panelillos/Panelillo8.fbx" id="10_3adef"]
+[ext_resource type="PackedScene" uid="uid://bgxnob6wofo2x" path="res://Models/Panelillos/Panelillo9.fbx" id="11_wmwp5"]
+[ext_resource type="PackedScene" uid="uid://chol3yeg3chto" path="res://Models/BotonReinicio.fbx" id="13_vi3dy"]
+[ext_resource type="PackedScene" uid="uid://jbg8741f1uo7" path="res://Models/PuzleListas.fbx" id="16_no5gr"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_24sl2"]
-size = Vector3(0.4, 0.3, 0.3)
+[sub_resource type="Animation" id="Animation_rwce3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BotonReiniciar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5958358, -0.5998595, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ykt52"]
+resource_name = "reinicio"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BotonReiniciar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.5958358, -0.5998595, 0), Vector3(1.5958358, -0.5998595, -0.04251778), Vector3(1.5958358, -0.5998595, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vi3dy"]
+_data = {
+&"RESET": SubResource("Animation_rwce3"),
+&"reinicio": SubResource("Animation_ykt52")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ykt52"]
+size = Vector3(3.5778809, 2.606781, 0.55324936)
 
 [node name="PuzleListas" type="Node3D" node_paths=PackedStringArray("panelillo_1", "panelillo_2", "panelillo_3", "panelillo_4", "panelillo_5", "panelillo_6", "panelillo_7", "panelillo_8", "panelillo_9", "pantalla_secuencia")]
 script = ExtResource("1_c7mvr")
@@ -27,59 +74,108 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.6, 0)
 unique_name = "panelillo_1"
 num_panel = 3
 
+[node name="Panelillo5" parent="Panelillo1" instance=ExtResource("7_ce3jx")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
 [node name="Panelillo2" parent="." instance=ExtResource("2_kycux")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 unique_name = "panelillo_2"
 num_panel = 4
+
+[node name="Panelillo7" parent="Panelillo2" instance=ExtResource("9_e4d4c")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0)
 
 [node name="Panelillo3" parent="." instance=ExtResource("2_kycux")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.6, 0)
 unique_name = "panelillo_3"
 num_panel = 1
 
+[node name="Panelillo8" parent="Panelillo3" instance=ExtResource("10_3adef")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0)
+
 [node name="Panelillo4" parent="." instance=ExtResource("2_kycux")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0)
 unique_name = "panelillo_4"
 num_panel = 2
 
+[node name="Panelillo6" parent="Panelillo4" instance=ExtResource("8_3uab1")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0)
+
 [node name="Panelillo5" parent="." instance=ExtResource("2_kycux")]
 unique_name = "panelillo_5"
 num_panel = 7
+
+[node name="Panelillo10" parent="Panelillo5" instance=ExtResource("5_vi3dy")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0)
 
 [node name="Panelillo6" parent="." instance=ExtResource("2_kycux")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0)
 unique_name = "panelillo_6"
 num_panel = 9
 
+[node name="Panelillo2" parent="Panelillo6" instance=ExtResource("4_rwce3")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0)
+
 [node name="Panelillo7" parent="." instance=ExtResource("2_kycux")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, -0.6, 0)
 unique_name = "panelillo_7"
 num_panel = 5
+
+[node name="Panelillo0" parent="Panelillo7" instance=ExtResource("9_ykt52")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0)
 
 [node name="Panelillo8" parent="." instance=ExtResource("2_kycux")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
 unique_name = "panelillo_8"
 num_panel = 6
 
+[node name="Panelillo9" parent="Panelillo8" instance=ExtResource("11_wmwp5")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0)
+
 [node name="Panelillo9" parent="." instance=ExtResource("2_kycux")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, -0.6, 0)
 unique_name = "panelillo_9"
 num_panel = 8
 
+[node name="Panelillo4" parent="Panelillo9" instance=ExtResource("6_no5gr")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0)
+
 [node name="BotonReiniciar" parent="." instance=ExtResource("3_kycux")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5958358, -0.5998595, 0)
 unique_name = "boton_reiniciar"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="BotonReiniciar"]
-mesh = SubResource("BoxMesh_24sl2")
+[node name="CollisionShape3D" parent="BotonReiniciar" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00038075447, -0.00039368868, -0.040121578)
+
+[node name="BotonReinicio" parent="BotonReiniciar" instance=ExtResource("13_vi3dy")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, -0.07262564)
 
 [node name="InteractiveScreen" parent="." instance=ExtResource("4_24sl2")]
-transform = Transform3D(1, 0, 0, 0, 0.167, 0, 0, 0, 0.167, 1.4622658, -0.051880896, 0)
+transform = Transform3D(1, 0, 0, 0, 0.167, 0, 0, 0, 0.167, 1.5029637, -0.15023397, -0.012178138)
 content_size = Vector2(648, 108)
 
 [node name="CollisionShape3D" parent="InteractiveScreen" index="0"]
 shape = null
 
+[node name="ScreenSurface" parent="InteractiveScreen" index="1"]
+transform = Transform3D(1.0987772, 0, 0, 0, 1.1139892, 0, 0, 0, 1, 0, 0.005803764, 0.016164813)
+
 [node name="Content" parent="InteractiveScreen" instance=ExtResource("5_gjoun")]
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_vi3dy")
+}
+
+[node name="PuzleListas" parent="." instance=ExtResource("16_no5gr")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PuzleListas"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.553195, 0, 0.09484805)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PuzleListas/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07116699, -0.001449585, -0.19606972)
+shape = SubResource("BoxShape3D_ykt52")
+
+[editable path="BotonReiniciar"]
 [editable path="InteractiveScreen"]

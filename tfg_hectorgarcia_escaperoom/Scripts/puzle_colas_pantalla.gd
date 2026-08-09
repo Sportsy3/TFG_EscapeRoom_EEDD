@@ -98,6 +98,7 @@ func comprobar_victoria():
 		label_resultado.text = "Correcto.
 		Abriendo caja de seguridad."
 		puzle_terminado = true
+		GameManager.progreso = GameManager.puzles.TORRES
 		emit_signal("_abrir_caja")
 	else:
 		bloqueado = true

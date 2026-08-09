@@ -89,5 +89,5 @@ func _actualizar_posiciones():
 
 func _comprobar_victoria():
 	if torres["torre_3"] == [3, 2, 1]:
-		print("¡Puzzle resuelto!")
+		GameManager.progreso = GameManager.puzles.ARBOLES
 		get_parent().get_parent().fabricar_pieza()
