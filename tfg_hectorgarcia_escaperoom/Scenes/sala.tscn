@@ -325,10 +325,10 @@ size = Vector3(0.945, 0.38, 1.745)
 
 [sub_resource type="BoxMesh" id="BoxMesh_o4xgo"]
 material = SubResource("StandardMaterial3D_kcn3k")
-size = Vector3(0.945, 0.38, 0.78)
+size = Vector3(0.945, 0.97, 0.78)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sdxmx"]
-size = Vector3(0.94641113, 0.6777344, 0.7758789)
+size = Vector3(0.94641113, 0.98236084, 0.7758789)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1fkdo"]
 size = Vector3(1, 0.34423828, 1.7504883)
@@ -776,14 +776,14 @@ mesh = SubResource("BoxMesh_mw4mc")
 skeleton = NodePath("../..")
 
 [node name="ApoyoFax" type="MeshInstance3D" parent="Decoraciones"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8960607, 0.16233619, 5.0815473)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8960607, 0.35313457, 5.0815473)
 mesh = SubResource("BoxMesh_o4xgo")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Decoraciones/ApoyoFax"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Decoraciones/ApoyoFax/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0014038086, -0.16113281, -0.0017089844)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0014038086, -0.00881958, -0.0017089844)
 shape = SubResource("BoxShape3D_sdxmx")
 
 [node name="ApoyoCaja2" type="MeshInstance3D" parent="Decoraciones"]

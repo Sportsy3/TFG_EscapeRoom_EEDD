@@ -98,6 +98,7 @@ func _on_object_activated(object_name,_point):
 			if pistas_impresas[0] == false:
 				pistas_impresas[0] = true
 				array_pistas[0].visible = true
+				puede_imprimir = false
 				array_pistas[0]._enable_collisions()
 				animation_player.play("imprimir")
 				
@@ -105,6 +106,7 @@ func _on_object_activated(object_name,_point):
 			if pistas_impresas[1] == false:
 				pistas_impresas[1] = true
 				array_pistas[1].visible = true
+				puede_imprimir = false
 				array_pistas[1]._enable_collisions()
 				animation_player.play("imprimir")
 				
@@ -112,6 +114,7 @@ func _on_object_activated(object_name,_point):
 			if pistas_impresas[2] == false:
 				pistas_impresas[2] = true
 				array_pistas[2].visible = true
+				puede_imprimir = false
 				array_pistas[2]._enable_collisions()
 				animation_player.play("imprimir")
 				
@@ -119,7 +122,17 @@ func _on_object_activated(object_name,_point):
 			if pistas_impresas[3] == false:
 				pistas_impresas[3] = true
 				array_pistas[3].visible = true
+				puede_imprimir = false
 				array_pistas[3]._enable_collisions()
+				animation_player.play("imprimir")
+				GameManager.progreso = GameManager.puzles.GRAFOS
+				
+		if GameManager.progreso == GameManager.puzles.GRAFOS:
+			if pistas_impresas[4] == false:
+				pistas_impresas[4] = true
+				array_pistas[4].visible = true
+				puede_imprimir = false
+				array_pistas[4]._enable_collisions()
 				animation_player.play("imprimir")
 
 func fabricar_pieza():
@@ -151,5 +164,5 @@ func _on_content_ruta_configurada() -> void:
 	get_tree().change_scene_to_file("res://UI/pantalla_victoria.tscn")
 
 func _comprobar_objeto(item_name):
-	if item_name.begins_with("pista"):
+	if item_name.begins_with("pista_"):
 		puede_imprimir = true

@@ -2,24 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgfdobat34k3c"
-path.s3tc="res://.godot/imported/Pista1_0.png-228bc92c36618476b9268fca519ba333.s3tc.ctex"
+uid="uid://d4h5q8yun55fx"
+path="res://.godot/imported/PistaArboles.png-49615fd69b81cf66cb3bd5603716a4aa.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "61a312e513b2867c11329aeabcc67ac5"
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Models/Pista1_0.png"
-dest_files=["res://.godot/imported/Pista1_0.png-228bc92c36618476b9268fca519ba333.s3tc.ctex"]
+source_file="res://Images/ImageMaterials/PistaArboles.png"
+dest_files=["res://.godot/imported/PistaArboles.png-49615fd69b81cf66cb3bd5603716a4aa.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -27,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -41,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

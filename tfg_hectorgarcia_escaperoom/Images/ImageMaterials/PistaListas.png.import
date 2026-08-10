@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgfdobat34k3c"
-path.s3tc="res://.godot/imported/Pista1_0.png-228bc92c36618476b9268fca519ba333.s3tc.ctex"
+uid="uid://cafrrdoh8uos3"
+path.s3tc="res://.godot/imported/PistaListas.png-d8019d0a2214fcae17fe83b69937707e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "61a312e513b2867c11329aeabcc67ac5"
-}
 
 [deps]
 
-source_file="res://Models/Pista1_0.png"
-dest_files=["res://.godot/imported/Pista1_0.png-228bc92c36618476b9268fca519ba333.s3tc.ctex"]
+source_file="res://Images/ImageMaterials/PistaListas.png"
+dest_files=["res://.godot/imported/PistaListas.png-d8019d0a2214fcae17fe83b69937707e.s3tc.ctex"]
 
 [params]
 

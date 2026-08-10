@@ -5,4 +5,4 @@
 [node name="Pista4" instance=ExtResource("1_bcyct")]
 
 [node name="Cylinder" parent="." index="0"]
-transform = Transform3D(800, 0, 0, 0, -3.496911e-05, 800, 0, -800, -3.496911e-05, 0, 0, 0)
+transform = Transform3D(1500, 0, 0, 0, -6.556708e-05, 1500, 0, -1500, -6.556708e-05, 0, 0, 0)
