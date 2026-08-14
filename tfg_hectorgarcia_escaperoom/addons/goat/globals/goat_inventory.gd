@@ -23,7 +23,7 @@ var _config := {}
 
 func _init():
 	if not goat.get_game_resources_directory():
-		print("No inventory items loaded")
+		#print("No inventory items loaded")
 		return
 	var models_directory = goat.get_game_resources_directory() + "/goat/inventory_items/models/"
 	var files = goat_utils.list_directory(models_directory)

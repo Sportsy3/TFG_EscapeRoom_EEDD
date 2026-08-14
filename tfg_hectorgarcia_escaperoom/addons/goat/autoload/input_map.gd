@@ -32,7 +32,7 @@ func add_goat_actions():
 			"deadzone": 0.5,
 			"events": events
 		})
-		print("Added GOAT action: ", action_name)
+		#print("Added GOAT action: ", action_name)
 
 
 func remove_goat_actions():
@@ -40,4 +40,4 @@ func remove_goat_actions():
 		var action_name = action[0]
 		if ProjectSettings.has_setting("input/" + action_name):
 			ProjectSettings.set_setting("input/" + action_name, null)
-			print("Removed GOAT action: ", action_name)
+			#print("Removed GOAT action: ", action_name)

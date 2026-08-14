@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TFG_HectorGarcia_EscapeRoom"
-run/main_scene="uid://c6au2urfmln1i"
+run/main_scene="uid://bovt4e6usq8s"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -28,6 +28,7 @@ goat_interaction="*res://addons/goat/globals/goat_interaction.gd"
 goat_voice="*res://addons/goat/globals/goat_voice.gd"
 goat_settings="*res://addons/goat/globals/goat_settings.gd"
 DialogueManager="*res://addons/goat/addons/dialogue_manager/dialogue_manager.gd"
+SocketIoClient="*res://Scripts/SocketIOClient.gd"
 
 [editor_plugins]
 

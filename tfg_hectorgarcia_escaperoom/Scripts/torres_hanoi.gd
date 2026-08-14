@@ -157,13 +157,13 @@ func _seleccionar_disco(disco_id: int, idx_torre: int) -> void:
 	if nodos_disco.size() > disco_id:
 		var nodo: Node3D = nodos_disco[disco_id]
 		nodo.position.y += 0.3  # elevación de "coger"
-	print("[Hanoi] Disco %d seleccionado desde Torre %s" % [disco_id, _nombre_torre(idx_torre)])
+	#print("[Hanoi] Disco %d seleccionado desde Torre %s" % [disco_id, _nombre_torre(idx_torre)])
  
 func _deseleccionar_disco() -> void:
 	# Devolver el disco a su posición en la torre origen
 	if nodos_disco.size() > disco_seleccionado:
 		_posicionar_disco_en_torre(disco_seleccionado, torre_origen, torres[torre_origen].size() - 1)
-	print("[Hanoi] Disco %d devuelto a Torre %s" % [disco_seleccionado, _nombre_torre(torre_origen)])
+	#print("[Hanoi] Disco %d devuelto a Torre %s" % [disco_seleccionado, _nombre_torre(torre_origen)])
 	disco_seleccionado = -1
 	torre_origen = -1
  
@@ -190,12 +190,12 @@ func _intentar_mover(idx_destino: int) -> void:
 	var slot: int = torres[idx_destino].size() - 1
 	_posicionar_disco_en_torre(disco_seleccionado, idx_destino, slot)
  
-	print("[Hanoi] Disco %d: Torre %s → Torre %s (movimiento #%d)" % [
-		disco_seleccionado,
-		_nombre_torre(origen),
-		_nombre_torre(idx_destino),
-		num_movimientos
-	])
+	#print("[Hanoi] Disco %d: Torre %s → Torre %s (movimiento #%d)" % [
+		#disco_seleccionado,
+		#_nombre_torre(origen),
+		#_nombre_torre(idx_destino),
+		#num_movimientos
+	#])
  
 	disco_movido.emit(disco_seleccionado, origen, idx_destino)
 	disco_seleccionado = -1
@@ -208,9 +208,9 @@ func _comprobar_victoria() -> void:
 	# Condición estricta: todos en Torre C (índice 2), apilados correctamente.
 	if torres[2].size() == num_discos:
 		puzzle_completado = true
-		print("[Hanoi] ¡Puzzle resuelto en %d movimientos! (mínimo: %d)" % [
-			num_movimientos, movimientos_minimos()
-		])
+		#print("[Hanoi] ¡Puzzle resuelto en %d movimientos! (mínimo: %d)" % [
+			#num_movimientos, movimientos_minimos()
+		#])
 		puzzle_resuelto.emit()
  
 # ─────────────────────────────────────────

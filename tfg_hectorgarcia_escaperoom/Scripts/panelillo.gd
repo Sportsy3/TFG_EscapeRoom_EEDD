@@ -9,8 +9,8 @@ func girar_panelillo():
 		animation_player.play("GirarPanel")
 		panel_girado = true
 		GameManager.combinacion_actual_paneles.append(num_panel)
-		for i in range(GameManager.combinacion_actual_paneles.size()):
-			print(GameManager.combinacion_actual_paneles[i])
+		#for i in range(GameManager.combinacion_actual_paneles.size()):
+			#print(GameManager.combinacion_actual_paneles[i])
 
 func resetear_panelillo():
 	if panel_girado == true:

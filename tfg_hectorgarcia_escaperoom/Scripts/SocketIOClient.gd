@@ -14,15 +14,17 @@ extends Node
 #signal puzzle_response_received(data: Dictionary)
 #signal game_started
 #signal game_stopped
+signal authenticated
+signal authentication_failed
 
 @onready var _window = JavaScriptBridge.get_interface("window")
 var _socket = null
 
 
 @export var server_url = "wss://escapp.es" # Esto dejalo así tal cual
-@export var escape_room_id = "392" # Cambia por tu id
-@export var student_email = "hello@world.com"
-@export var student_password = "pass"
+@export var escape_room_id = "757" # Cambia por tu id
+@export var student_email = ""
+@export var student_password = ""
 
 # Los callbacks deben estar siempre en memoria para que el GarbageCollector de JavaScript no los elimine
 var _connect_callback = null
@@ -38,10 +40,10 @@ var _puzzle_response_callback = null
 var _start_callback = null
 var _stop_callback = null
 
-func _ready():
-	if _window.io != null:
-		_create_callbacks()
-		connect_to_server()
+#func _ready():
+	#if _window.io != null:
+		#_create_callbacks()
+		##connect_to_server()
 
 
 func _create_callbacks():
@@ -73,6 +75,7 @@ func connect_to_server():
 	var options = JavaScriptBridge.create_object("Object")
 	options.withCredentials = false
 	options.transports = ["websocket", "polling"]
+	options.reconection = false
 	
 	var query = JavaScriptBridge.create_object("Object")
 	query.escapeRoom = escape_room_id
@@ -120,8 +123,13 @@ func _on_initial_info(args):
 	var data = _js_object_to_dict(args[0])
 	print("INITIAL_INFO: ", data)
 	
+	if data.get("authentication") == true:
+		emit_signal("authenticated")
+	else:
+		disconnect_socket()
+		emit_signal("authentication_failed")
 	#if data.get("authentication") == true and data.get("participation") == "NOT_STARTED":
-	#	_socket.emit("START_PLAYING")
+		#_socket.emit("START_PLAYING")
 	#
 	#if data.get("participation") == "PARTICIPANT":
 		# Game is already in progress
@@ -150,6 +158,10 @@ func _on_hint_response(args):
 func _on_puzzle_response(args):
 	var data = _js_object_to_dict(args[0])
 	print("PUZZLE_RESPONSE: ", data)
+	if data.get("correctAnswer") == true:
+		print("Puzzle resuelto correctamente!")
+	else:
+		print("Respuesta incorrecta")
 
 func _on_game_start(_args):
 	print("START received")
@@ -159,10 +171,10 @@ func _on_game_stop(_args):
 
 
 func solve_puzzle(puzzle_order: int, solution: String):
+	print("solve_puzzle llamado con orden: ", puzzle_order, " solución: ", solution)
 	if not _socket:
 		push_error("Socket not connected")
 		return
-	
 	var data = JavaScriptBridge.create_object("Object")
 	data.puzzleOrder = puzzle_order
 	data.sol = solution

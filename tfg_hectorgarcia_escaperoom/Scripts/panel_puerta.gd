@@ -68,6 +68,7 @@ func comprobar_combinacion():
 	if combinacion_actual == combinacion_correcta:
 		get_parent().get_parent().get_parent().get_parent().abrir_puerta()
 		panel_resuelto = true
+		SocketIoClient.solve_puzzle(1,"371682945")
 		GameManager.progreso = GameManager.puzles.COLAS
 	else:
 		reiniciar_combinacion()

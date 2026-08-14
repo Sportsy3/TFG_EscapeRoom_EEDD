@@ -100,14 +100,14 @@ func _input(event):
 		
 		if parent.is_in_group("discos"):
 			var disco_id = parent.get_meta("disco_id")
-			print("interact disco id: ", disco_id)
+			#print("interact disco id: ", disco_id)
 			hanoi.interactuar_con_disco(disco_id)
 		
 		elif parent.is_in_group("torres"):
 			var idx = 0
 			if parent.name == "Torre_B": idx = 1
 			elif parent.name == "Torre_C": idx = 2
-			print("interact torre idx: ", idx)
+			#print("interact torre idx: ", idx)
 			hanoi.interactuar_con_torre(idx)
 		
 		elif object.is_in_group("pickable"):
@@ -121,7 +121,7 @@ func _input(event):
 		
 		elif object.is_in_group("panelillo"):
 			object.get_parent().get_parent().girar_panelillo()
-			print("Choque")
+			#print("Choque")
 
 #func _input(event):
 	#if event is InputEventMouseMotion:

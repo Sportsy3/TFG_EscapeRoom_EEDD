@@ -98,6 +98,7 @@ func comprobar_victoria():
 		label_resultado.text = "Correcto.
 		Abriendo caja de seguridad."
 		puzle_terminado = true
+		SocketIoClient.solve_puzzle(2,"DEAB")
 		GameManager.progreso = GameManager.puzles.TORRES
 		emit_signal("_abrir_caja")
 	else:

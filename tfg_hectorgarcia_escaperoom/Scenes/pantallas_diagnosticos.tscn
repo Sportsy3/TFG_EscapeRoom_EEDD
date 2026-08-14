@@ -1,22 +1,42 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqlbjdw4ebhp3"]
+[gd_scene load_steps=8 format=3 uid="uid://bqlbjdw4ebhp3"]
 
 [ext_resource type="PackedScene" uid="uid://bsv7k32eyyqqr" path="res://addons/goat/main_scenes/InteractiveScreen.tscn" id="1_0w45y"]
 [ext_resource type="Script" uid="uid://c03a0ecge871f" path="res://Scripts/pantallas_diagnosticos.gd" id="1_b72gq"]
 [ext_resource type="PackedScene" uid="uid://d2rqgexu8o8wg" path="res://Scenes/diagnostico_destino_actual.tscn" id="2_b72gq"]
 [ext_resource type="PackedScene" uid="uid://53cfbwhpi6mn" path="res://Scenes/diagnostico_ultima_entrega.tscn" id="3_o1420"]
+[ext_resource type="PackedScene" uid="uid://c81wy35up7xkk" path="res://Models/PantallaDiagnostico2.fbx" id="4_h7dlr"]
+[ext_resource type="PackedScene" uid="uid://bpjwup1iyro3a" path="res://Models/PantallaDiagnostico1.fbx" id="6_4pgfk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h7dlr"]
+size = Vector3(1.5214844, 2.326538, 1.3925781)
 
 [node name="PantallasDiagnosticos" type="Node3D"]
 script = ExtResource("1_b72gq")
 
 [node name="UbicacionActual" parent="." instance=ExtResource("1_0w45y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2877033, 0)
+transform = Transform3D(0.99731064, 0, -0.07329044, 0, 1, 0, 0.07329044, 0, 0.99731064, 0.28093588, 1.1249993, 0.027663887)
 unique_name = "ubicaion_final"
 content_size = Vector2(700, 700)
 
 [node name="Content" parent="UbicacionActual" instance=ExtResource("2_b72gq")]
 
+[node name="PantallaDiagnostico2" parent="UbicacionActual" instance=ExtResource("4_h7dlr")]
+transform = Transform3D(-2.4478377e-08, 0, -0.56, 0, 0.56, 0, 0.56, 0, -2.4478377e-08, 0, 0, -0.5247742)
+
 [node name="UbicacionFinal" parent="." instance=ExtResource("1_0w45y")]
+transform = Transform3D(0.9708463, 0, -0.23970279, 0, 1, 0, 0.23970279, 0, 0.9708463, 0, 0, 0)
 unique_name = "ubicacion_final"
 content_size = Vector2(700, 700)
 
 [node name="Content" parent="UbicacionFinal" instance=ExtResource("3_o1420")]
+
+[node name="PantallaDiagnostico1" parent="UbicacionFinal" instance=ExtResource("6_4pgfk")]
+transform = Transform3D(-2.4478377e-08, 0, -0.56, 0, 0.56, 0, 0.56, 0, -2.4478377e-08, 0, 0, -0.51081246)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 15
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17578125, 0.59246826, -0.484375)
+shape = SubResource("BoxShape3D_h7dlr")

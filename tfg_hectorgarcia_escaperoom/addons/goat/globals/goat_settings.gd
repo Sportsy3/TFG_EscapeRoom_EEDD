@@ -187,6 +187,6 @@ func _set_volume_db(bus_name: String, volume: float) -> void:
 	var bus_id = AudioServer.get_bus_index(bus_name)
 	if bus_id >= 0:
 		AudioServer.set_bus_volume_db(bus_id, volume_db)
-	else:
-		print("Audio bus not found: ", bus_name)
-		print_stack()
+	#else:
+		#print("Audio bus not found: ", bus_name)
+		#print_stack()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=4 uid="uid://sah4i034hqkh"]
+[gd_scene load_steps=86 format=4 uid="uid://sah4i034hqkh"]
 
 [ext_resource type="PackedScene" uid="uid://c4lmhavj60tqh" path="res://addons/goat/main_scenes/Player.tscn" id="1_35tbc"]
 [ext_resource type="Script" uid="uid://cmi47roau81hi" path="res://Scripts/sala.gd" id="1_57om8"]
@@ -39,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://dbqy8fhqqd03b" path="res://Models/ParedJuntas.fbx" id="29_j00go"]
 [ext_resource type="PackedScene" uid="uid://jg5xajtixhri" path="res://Models/ParedGirosDentro.fbx" id="30_xsjx1"]
 [ext_resource type="PackedScene" uid="uid://da5n4ne5vvltg" path="res://Models/Nota.fbx" id="33_giv11"]
+[ext_resource type="PackedScene" uid="uid://dmnoedc008hfv" path="res://Models/SoportePanelPared.fbx" id="33_pvs6f"]
 
 [sub_resource type="Animation" id="Animation_apc0p"]
 resource_name = "AbrirCompartimento"
@@ -460,7 +461,7 @@ libraries = {
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.8886913, -0.34229523, 0.30506083, -0.18180305, 0.3477331, 0.9197986, -0.4209221, -0.87287796, 0.24679689, 2.110857, 19.72346, 0)
-light_energy = 2.015
+light_energy = 0.439
 light_indirect_energy = 0.606
 metadata/logic_bricks_states = Array[Dictionary]([{
 "id": "state_1",
@@ -714,13 +715,16 @@ transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0.0008240938,
 shape = SubResource("BoxShape3D_emu0x")
 
 [node name="PanelPuerta" parent="PantallasInteractuables" instance=ExtResource("2_05p84")]
-transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, -2.2567976, 1.4940377, 2.8758292)
+transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, -2.2649796, 1.4940377, 2.800205)
 unique_name = "panel_puerta"
 content_size = Vector2(648, 648)
 
 [node name="Content" parent="PantallasInteractuables/PanelPuerta" instance=ExtResource("25_bli6e")]
 pista_label_text = "Introduce la secuencia correcta
 de los paneles giratorios:"
+
+[node name="SoportePanelPared" parent="PantallasInteractuables/PanelPuerta" instance=ExtResource("33_pvs6f")]
+transform = Transform3D(-2.4041263e-08, 0, 0.55, 0, 0.55, 0, -0.55, 0, -2.4041263e-08, 0, 0, -0.39109993)
 
 [node name="PanelModulo" parent="PantallasInteractuables" instance=ExtResource("2_05p84")]
 transform = Transform3D(6.169181e-08, 0, -0.44, 0, 0.46464, 0, 0.47044796, 0, 5.7699033e-08, -0.7188134, 1.2216619, 0.42556325)
@@ -730,7 +734,7 @@ content_size = Vector2(534, 534)
 [node name="Content" parent="PantallasInteractuables/PanelModulo" instance=ExtResource("26_xsjx1")]
 
 [node name="PantallasDiagnosticos" parent="PantallasInteractuables" instance=ExtResource("27_361mr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2001295, 0.848889, -4.669047)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1122212, 0.575292, -4.223543)
 
 [node name="Decoraciones" type="Node" parent="."]
 

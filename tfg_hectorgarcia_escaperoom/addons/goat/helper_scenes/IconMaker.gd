@@ -10,7 +10,7 @@ func _process(_delta):
 
 
 func make_icon_texture(model_scene_path):
-	print(model_scene_path + "(merengue)")
+	#print(model_scene_path)
 	var scene = load(model_scene_path).instantiate()
 	scene.set_script(null)
 	for c in %Pivot.get_children():

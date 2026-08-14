@@ -54,4 +54,3 @@ func _ready():
 func reset_playing_sample_nb():
 	if playing_sample_nb >= 0:
 		playing_sample_nb = -1
-

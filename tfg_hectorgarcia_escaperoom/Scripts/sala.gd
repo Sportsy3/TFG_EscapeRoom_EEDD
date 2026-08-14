@@ -71,8 +71,8 @@ func _on_item_used(item_name,used_on_name):
 	if item_name == "disco_instrucciones" and used_on_name == "ranura_instrucciones":
 		animation_player.play("meter_disco")
 		await get_tree().create_timer(1.0).timeout
-		if pantalla_colas==null:
-			print("null")
+		#if pantalla_colas==null:
+			#print("null")
 		pantalla_colas.actualizar_instrucciones()
 		goat_inventory.remove_item("disco_instrucciones")
 
@@ -101,6 +101,8 @@ func _on_object_activated(object_name,_point):
 				puede_imprimir = false
 				array_pistas[0]._enable_collisions()
 				animation_player.play("imprimir")
+				if modo_debug == false:
+					SocketIoClient.request_hint("PARTICIPANT", 0, "listas")
 				
 		if GameManager.progreso == GameManager.puzles.COLAS:
 			if pistas_impresas[1] == false:
@@ -109,6 +111,8 @@ func _on_object_activated(object_name,_point):
 				puede_imprimir = false
 				array_pistas[1]._enable_collisions()
 				animation_player.play("imprimir")
+				if modo_debug == false:
+					SocketIoClient.request_hint("PARTICIPANT", 0, "colas")
 				
 		if GameManager.progreso == GameManager.puzles.TORRES:
 			if pistas_impresas[2] == false:
@@ -117,6 +121,8 @@ func _on_object_activated(object_name,_point):
 				puede_imprimir = false
 				array_pistas[2]._enable_collisions()
 				animation_player.play("imprimir")
+				if modo_debug == false:
+					SocketIoClient.request_hint("PARTICIPANT", 0, "pilas")
 				
 		if GameManager.progreso == GameManager.puzles.ARBOLES:
 			if pistas_impresas[3] == false:
@@ -126,6 +132,8 @@ func _on_object_activated(object_name,_point):
 				array_pistas[3]._enable_collisions()
 				animation_player.play("imprimir")
 				GameManager.progreso = GameManager.puzles.GRAFOS
+				if modo_debug == false:
+					SocketIoClient.request_hint("PARTICIPANT", 0, "árboles")
 				
 		if GameManager.progreso == GameManager.puzles.GRAFOS:
 			if pistas_impresas[4] == false:
@@ -134,6 +142,8 @@ func _on_object_activated(object_name,_point):
 				puede_imprimir = false
 				array_pistas[4]._enable_collisions()
 				animation_player.play("imprimir")
+				if modo_debug == false:
+					SocketIoClient.request_hint("PARTICIPANT", 0, "grafos")
 
 func fabricar_pieza():
 	modulo_de_construccion.close()
@@ -159,7 +169,9 @@ func desactivar_modo_debug():
 		i.queue_free()
 
 func _on_content_ruta_configurada() -> void:
-	print("acabar escape room")
+	#print("acabar escape room")
+	if modo_debug == false:
+		SocketIoClient.solve_puzzle(4,"CABDF")
 	await get_tree().create_timer(2.0).timeout
 	get_tree().change_scene_to_file("res://UI/pantalla_victoria.tscn")
 
