@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=4 uid="uid://sah4i034hqkh"]
+[gd_scene load_steps=97 format=4 uid="uid://sah4i034hqkh"]
 
 [ext_resource type="PackedScene" uid="uid://c4lmhavj60tqh" path="res://addons/goat/main_scenes/Player.tscn" id="1_35tbc"]
 [ext_resource type="Script" uid="uid://cmi47roau81hi" path="res://Scripts/sala.gd" id="1_57om8"]
@@ -40,6 +40,15 @@
 [ext_resource type="PackedScene" uid="uid://jg5xajtixhri" path="res://Models/ParedGirosDentro.fbx" id="30_xsjx1"]
 [ext_resource type="PackedScene" uid="uid://da5n4ne5vvltg" path="res://Models/Nota.fbx" id="33_giv11"]
 [ext_resource type="PackedScene" uid="uid://dmnoedc008hfv" path="res://Models/SoportePanelPared.fbx" id="33_pvs6f"]
+[ext_resource type="AudioStream" uid="uid://cnm4ksb5bn5vn" path="res://Audio/AbrirCajas.wav" id="41_530pn"]
+[ext_resource type="AudioStream" uid="uid://b1viyw6h82iq3" path="res://Audio/Fax.wav" id="42_oecfy"]
+[ext_resource type="AudioStream" uid="uid://cgpr0w7br1sdf" path="res://Audio/AbrirPuerta.wav" id="43_vrmpn"]
+[ext_resource type="AudioStream" uid="uid://d1q8xl5fw2ovw" path="res://Audio/ColocarPieza.wav" id="44_n6lb8"]
+[ext_resource type="AudioStream" uid="uid://oyt722qmfw4d" path="res://Audio/PuertaCompartimento.wav" id="45_klkfc"]
+[ext_resource type="AudioStream" uid="uid://b4aafp2clp2ex" path="res://Audio/PuzleResuelto.mp3" id="46_sdxmx"]
+[ext_resource type="AudioStream" uid="uid://b4x7oe6ms7yqi" path="res://Audio/EncenderPantallas.wav" id="47_oecfy"]
+[ext_resource type="AudioStream" uid="uid://do7ftiacuspes" path="res://Audio/RecogerObjeto.wav" id="48_vrmpn"]
+[ext_resource type="AudioStream" uid="uid://24gq1rf1gxyi" path="res://Audio/SonidoFondo.mp3" id="49_n6lb8"]
 
 [sub_resource type="Animation" id="Animation_apc0p"]
 resource_name = "AbrirCompartimento"
@@ -256,6 +265,9 @@ _data = {
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sxx02"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_pvs6f"]
+size = Vector3(0.30895478, 0.49158326, 0.7488618)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_t2clt"]
 size = Vector3(0.45437223, 0.23732147, 0.4164633)
 
@@ -423,6 +435,14 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_elhir")
 
+[sub_resource type="Environment" id="Environment_pvs6f"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.07
+glow_enabled = true
+glow_strength = 0.47
+glow_blend_mode = 1
+
 [node name="Sala" type="Node3D" node_paths=PackedStringArray("objetos_debugging", "panel_modulo", "pantalla_info_arboles", "pantalla_colas", "pantalla_grafos", "panel_puerta", "pieza_ordenador", "compartimento_pieza", "caja", "torres_hanoi", "modelo_pieza_compartimento", "modulo_de_construccion", "puerta", "pantallas_diagnosticos", "pantalla_arboles", "animation_player", "pistas")]
 script = ExtResource("1_57om8")
 objetos_debugging = NodePath("ObjetosDeDebugging")
@@ -453,26 +473,14 @@ metadata/logic_bricks_graph = {
 }
 metadata/logic_bricks_frames = []
 
+[node name="Player" parent="." instance=ExtResource("1_35tbc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6888361, 0, 4.4340534)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../ObjetosInteractuables/RanuraDisco")
 libraries = {
 &"": SubResource("AnimationLibrary_apc0p")
 }
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.8886913, -0.34229523, 0.30506083, -0.18180305, 0.3477331, 0.9197986, -0.4209221, -0.87287796, 0.24679689, 2.110857, 19.72346, 0)
-light_energy = 0.439
-light_indirect_energy = 0.606
-metadata/logic_bricks_states = Array[Dictionary]([{
-"id": "state_1",
-"name": "State 1"
-}])
-metadata/logic_bricks_graph = {
-"connections": [],
-"next_id": 0,
-"nodes": []
-}
-metadata/logic_bricks_frames = []
 
 [node name="CajaPiezaModulo" parent="." instance=ExtResource("6_kcn3k")]
 transform = Transform3D(0.2999999, 0, -5.7620357e-09, 0, 0.2999999, 0, -1.0228468e-08, 0, 0.30081996, 4.839802, 0.35253978, 4.201722)
@@ -487,9 +495,6 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -2.5125175, 0, 4.389388
 
 [node name="Nota" parent="." instance=ExtResource("33_giv11")]
 transform = Transform3D(-1.0359599e-07, 0, -2.37, 0, 2.37, 0, 2.37, 0, -1.0359599e-07, 5.915784, 1.6873994, -2.203254)
-
-[node name="Player" parent="." instance=ExtResource("1_35tbc")]
-transform = Transform3D(0.6643698, 0, 0.747404, 0, 1, 0, -0.747404, 0, 0.6643698, 2.942888, 0, 4.090104)
 
 [node name="ObjetosInteractuables" type="Node" parent="."]
 
@@ -564,6 +569,10 @@ transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.11905186, 1.7501776, 
 [node name="CompartimentoPieza" parent="ObjetosInteractuables" instance=ExtResource("12_lo2ud")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.2840954, 1.5602697, -4.5071774)
 unique_name = "compartimento_pieza"
+
+[node name="CollisionShape3D" parent="ObjetosInteractuables/CompartimentoPieza" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0015288591, 0.0008957088)
+shape = SubResource("BoxShape3D_pvs6f")
 
 [node name="CompartimentoPieza" parent="ObjetosInteractuables/CompartimentoPieza" instance=ExtResource("12_apc0p")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
@@ -698,9 +707,9 @@ transform = Transform3D(0.9999997, 0, 0, 0, 0.9999901, 0, 0, 0, 0.9999901, 0, -0
 shape = SubResource("BoxShape3D_klxtk")
 
 [node name="PantallaColas" parent="PantallasInteractuables" instance=ExtResource("2_05p84")]
-transform = Transform3D(-7.780626e-08, 0, -0.99999994, 0, 0.99999994, 0, 1.7799999, 0, -4.3711385e-08, 5.385112, 1.7264678, 2.1445856)
+transform = Transform3D(-7.780626e-08, 0, -0.99999994, 0, 0.99999994, 0, 1.7799999, 0, -4.3711385e-08, 5.385112, 1.7264678, 2.1866233)
 unique_name = "pantalla_colas"
-content_size = Vector2(960, 540)
+content_size = Vector2(1152, 648)
 
 [node name="PantallaPuzleColas" parent="PantallasInteractuables/PantallaColas" instance=ExtResource("7_05p84")]
 transform = Transform3D(0.2808989, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.6427886, 0.0013189316)
@@ -860,6 +869,7 @@ metadata/logic_bricks_frames = []
 
 [node name="Techo" type="MeshInstance3D" parent="Decoraciones"]
 transform = Transform3D(0.4144206, 0, 0, 0, 1, 0, 0, 0, 0.4144206, 0, 3.5975823, 0)
+visible = false
 layers = 1023
 mesh = SubResource("BoxMesh_giv11")
 skeleton = NodePath("../..")
@@ -1254,6 +1264,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9073486e-06, 0, 2.2235172)
 [node name="JuntaDcha" parent="Paredes/Pared3/Pared2/ParedJuntas" index="0"]
 visible = false
 
+[node name="JuntaDcha_001" parent="Paredes/Pared3/Pared2/ParedJuntas" index="1"]
+visible = false
+
 [node name="Pared2" parent="Paredes/Pared3/Pared2" instance=ExtResource("28_t4cvi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.2308714)
 
@@ -1284,8 +1297,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.010023117)
 [node name="JuntaDcha" parent="Paredes/Pared3/ParedJuntas2" index="0"]
 visible = false
 
-[node name="JuntaIzq" parent="Paredes/Pared3/ParedJuntas2" index="1"]
+[node name="JuntaDcha_001" parent="Paredes/Pared3/ParedJuntas2" index="1"]
+visible = false
+
+[node name="JuntaIzq" parent="Paredes/Pared3/ParedJuntas2" index="2"]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 33.91098, 0, -99.99999, -4.0425043e-06, 0, 0, -0.014629364)
+
+[node name="JuntaIzq_001" parent="Paredes/Pared3/ParedJuntas2" index="3"]
+visible = false
 
 [node name="Pared2" parent="Paredes" instance=ExtResource("28_t4cvi")]
 transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, 6.3035684, 0.016240716, 4.426408)
@@ -1332,7 +1351,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.1
 
 [node name="ParedJuntas" parent="Paredes/Pared4" instance=ExtResource("29_j00go")]
 
-[node name="JuntaIzq" parent="Paredes/Pared4/ParedJuntas" index="1"]
+[node name="JuntaIzq" parent="Paredes/Pared4/ParedJuntas" index="2"]
 visible = false
 mesh = SubResource("ArrayMesh_r6rna")
 
@@ -1365,7 +1384,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9073486e-06, 0, 2.2235172)
 
 [node name="ParedJuntas" parent="Paredes/Pared/Pared2" instance=ExtResource("29_j00go")]
 
-[node name="JuntaIzq" parent="Paredes/Pared/Pared2/ParedJuntas" index="1"]
+[node name="JuntaIzq" parent="Paredes/Pared/Pared2/ParedJuntas" index="2"]
 visible = false
 mesh = SubResource("ArrayMesh_r6rna")
 
@@ -1374,7 +1393,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.2308714)
 
 [node name="ParedJuntas" parent="Paredes/Pared/Pared2/Pared2" instance=ExtResource("29_j00go")]
 
-[node name="JuntaIzq" parent="Paredes/Pared/Pared2/Pared2/ParedJuntas" index="1"]
+[node name="JuntaIzq" parent="Paredes/Pared/Pared2/Pared2/ParedJuntas" index="2"]
 visible = false
 mesh = SubResource("ArrayMesh_r6rna")
 
@@ -1391,6 +1410,147 @@ visible = false
 
 [node name="ParedJuntas" parent="Paredes/Pared/Pared2/Pared2/Pared2" instance=ExtResource("29_j00go")]
 
+[node name="Luces" type="Node" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8716264, 2.4015415, -4.260665)
+light_color = Color(0, 0.7689352, 0, 1)
+omni_range = 1.064659
+omni_attenuation = 0.3
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7191305, 1.2859586, -4.402414)
+light_color = Color(1, 0, 0, 1)
+omni_range = 0.98894274
+omni_attenuation = 0.3
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.096, 2.8149493, 0.427)
+light_energy = 14.557
+spot_range = 1.5383239
+spot_attenuation = -8.03
+spot_angle = 24.280855
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.2730656, 2.8149498, 4.4092975)
+light_energy = 14.557
+spot_range = 3.1573827
+spot_attenuation = 0.12
+spot_angle = 25.059954
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.9246091, 2.4748986, 4.9029427)
+light_energy = 14.557
+spot_range = 1.7460774
+spot_attenuation = 4.64
+spot_angle = 17.65008
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4983788, 0.68670726, 3.3904076)
+light_color = Color(0, 0, 0.8980392, 1)
+omni_range = 0.4
+omni_attenuation = 0.6
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4983788, 0.68670726, 5.0054226)
+light_color = Color(0, 0, 0.8980392, 1)
+omni_range = 0.4
+omni_attenuation = 0.6
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.217031, 0.68670726, 3.3904076)
+light_color = Color(0, 0, 0.8980392, 1)
+omni_range = 0.4
+omni_attenuation = 0.6
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.217031, 0.68670726, 5.0054226)
+light_color = Color(0, 0, 0.8980392, 1)
+omni_range = 0.4
+omni_attenuation = 0.6
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Luces"]
+environment = SubResource("Environment_pvs6f")
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2129594, 1.7363641, 5.470576)
+omni_range = 1.9656721
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0068573, 1.7363641, 5.470576)
+omni_range = 1.9656721
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2320776, 1.7363641, 5.470576)
+omni_range = 1.9656721
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.201251, 1.7363641, 3.3691678)
+omni_range = 1.9656721
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.201251, 1.7363641, 1.0579157)
+omni_range = 1.9656721
+
+[node name="OmniLight3D15" type="OmniLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0611944, 1.7363641, 0.9031334)
+omni_range = 2.4051094
+
+[node name="OmniLight3D18" type="OmniLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2803, 1.7363641, -3.1833894)
+omni_range = 4.138719
+
+[node name="OmniLight3D16" type="OmniLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.572824, 1.7363641, 3.3555923)
+omni_range = 1.9656721
+
+[node name="OmniLight3D17" type="OmniLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3998315, 1.7363641, 5.4724913)
+omni_range = 1.9656721
+
+[node name="OmniLight3D12" type="OmniLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.201251, 1.7363641, -0.98590326)
+omni_range = 1.9656721
+
+[node name="OmniLight3D13" type="OmniLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.201251, 1.7363641, -2.9381294)
+omni_range = 0.94202536
+
+[node name="OmniLight3D19" type="OmniLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6704266, 1.385943, -4.3944287)
+omni_range = 0.0
+
+[node name="Sonido" type="Node" parent="."]
+
+[node name="AbrirCajas" type="AudioStreamPlayer" parent="Sonido"]
+stream = ExtResource("41_530pn")
+
+[node name="Fax" type="AudioStreamPlayer" parent="Sonido"]
+stream = ExtResource("42_oecfy")
+
+[node name="AbrirPuerta" type="AudioStreamPlayer" parent="Sonido"]
+stream = ExtResource("43_vrmpn")
+
+[node name="ColocarPieza" type="AudioStreamPlayer" parent="Sonido"]
+stream = ExtResource("44_n6lb8")
+
+[node name="PuertaCompartimento" type="AudioStreamPlayer" parent="Sonido"]
+stream = ExtResource("45_klkfc")
+
+[node name="PuzleResuelto" type="AudioStreamPlayer" parent="Sonido"]
+stream = ExtResource("46_sdxmx")
+
+[node name="EncenderPantallas" type="AudioStreamPlayer" parent="Sonido"]
+stream = ExtResource("47_oecfy")
+
+[node name="RecogerObjeto" type="AudioStreamPlayer" parent="Sonido"]
+stream = ExtResource("48_vrmpn")
+
+[node name="SonidoFondo" type="AudioStreamPlayer" parent="Sonido"]
+stream = ExtResource("49_n6lb8")
+autoplay = true
+parameters/looping = true
+
 [connection signal="ruta_configurada" from="PantallasInteractuables/PantallaGrafos/Content" to="." method="_on_content_ruta_configurada"]
 [connection signal="_abrir_caja" from="PantallasInteractuables/PantallaColas/Content" to="CajaPiezaModulo" method="_on_content__abrir_caja"]
 
@@ -1398,6 +1558,7 @@ visible = false
 [editable path="ObjetosInteractuables/DiscoInstrucciones"]
 [editable path="ObjetosInteractuables/TarjetaModulo"]
 [editable path="ObjetosInteractuables/PiezaOrdenador"]
+[editable path="ObjetosInteractuables/CompartimentoPieza"]
 [editable path="ObjetosInteractuables/Fax"]
 [editable path="ObjetosInteractuables/Fax/Pistas/Pista1"]
 [editable path="ObjetosInteractuables/Fax/Pistas/Pista2"]

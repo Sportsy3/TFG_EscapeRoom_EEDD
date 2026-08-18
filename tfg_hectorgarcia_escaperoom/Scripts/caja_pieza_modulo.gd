@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var abrir_cajas: AudioStreamPlayer = $AbrirCajas
 
 func _ready() -> void:
 	connect("_abrir_caja",open)
@@ -8,6 +9,7 @@ func _ready() -> void:
 		#print("conectado")
 
 func open():
+	abrir_cajas.play(0)
 	animation_player.play("open")
 
 func _on_content__abrir_caja() -> void:

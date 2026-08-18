@@ -70,3 +70,5 @@ shape = SubResource("CylinderShape3D_iivu1")
 libraries = {
 &"": SubResource("AnimationLibrary_sadhb")
 }
+
+[editable path="ModuloConstruccionInf"]

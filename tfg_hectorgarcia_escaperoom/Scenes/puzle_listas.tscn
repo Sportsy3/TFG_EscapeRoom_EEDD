@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c1xd5vfhwoere"]
+[gd_scene load_steps=23 format=3 uid="uid://c1xd5vfhwoere"]
 
 [ext_resource type="Script" uid="uid://ldtsi44r4ym7" path="res://Scripts/puzle_listas.gd" id="1_c7mvr"]
 [ext_resource type="PackedScene" uid="uid://bf1sbquxmub4a" path="res://Scenes/PanelilloGoat.tscn" id="2_kycux"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://bgxnob6wofo2x" path="res://Models/Panelillos/Panelillo9.fbx" id="11_wmwp5"]
 [ext_resource type="PackedScene" uid="uid://chol3yeg3chto" path="res://Models/BotonReinicio.fbx" id="13_vi3dy"]
 [ext_resource type="PackedScene" uid="uid://jbg8741f1uo7" path="res://Models/PuzleListas.fbx" id="16_no5gr"]
+[ext_resource type="AudioStream" uid="uid://bq88gdl50yqj8" path="res://Audio/ReiniciarPaneles.wav" id="17_ce3jx"]
+[ext_resource type="AudioStream" uid="uid://ba8vrvhd5u4dl" path="res://Audio/GirarPanel.wav" id="18_3uab1"]
 
 [sub_resource type="Animation" id="Animation_rwce3"]
 length = 0.001
@@ -176,6 +178,12 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.5
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PuzleListas/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07116699, -0.001449585, -0.19606972)
 shape = SubResource("BoxShape3D_ykt52")
+
+[node name="ReiniciarPaneles" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_ce3jx")
+
+[node name="GirarPanel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_3uab1")
 
 [editable path="BotonReiniciar"]
 [editable path="InteractiveScreen"]

@@ -12,6 +12,7 @@ extends Control
 @onready var peso_label: Label = $PesoLabel
 @onready var ruta_label: Label = $RutaLabel
 @onready var pantalla_apagada: ColorRect = $PantallaApagada
+@onready var pantalla_texto: AudioStreamPlayer = $PantallaTexto
 
 var ruta_correcta: Array = [2,0,1,3,5]
 var peso_correcto: int = 17
@@ -69,30 +70,37 @@ func introducir_nodo(nodo: int):
 	nodo_actual = nodo
 
 func _on_button0_pressed():
+	pantalla_texto.play(0)
 	nodo_destino = 0
 	establecer_ruta()
 
 func _on_button1_pressed():
+	pantalla_texto.play(0)
 	nodo_destino = 1
 	establecer_ruta()
 
 func _on_button2_pressed():
+	pantalla_texto.play(0)
 	nodo_destino = 2
 	establecer_ruta()
 
 func _on_button3_pressed():
+	pantalla_texto.play(0)
 	nodo_destino = 3
 	establecer_ruta()
 
 func _on_button4_pressed():
+	pantalla_texto.play(0)
 	nodo_destino = 4
 	establecer_ruta()
 
 func _on_button5_pressed():
+	pantalla_texto.play(0)
 	nodo_destino = 5
 	establecer_ruta()
 
 func _on_buttonsolution_pressed():
+	pantalla_texto.play(0)
 	if peso_total < peso_correcto:
 		feedback_label.text = "Ruta incorrecta,
 		sobra combustible."
@@ -108,6 +116,7 @@ func _on_buttonsolution_pressed():
 			feedback_label.text = "Ruta Incorrecta."
 
 func _on_buttonreiniciar_pressed():
+	pantalla_texto.play(0)
 	peso_total = 0
 	feedback_label.text = ""
 	peso_label.text = "Gasto de combustible: " + str(peso_total) + "/17"
@@ -116,6 +125,7 @@ func _on_buttonreiniciar_pressed():
 	queue_redraw()
 
 func establecer_ruta():
+	pantalla_texto.play(0)
 	if ruta_actual.is_empty():
 		introducir_nodo(nodo_destino)
 	else:

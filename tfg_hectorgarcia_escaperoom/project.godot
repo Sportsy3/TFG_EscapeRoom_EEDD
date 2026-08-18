@@ -37,6 +37,7 @@ enabled=PackedStringArray("res://addons/goat/plugin.cfg", "res://addons/project-
 [file_customization]
 
 folder_colors={
+"res://Audio/": "orange",
 "res://Images/": "gray",
 "res://Models/": "yellow",
 "res://Scenes/": "red",

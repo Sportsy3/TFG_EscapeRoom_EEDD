@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cjjs87obfrmna"]
+[gd_scene load_steps=13 format=3 uid="uid://cjjs87obfrmna"]
 
 [ext_resource type="PackedScene" uid="uid://b27gtvrbrlgk1" path="res://Models/PuertaDcha.fbx" id="1_0nvjv"]
 [ext_resource type="Script" uid="uid://ub6nxn8byo65" path="res://Scripts/puerta.gd" id="1_8lxdd"]
 [ext_resource type="PackedScene" uid="uid://br0kfdpud0ats" path="res://Models/PuertaIzq.fbx" id="2_8lxdd"]
 [ext_resource type="PackedScene" uid="uid://dfu3uqs3jr82d" path="res://Models/MarcoPuerta.fbx" id="3_yocse"]
+[ext_resource type="AudioStream" uid="uid://cgpr0w7br1sdf" path="res://Audio/AbrirPuerta.wav" id="5_yocse"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7qjlv"]
 size = Vector3(0.49047852, 4.088928, 1.8237915)
@@ -16,33 +17,6 @@ size = Vector3(0.5383301, 4.0180664, 4.345581)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yi085"]
 size = Vector3(0.56388855, 6.000702, 0.66381836)
-
-[sub_resource type="Animation" id="Animation_bd0je"]
-resource_name = "abrir_puerta"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PuertaDcha:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, -4.469049)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PuertaIzq:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 4.5561824)]
-}
 
 [sub_resource type="Animation" id="Animation_2srua"]
 length = 0.001
@@ -69,6 +43,33 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bd0je"]
+resource_name = "abrir_puerta"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PuertaDcha:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -4.469049)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PuertaIzq:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 4.5561824)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k0egv"]
@@ -122,3 +123,6 @@ shape = SubResource("BoxShape3D_yi085")
 libraries = {
 &"": SubResource("AnimationLibrary_k0egv")
 }
+
+[node name="AbrirPuerta" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_yocse")

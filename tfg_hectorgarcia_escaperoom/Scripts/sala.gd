@@ -18,16 +18,29 @@ extends Node3D
 @export var pantalla_arboles: MeshInstance3D
 @export var animation_player: AnimationPlayer
 
+@onready var abrir_cajas: AudioStreamPlayer = $Sonido/AbrirCajas
+@onready var fax: AudioStreamPlayer = $Sonido/Fax
+@onready var abrir_puerta_audio: AudioStreamPlayer = $Sonido/AbrirPuerta
+@onready var colocar_pieza: AudioStreamPlayer = $Sonido/ColocarPieza
+@onready var puerta_compartimento: AudioStreamPlayer = $Sonido/PuertaCompartimento
+@onready var puzle_resuelto: AudioStreamPlayer = $Sonido/PuzleResuelto
+@onready var encender_pantallas: AudioStreamPlayer = $Sonido/EncenderPantallas
+@onready var recoger_objeto: AudioStreamPlayer = $Sonido/RecogerObjeto
+
+
 var array_pistas: Array
 var puede_imprimir: bool = true
 var pistas_impresas: Array
 @export var pistas: Node
+@onready var techo: MeshInstance3D = $Decoraciones/Techo
+@onready var luz_pantalla_arboles: OmniLight3D = $Luces/OmniLight3D19
 
 var compartimento_abierto: bool = false
 var ordenador_arreglado: bool = false
 var material_arboles = preload("res://Images/ImageMaterials/material_arboles.tres")
 
 func _ready() -> void:
+	techo.visible = true
 	array_pistas = pistas.get_children()
 	for pista in array_pistas:
 		pistas_impresas.append(false)
@@ -58,15 +71,21 @@ func _on_item_used(item_name,used_on_name):
 		animation_player.play_backwards("AbrirCompartimento")
 		compartimento_abierto = false
 		modelo_pieza_compartimento.visible = true
+		colocar_pieza.play(0)
+		encender_pantallas.play(0)
 		goat_inventory.remove_item("pieza_ordenador")
 		await pantalla_info_arboles.mostrar_texto()
 		pantalla_arboles.set_surface_override_material(0,material_arboles)
 		pantallas_diagnosticos.encender()
 		pantalla_grafos.encender()
+		encender_pantallas.play(0)
+		luz_pantalla_arboles.omni_range = 1.232
 		
 	if item_name == "tarjeta_modulo" and used_on_name == "panel_modulo":
+		encender_pantallas.play(0)
 		panel_modulo.abrir_modulo()
 		modulo_de_construccion.open()
+		abrir_puerta_audio.play(0)
 		
 	if item_name == "disco_instrucciones" and used_on_name == "ranura_instrucciones":
 		animation_player.play("meter_disco")
@@ -77,16 +96,22 @@ func _on_item_used(item_name,used_on_name):
 		goat_inventory.remove_item("disco_instrucciones")
 
 func _on_object_activated(object_name,_point):
+	if object_name == "pieza_ordenador" or object_name == "tarjeta_modulo" or object_name == "disco_instrucciones" or object_name.begins_with("pista_"):
+		recoger_objeto.play(0)
+		
 	if object_name == "caja":
 		caja.abrir_caja()
+		abrir_cajas.play(0)
 	if object_name == "compartimento_pieza":
 		if ordenador_arreglado:
 			return
 		if compartimento_abierto == false:
 			animation_player.play("AbrirCompartimento")
+			puerta_compartimento.play(0)
 			compartimento_abierto = true
 		else:
 			animation_player.play_backwards("AbrirCompartimento")
+			puerta_compartimento.play(0)
 			compartimento_abierto = false
 	
 	if object_name == "fax":
@@ -101,6 +126,7 @@ func _on_object_activated(object_name,_point):
 				puede_imprimir = false
 				array_pistas[0]._enable_collisions()
 				animation_player.play("imprimir")
+				fax.play(0)
 				if modo_debug == false:
 					SocketIoClient.request_hint("PARTICIPANT", 0, "listas")
 				
@@ -111,6 +137,7 @@ func _on_object_activated(object_name,_point):
 				puede_imprimir = false
 				array_pistas[1]._enable_collisions()
 				animation_player.play("imprimir")
+				fax.play(0)
 				if modo_debug == false:
 					SocketIoClient.request_hint("PARTICIPANT", 0, "colas")
 				
@@ -131,6 +158,7 @@ func _on_object_activated(object_name,_point):
 				puede_imprimir = false
 				array_pistas[3]._enable_collisions()
 				animation_player.play("imprimir")
+				fax.play(0)
 				GameManager.progreso = GameManager.puzles.GRAFOS
 				if modo_debug == false:
 					SocketIoClient.request_hint("PARTICIPANT", 0, "árboles")
@@ -142,11 +170,13 @@ func _on_object_activated(object_name,_point):
 				puede_imprimir = false
 				array_pistas[4]._enable_collisions()
 				animation_player.play("imprimir")
+				fax.play(0)
 				if modo_debug == false:
 					SocketIoClient.request_hint("PARTICIPANT", 0, "grafos")
 
 func fabricar_pieza():
 	modulo_de_construccion.close()
+	abrir_puerta_audio.play(0)
 	#print("módulo cerrado")
 	await get_tree().create_timer(1.0).timeout
 	torres_hanoi.visible = false
@@ -155,6 +185,7 @@ func fabricar_pieza():
 	pieza_ordenador._enable_collisions()
 	#print("pieza visible")
 	await get_tree().create_timer(2.0).timeout
+	abrir_puerta_audio.play(0)
 	modulo_de_construccion.open()
 	torres_hanoi.queue_free()
 	#print("modulo abierto")
@@ -162,6 +193,7 @@ func fabricar_pieza():
 func abrir_puerta():
 	#print("abriendo puerta")
 	puerta.abrir()
+	abrir_puerta_audio.play(0)
 
 func desactivar_modo_debug():
 	var objetos = objetos_debugging.get_children()
@@ -170,6 +202,7 @@ func desactivar_modo_debug():
 
 func _on_content_ruta_configurada() -> void:
 	#print("acabar escape room")
+	puzle_resuelto.play(0)
 	if modo_debug == false:
 		SocketIoClient.solve_puzzle(4,"CABDF")
 	await get_tree().create_timer(2.0).timeout

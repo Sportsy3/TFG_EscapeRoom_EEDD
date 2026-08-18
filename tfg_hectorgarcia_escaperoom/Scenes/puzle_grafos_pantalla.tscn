@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://dtbq3w6xpiavn"]
+[gd_scene load_steps=20 format=3 uid="uid://dtbq3w6xpiavn"]
 
 [ext_resource type="Texture2D" uid="uid://dxt8rr4uwkfqk" path="res://Images/Captura de pantalla 2026-06-29 152437.png" id="1_2q2n1"]
 [ext_resource type="Script" uid="uid://c1q2jl2jmst8v" path="res://Scripts/puzle_grafos_pantalla.gd" id="1_umhvh"]
+[ext_resource type="AudioStream" uid="uid://di26d3fxhoj0t" path="res://Audio/PantallaTexto.mp3" id="3_nkad2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_umhvh"]
 content_margin_left = 4.0
@@ -405,3 +406,6 @@ offset_top = -32.0
 offset_right = 1204.0
 offset_bottom = 689.0
 color = Color(0, 0, 0, 1)
+
+[node name="PantallaTexto" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nkad2")

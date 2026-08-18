@@ -1,6 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6au2urfmln1i"]
+[gd_scene load_steps=5 format=3 uid="uid://c6au2urfmln1i"]
 
 [ext_resource type="Script" uid="uid://cmacu7cvnf6ba" path="res://Scripts/menu_inicial.gd" id="1_fubis"]
+[ext_resource type="Texture2D" uid="uid://3xqqnxnac7u2" path="res://Images/ImagenMenu.png" id="2_5pyya"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5pyya"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.90588236)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s8tdi"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.90588236)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [node name="MenuInicial" type="Control"]
 layout_mode = 3
@@ -10,6 +35,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fubis")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_5pyya")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -21,7 +60,7 @@ grow_vertical = 2
 theme_override_constants/separation = 0
 
 [node name="Container" type="Container" parent="HBoxContainer"]
-custom_minimum_size = Vector2(84, 0)
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
@@ -32,9 +71,14 @@ alignment = 1
 
 [node name="Titulo" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_constants/shadow_outline_size = 33
 theme_override_font_sizes/font_size = 49
-text = "Arregla la nave,
-¡o te despido!"
+text = "Arregla la 
+nave"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -46,10 +90,12 @@ custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_5pyya")
 text = "Jugar"
 
 [node name="ButtonSalir" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_s8tdi")
 text = "Salir"

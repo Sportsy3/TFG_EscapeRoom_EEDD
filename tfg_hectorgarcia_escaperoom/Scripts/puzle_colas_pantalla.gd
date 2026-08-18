@@ -17,7 +17,9 @@ var tiempo_tecleo: float
 @onready var slots_r2 = $HBoxContainer/VBoxContainer/SlotRendija2
 @onready var botones_elementos = $HBoxContainer/VBoxContainer/BotonesElementos
 @onready var label_resultado = $HBoxContainer/VBoxContainer/LabelResultado
-@onready var instrucciones: Label = $Instrucciones
+@onready var instrucciones: Label = $HBoxContainer/Instrucciones
+@onready var puzle_resuelto: AudioStreamPlayer = $PuzleResuelto
+@onready var pantalla_texto: AudioStreamPlayer = $PantallaTexto
 
 signal _abrir_caja
 
@@ -31,12 +33,14 @@ func _ready():
 	actualizar_ui()
 
 func _on_elemento_pressed(elemento: String):
+	pantalla_texto.play(0)
 	if puzle_terminado:
 		return
 	seleccion_actual = elemento
 	label_resultado.text = "Seleccionado: " + elemento
 
 func _on_introducir_pressed():
+	pantalla_texto.play(0)
 	if puzle_terminado:
 		return
 	if bloqueo_total:
@@ -47,7 +51,8 @@ func _on_introducir_pressed():
 		label_resultado.text = "Reinicia el sistema."
 		return
 	if seleccion_actual == "":
-		label_resultado.text = "Selecciona un elemento primero."
+		label_resultado.text = "Selecciona un
+		elemento primero."
 		return
 	if rendija2.size() >= MAX_ELEMENTOS:
 		label_resultado.text = "La Rendija 2 está llena."
@@ -56,6 +61,7 @@ func _on_introducir_pressed():
 	actualizar_ui()
 
 func _on_intercambiar_pressed():
+	pantalla_texto.play(0)
 	if puzle_terminado:
 		return
 	if bloqueo_total:
@@ -101,6 +107,7 @@ func comprobar_victoria():
 		SocketIoClient.solve_puzzle(2,"DEAB")
 		GameManager.progreso = GameManager.puzles.TORRES
 		emit_signal("_abrir_caja")
+		puzle_resuelto.play(0)
 	else:
 		bloqueado = true
 		label_resultado.text = "Incorrecto.
@@ -127,6 +134,7 @@ func _actualizar_slots(contenedor: HBoxContainer, datos: Array):
 		contenedor.add_child(panel)
 
 func _on_reinicio_pressed():
+	pantalla_texto.play(0)
 	if puzle_terminado:
 		return
 	if bloqueo_total:
@@ -149,10 +157,10 @@ func actualizar_instrucciones():
 	instrucciones.text = "
 	La contraseña correcta es ABCDE.
 	Para introducirla en la línea superior,
-	ambas rendijas se intercambiarán letras 
+	ambas rendijas se intercambiarán letras
 	como si fueran colas.
 	Solo puedes introducir letras en la
-	línea inferior.
+	rendija inferior.
 	Los intercambios son los siguientes:
 	
 	

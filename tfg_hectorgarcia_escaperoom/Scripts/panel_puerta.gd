@@ -11,6 +11,8 @@ extends Control
 @onready var button_9: Button = $Button9
 @onready var input_label: Label = $InputLabel
 @onready var pista_label: Label = $PistaLabel
+@onready var encender_pantallas: AudioStreamPlayer = $EncenderPantallas
+@onready var puzle_resuelto: AudioStreamPlayer = $PuzleResuelto
 
 @export_multiline var pista_label_text: String
 var combinacion_actual: Array
@@ -38,30 +40,39 @@ func introducir_combinacion(num: int):
 		comprobar_combinacion()
 
 func _on_button1_pressed():
+	encender_pantallas.play(0)
 	introducir_combinacion(1)
 
 func _on_button2_pressed():
+	encender_pantallas.play(0)
 	introducir_combinacion(2)
 
 func _on_button3_pressed():
+	encender_pantallas.play(0)
 	introducir_combinacion(3)
 
 func _on_button4_pressed():
+	encender_pantallas.play(0)
 	introducir_combinacion(4)
 
 func _on_button5_pressed():
+	encender_pantallas.play(0)
 	introducir_combinacion(5)
 
 func _on_button6_pressed():
+	encender_pantallas.play(0)
 	introducir_combinacion(6)
 
 func _on_button7_pressed():
+	encender_pantallas.play(0)
 	introducir_combinacion(7)
 
 func _on_button8_pressed():
+	encender_pantallas.play(0)
 	introducir_combinacion(8)
 
 func _on_button9_pressed():
+	encender_pantallas.play(0)
 	introducir_combinacion(9)
 
 func comprobar_combinacion():
@@ -69,6 +80,7 @@ func comprobar_combinacion():
 		get_parent().get_parent().get_parent().get_parent().abrir_puerta()
 		panel_resuelto = true
 		SocketIoClient.solve_puzzle(1,"371682945")
+		puzle_resuelto.play(0)
 		GameManager.progreso = GameManager.puzles.COLAS
 	else:
 		reiniciar_combinacion()

@@ -40,10 +40,10 @@ var _puzzle_response_callback = null
 var _start_callback = null
 var _stop_callback = null
 
-#func _ready():
-	#if _window.io != null:
-		#_create_callbacks()
-		##connect_to_server()
+func _ready():
+	if _window.io != null:
+		_create_callbacks()
+		#connect_to_server()
 
 
 func _create_callbacks():

@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://kqyc4fk2mqrp"]
+[gd_scene load_steps=4 format=3 uid="uid://kqyc4fk2mqrp"]
 
 [ext_resource type="Script" uid="uid://b1xtwxf8ebhfp" path="res://Scripts/puzle_colas_pantalla.gd" id="1_u01cd"]
+[ext_resource type="AudioStream" uid="uid://b4aafp2clp2ex" path="res://Audio/PuzleResuelto.mp3" id="2_gtqf3"]
+[ext_resource type="AudioStream" uid="uid://di26d3fxhoj0t" path="res://Audio/PantallaTexto.mp3" id="3_tg7uf"]
 
 [node name="PuzleColasPantalla" type="Control" groups=["abrir_caja"]]
 layout_mode = 3
@@ -17,12 +19,26 @@ metadata/logic_bricks_graph = {
 }
 metadata/logic_bricks_frames = []
 
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 50.0
 offset_top = 29.0
 offset_right = 474.0
 offset_bottom = 411.155
+theme_override_constants/separation = 154
 metadata/logic_bricks_graph = {
 "connections": [],
 "next_id": 0,
@@ -92,7 +108,7 @@ metadata/logic_bricks_graph = {
 metadata/logic_bricks_frames = []
 
 [node name="A" type="Button" parent="HBoxContainer/VBoxContainer/BotonesElementos"]
-custom_minimum_size = Vector2(30, 0)
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "A"
@@ -104,7 +120,7 @@ metadata/logic_bricks_graph = {
 metadata/logic_bricks_frames = []
 
 [node name="B" type="Button" parent="HBoxContainer/VBoxContainer/BotonesElementos"]
-custom_minimum_size = Vector2(30, 0)
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "B"
@@ -116,7 +132,7 @@ metadata/logic_bricks_graph = {
 metadata/logic_bricks_frames = []
 
 [node name="D" type="Button" parent="HBoxContainer/VBoxContainer/BotonesElementos"]
-custom_minimum_size = Vector2(30, 0)
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "D"
@@ -128,7 +144,7 @@ metadata/logic_bricks_graph = {
 metadata/logic_bricks_frames = []
 
 [node name="E" type="Button" parent="HBoxContainer/VBoxContainer/BotonesElementos"]
-custom_minimum_size = Vector2(30, 0)
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "E"
@@ -140,9 +156,11 @@ metadata/logic_bricks_graph = {
 metadata/logic_bricks_frames = []
 
 [node name="BtnIntroducir" type="Button" parent="HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 25)
+custom_minimum_size = Vector2(175, 45)
 layout_mode = 2
-text = "Introducir en rendija 2"
+size_flags_horizontal = 4
+text = "Introducir en 
+rendija 2"
 metadata/logic_bricks_graph = {
 "connections": [],
 "next_id": 0,
@@ -151,8 +169,9 @@ metadata/logic_bricks_graph = {
 metadata/logic_bricks_frames = []
 
 [node name="BtnIntercambiar" type="Button" parent="HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 25)
+custom_minimum_size = Vector2(175, 45)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Intercambiar"
 metadata/logic_bricks_graph = {
 "connections": [],
@@ -162,8 +181,9 @@ metadata/logic_bricks_graph = {
 metadata/logic_bricks_frames = []
 
 [node name="BotonReinicio" type="Button" parent="HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 25)
+custom_minimum_size = Vector2(175, 45)
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Reiniciar"
 metadata/logic_bricks_graph = {
@@ -175,6 +195,8 @@ metadata/logic_bricks_frames = []
 
 [node name="LabelResultado" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/logic_bricks_graph = {
 "connections": [],
 "next_id": 0,
@@ -182,12 +204,14 @@ metadata/logic_bricks_graph = {
 }
 metadata/logic_bricks_frames = []
 
-[node name="Instrucciones" type="Label" parent="."]
-layout_mode = 0
-offset_left = 408.0
-offset_top = 51.0
-offset_right = 910.0
-offset_bottom = 439.0
-theme_override_font_sizes/font_size = 15
+[node name="Instrucciones" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
 text = "Disquete de instrucciones 
 de intercambio requerido."
+
+[node name="PuzleResuelto" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_gtqf3")
+
+[node name="PantallaTexto" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tg7uf")

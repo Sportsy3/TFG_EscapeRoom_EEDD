@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=4 uid="uid://dn8jnhj2f1sae"]
+[gd_scene load_steps=24 format=4 uid="uid://dn8jnhj2f1sae"]
 
 [ext_resource type="PackedScene" uid="uid://cu4mkdxt4wqlo" path="res://Models/TapaCajaPiezaModulo.fbx" id="1_cwo6q"]
 [ext_resource type="Script" uid="uid://bm05406qg0amy" path="res://Scripts/caja_pieza_modulo.gd" id="1_vvrre"]
+[ext_resource type="AudioStream" uid="uid://cnm4ksb5bn5vn" path="res://Audio/AbrirCajas.wav" id="3_bsptm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m6e2e"]
 resource_name = "Material.001"
@@ -266,3 +267,6 @@ mesh = SubResource("BoxMesh_xwpnf")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.996522, 0, 0.08333, 0, 1, 0, -0.08333, 0, 0.996522, 0, 0.5821847, 0.4553362)
 mesh = SubResource("BoxMesh_84112")
+
+[node name="AbrirCajas" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_bsptm")

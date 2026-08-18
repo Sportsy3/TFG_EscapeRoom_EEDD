@@ -12,6 +12,8 @@ var panelillos: Array = []
 @export var panelillo_9: StaticBody3D
 @export var pantalla_secuencia: Control
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var reiniciar_paneles: AudioStreamPlayer = $ReiniciarPaneles
+@onready var girar_panel: AudioStreamPlayer = $GirarPanel
 
 var secuencia_actual: Array = []
 
@@ -31,6 +33,7 @@ func _on_object_activated(object_name,_point):
 	if object_name == "boton_reiniciar":
 		animation_player.play("reinicio")
 		reiniciar_puzle()
+		reiniciar_paneles.play(0)
 	if "panelillo_" in object_name:
 		#print("object name: " + object_name)
 		for i in panelillos.size():
@@ -41,6 +44,7 @@ func _on_object_activated(object_name,_point):
 				secuencia_actual.append(panelillos[i].num_panel)
 				#print(str(secuencia_actual))
 				panelillos[i].girar_panelillo()
+				girar_panel.play(0)
 				pantalla_secuencia.actualizar_secuencia(secuencia_actual)
 				#print("panelillo unique name: "+panelillos[i].unique_name)
 

@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://co17oel02bvw5"]
+[gd_scene load_steps=4 format=3 uid="uid://co17oel02bvw5"]
 
 [ext_resource type="Script" uid="uid://dxqsmvvsww6gk" path="res://Scripts/panel_puerta.gd" id="1_ba0j4"]
+[ext_resource type="AudioStream" uid="uid://b4x7oe6ms7yqi" path="res://Audio/EncenderPantallas.wav" id="2_dwqvs"]
+[ext_resource type="AudioStream" uid="uid://b4aafp2clp2ex" path="res://Audio/PuzleResuelto.mp3" id="3_ca3bk"]
 
 [node name="PanelPuerta" type="Control"]
 layout_mode = 3
@@ -119,3 +121,9 @@ offset_bottom = 187.0
 theme_override_font_sizes/font_size = 60
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="EncenderPantallas" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_dwqvs")
+
+[node name="PuzleResuelto" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ca3bk")

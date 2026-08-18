@@ -1,4 +1,6 @@
 extends Node3D
+@onready var mover_engranajes: AudioStreamPlayer = $MoverEngranajes
+@onready var puzle_resuelto: AudioStreamPlayer = $PuzleResuelto
 
 # Estado del juego: cada torre es una pila (array), el índice 0 es la base
 var torres = {
@@ -45,11 +47,13 @@ func _seleccionar_disco(numero):
 				# Click otra vez = deseleccionar
 				disco_seleccionado = null
 				discos[numero].global_position.y -= 0.3  # bajarlo visualmente
+				mover_engranajes.play(0)
 			else:
 				if disco_seleccionado != null:
 					discos[disco_seleccionado].position.y -= 0.3
 				disco_seleccionado = numero
 				discos[numero].position.y += 0.3  # "levantarlo" visualmente
+				mover_engranajes.play(0)
 			return
 	# Si no es el disco superior, no se puede coger (opcional: sonido de error)
 
@@ -69,6 +73,7 @@ func _mover_a_torre(torre_destino):
 		# Añadirlo a la nueva torre
 		pila_destino.append(disco_seleccionado)
 		discos[disco_seleccionado].position.y -= 0.3  # bajarlo de "en mano"
+		mover_engranajes.play(0)
 		disco_seleccionado = null
 
 		_actualizar_posiciones()
@@ -91,4 +96,5 @@ func _comprobar_victoria():
 	if torres["torre_3"] == [3, 2, 1]:
 		GameManager.progreso = GameManager.puzles.ARBOLES
 		SocketIoClient.solve_puzzle(3,"RESUELTO")
+		puzle_resuelto.play(0)
 		get_parent().get_parent().fabricar_pieza()

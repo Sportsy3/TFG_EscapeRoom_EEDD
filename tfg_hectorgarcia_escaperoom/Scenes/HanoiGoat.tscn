@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://4tkha4x11f3f"]
+[gd_scene load_steps=20 format=3 uid="uid://4tkha4x11f3f"]
 
 [ext_resource type="Script" uid="uid://c073ixxie8j3k" path="res://Scripts/hanoi_goat.gd" id="1_0pyee"]
 [ext_resource type="PackedScene" uid="uid://bnmg0a564wwjp" path="res://addons/goat/main_scenes/InteractiveItem.tscn" id="1_3dqja"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cdob1xv0d7vam" path="res://Models/EngranajePeque.fbx" id="3_r10my"]
 [ext_resource type="PackedScene" uid="uid://dfxvmjuki7tif" path="res://Models/EngranajeMedio.fbx" id="4_bxv20"]
 [ext_resource type="PackedScene" uid="uid://brjueps2kpu84" path="res://Models/EngranajeGrande.fbx" id="5_cxlyk"]
+[ext_resource type="AudioStream" uid="uid://c32dho3lmf3q7" path="res://Audio/MoverEngranajes.wav" id="7_cxlyk"]
+[ext_resource type="AudioStream" uid="uid://b4aafp2clp2ex" path="res://Audio/PuzleResuelto.mp3" id="8_bp3m0"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_0pyee"]
 height = 0.8145752
@@ -74,6 +76,9 @@ collision_shape = SubResource("CylinderShape3D_0pyee")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04928589, 0)
 shape = SubResource("CylinderShape3D_0pyee")
 
+[node name="InteractionIcon" parent="Torre1" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5628508, 0)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Torre1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.051008433, 0)
 mesh = SubResource("CylinderMesh_0pyee")
@@ -85,6 +90,9 @@ collision_shape = SubResource("CylinderShape3D_8l3v3")
 [node name="CollisionShape3D" parent="Torre2" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.050430298, 0)
 shape = SubResource("CylinderShape3D_8l3v3")
+
+[node name="InteractionIcon" parent="Torre2" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5628508, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Torre2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.051008433, 0)
@@ -98,6 +106,9 @@ collision_shape = SubResource("CylinderShape3D_7u3x2")
 [node name="CollisionShape3D" parent="Torre3" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04826355, 0)
 shape = SubResource("CylinderShape3D_7u3x2")
+
+[node name="InteractionIcon" parent="Torre3" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5628508, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Torre3"]
 visible = false
@@ -155,6 +166,12 @@ mesh = SubResource("TorusMesh_bxv20")
 
 [node name="EngranajeGrande" parent="Disco3" instance=ExtResource("5_cxlyk")]
 transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0, 0.14583382, 0)
+
+[node name="MoverEngranajes" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_cxlyk")
+
+[node name="PuzleResuelto" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_bp3m0")
 
 [editable path="Torre1"]
 [editable path="Torre2"]
