@@ -129,6 +129,9 @@ func _on_object_activated(object_name,_point):
 				fax.play(0)
 				if modo_debug == false:
 					SocketIoClient.request_hint("PARTICIPANT", 0, "listas")
+					return
+				else:
+					return
 				
 		if GameManager.progreso == GameManager.puzles.COLAS:
 			if pistas_impresas[1] == false:
@@ -140,6 +143,9 @@ func _on_object_activated(object_name,_point):
 				fax.play(0)
 				if modo_debug == false:
 					SocketIoClient.request_hint("PARTICIPANT", 0, "colas")
+					return
+				else:
+					return
 				
 		if GameManager.progreso == GameManager.puzles.TORRES:
 			if pistas_impresas[2] == false:
@@ -150,6 +156,9 @@ func _on_object_activated(object_name,_point):
 				animation_player.play("imprimir")
 				if modo_debug == false:
 					SocketIoClient.request_hint("PARTICIPANT", 0, "pilas")
+					return
+				else:
+					return
 				
 		if GameManager.progreso == GameManager.puzles.ARBOLES:
 			if pistas_impresas[3] == false:
@@ -162,6 +171,9 @@ func _on_object_activated(object_name,_point):
 				GameManager.progreso = GameManager.puzles.GRAFOS
 				if modo_debug == false:
 					SocketIoClient.request_hint("PARTICIPANT", 0, "árboles")
+					return
+				else:
+					return
 				
 		if GameManager.progreso == GameManager.puzles.GRAFOS:
 			if pistas_impresas[4] == false:
@@ -173,6 +185,9 @@ func _on_object_activated(object_name,_point):
 				fax.play(0)
 				if modo_debug == false:
 					SocketIoClient.request_hint("PARTICIPANT", 0, "grafos")
+					return
+				else:
+					return
 
 func fabricar_pieza():
 	modulo_de_construccion.close()

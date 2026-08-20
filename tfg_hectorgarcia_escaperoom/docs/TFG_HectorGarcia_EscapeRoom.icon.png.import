@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://fovxfo15xy22"
-path="res://.godot/imported/TFG_HectorGarcia_EscapeRoom.icon.png-a7a2301762eee28c653d17d81d5cc39b.ctex"
+path="res://.godot/imported/TFG_HectorGarcia_EscapeRoom.icon.png-fd591c5b175f0325cf8bb9a933b6500f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ejecutables/TFG_HectorGarcia_EscapeRoom.icon.png"
-dest_files=["res://.godot/imported/TFG_HectorGarcia_EscapeRoom.icon.png-a7a2301762eee28c653d17d81d5cc39b.ctex"]
+source_file="res://docs/TFG_HectorGarcia_EscapeRoom.icon.png"
+dest_files=["res://.godot/imported/TFG_HectorGarcia_EscapeRoom.icon.png-fd591c5b175f0325cf8bb9a933b6500f.ctex"]
 
 [params]
 

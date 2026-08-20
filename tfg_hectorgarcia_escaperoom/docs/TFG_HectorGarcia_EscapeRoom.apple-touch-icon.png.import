@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ce206m1p5wvyg"
-path="res://.godot/imported/TFG_HectorGarcia_EscapeRoom.apple-touch-icon.png-dafd75bcf9e5f69de86fbda482ec4cec.ctex"
+path="res://.godot/imported/TFG_HectorGarcia_EscapeRoom.apple-touch-icon.png-7265acd98a0f95f0d2144d69f8a25c9d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ejecutables/TFG_HectorGarcia_EscapeRoom.apple-touch-icon.png"
-dest_files=["res://.godot/imported/TFG_HectorGarcia_EscapeRoom.apple-touch-icon.png-dafd75bcf9e5f69de86fbda482ec4cec.ctex"]
+source_file="res://docs/TFG_HectorGarcia_EscapeRoom.apple-touch-icon.png"
+dest_files=["res://.godot/imported/TFG_HectorGarcia_EscapeRoom.apple-touch-icon.png-7265acd98a0f95f0d2144d69f8a25c9d.ctex"]
 
 [params]
 

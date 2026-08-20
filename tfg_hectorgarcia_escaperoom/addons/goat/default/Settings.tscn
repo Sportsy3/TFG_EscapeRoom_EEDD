@@ -32,7 +32,6 @@ text = "Configuración"
 
 [node name="Settings" parent="PanelContainer/VBoxContainer" instance=ExtResource("4_e4qsy")]
 layout_mode = 2
-current_tab = 0
 
 [node name="Buttons" type="CenterContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -42,6 +41,7 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="Exit" parent="PanelContainer/VBoxContainer/Buttons/HBoxContainer" instance=ExtResource("5_twl18")]
+visible = false
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Salir"
